@@ -1,0 +1,351 @@
+---
+title: "Vectores, Listas y Dataframes"
+format: html
+---
+
+### Operaciones con vectores 
+
+Crea un vector con una secuencia de números enteros del 2 al 10, usando la instrucción `2:10`:
+
+```{webr}
+***:***
+```
+
+Crea un vector que contenga la secuencia de 0 a 10 con pasos de 2.5 usando la función `seq`:
+
+```{webr}
+seq(from = ***, to = ***, by = 2.5)
+```
+
+Repite 4 veces los elementos del vector `1:3` usando la función `rep`, especificando el parámetro `times`:
+
+```{webr}
+rep(***, times = 4) # Repetir un vector n veces
+```
+
+Repite 3 veces cada uno de los valores del vector `1:2` usando la función `rep`, especificando el parámetro `each`:
+
+```{webr}
+rep(***, each = 3) # Repetir cada valor de un vector n veces
+```
+
+Ordena de manera ascendente los valores de `mi_vector` usando la función `sort`:
+
+```{webr}
+sort(***)
+```
+
+Ordena de manera descendente los valores de `mi_vector` usando la función `sort`, ahora especificando el parámetro `decreasing = TRUE`:
+
+```{webr}
+sort(***, decreasing = ***) # Orden descendente
+```
+
+Invierte el orden de los elementos de `mi_vector` usando la función `rev`:
+
+```{webr}
+rev(***)
+```
+
+Obtén una tabla con el conteo de cada elemento de `mi_vector` usando `table`:
+
+```{webr}
+table(***)
+```
+
+Obtén los valores únicos del vector `mi_vector` usando la función `unique`:
+
+```{webr}
+unique(***)
+```
+
+#### Selecion de elementos
+En *R* se utilizan los corchetes `[]`  para seleccionar elementos internos, para seleccionar el cuarto elemento de `mi_vector` 
+
+
+```{webr}
+***[4] # Selecciona el 4to. elemento en mi_vector
+```
+::: {.callout-important}
+El índice  en *R* empieza desde 1, otros lenguajes de programación es distinto. 
+
+:::
+Selecciona todos los elementos de `mi_vector` excepto el cuarto usando el índice negativo `-4`:
+
+```{webr}
+***[-4] # Selecciona todo excepto el 4to. elemento en mi_vector
+```
+
+Selecciona los elementos 2 al 5 de `mi_vector`:
+
+```{webr}
+***[***:5] # Selecciona del 2do. al 5to. elemento en mi_vector
+```
+
+Selecciona todos los elementos de `mi_vector` excepto los del 2 al 5 usando el índice negativo `-(2:5)`:
+
+```{webr}
+***[-(2:***)] # Selecciona todos los elementos excepto los elementos del 2do. al 5to. en mi_vector
+```
+
+Selecciona sólo los elementos 1 y 5 de `mi_vector` usando el vector `c(1,5)`:
+
+```{webr}
+***[c(***,5)] # Selecciona sólo el 1ro. y 5to. elementos en mi_vector
+```
+
+Seleccionar elementos de `mi_vector` que son iguales a 2:
+
+```{webr}
+***[mi_vector == ***] # Seleccionar elementos iguales a 2 en mi_vector
+```
+
+Selecciona elementos de `mi_vector` que sean menores a 3:
+
+```{webr}
+***[*** < 3] # Selecciona los elementos menores a 3 en mi_vector
+```
+
+Selecciona los elementos de `mi_vector` que sean iguales a 1, 2 ó 5 usando el operador `%in%` y un vector con los valores `c(1, 2, 5)`:
+
+```{webr}
+***[*** %in% c(1, ***, ***)]
+```
+
+
+## Dataframes
+
+En *R*, un *dataframe* es una colección de elementos acoplados que construyen una tabla donde cada columna tienen un tipo de datos en particular. Los *dataframes* son las estructuras de datos fundamentales que usa la mayoría del software de modelado de *R*.
+
+Construye un *dataframe* usando la función `data.frame` e incluyendo como parámetros una columna `x` con los valores enteros de 1 a 5 y una columna `y` con los caracteres `("A", "B", "C", "D", "E")`, asígnalo a la variable `mi_df` y visualiza su contenido en la siguiente línea:
+
+```
+mi_df <- data.frame(x = ***, y = c(***))
+*** # Visualizar el contenido del dataframe 
+```
+ 
+Visualiza el contenido completo de `mi_df` usando la función `View` (en *RStudio*, se abre una nueva ventana):
+
+```{webr}
+View(***)
+```
+
+También puedes visualizar los *dataframes* usando el panel *Environment* en *RStudio*.
+
+Visualiza rápidamente las primeras filas de `mi_df`, usando la función `head` para visualizar las primeras 5 filas especificando el parámetro `n = 5`:
+
+```{webr}
+head(***, n = ***) # Si se omite el parámetro n, la función head regresa las primeras 5 filas por defecto
+```
+
+Visualiza rápidamente las últimas filas de `mi_df`, usando la función `tail` para visualizar las últimas 5 filas especificando el parámetro `n = 5`:
+
+```{webr}
+tail(***, n = ***) # Si se omite el parámetro n, la función tail regresa las últimas 5 filas por defecto
+```
+
+Para acceder a una fila en particular en *dataframe*, especifica la posición del elemento entre corchetes ([Fila, Columna]). Accede al contenido de la primera fila completa de `mi_df`, omitiendo el índice para la columna:
+
+### Dataframes
+
+En *R*, un *dataframe* es una colección de elementos acoplados que construyen una tabla donde cada columna tienen un tipo de datos en particular. Los *dataframes* son las estructuras de datos fundamentales que usa la mayoría del software de modelado de *R*.
+
+Construye un *dataframe* usando la función `data.frame` e incluyendo como parámetros una columna `x` con los valores enteros de 1 a 5 y una columna `y` con los caracteres `("A", "B", "C", "D", "E")`, asígnalo a la variable `mi_df` y visualiza su contenido en la siguiente línea:
+
+```
+mi_df <- data.frame(x = ***, y = c(***))
+*** # Visualizar el contenido del dataframe 
+```
+ 
+Visualiza el contenido completo de `mi_df` usando la función `View` (en *RStudio*, se abre una nueva ventana):
+
+```{webr}
+View(***)
+```
+
+También puedes visualizar los *dataframes* usando el panel *Environment* en *RStudio*.
+
+Visualiza rápidamente las primeras filas de `mi_df`, usando la función `head` para visualizar las primeras 5 filas especificando el parámetro `n = 5`:
+
+```{webr}
+head(***, n = ***) # Si se omite el parámetro n, la función head regresa las primeras 5 filas por defecto
+```
+
+Visualiza rápidamente las últimas filas de `mi_df`, usando la función `tail` para visualizar las últimas 5 filas especificando el parámetro `n = 5`:
+
+```{webr}
+tail(***, n = ***) # Si se omite el parámetro n, la función tail regresa las últimas 5 filas por defecto
+```
+
+Para acceder a una fila en particular en *dataframe*, especifica la posición del elemento entre corchetes ([Fila, Columna]). Accede al contenido de la primera fila completa de `mi_df`, omitiendo el índice para la columna:
+
+```{webr}
+mi_df[***, ] # Omite el índice de la columna para acceder a la fila completa
+```
+
+Accede al contenido de la primer columna completa de `mi_df`, omitiendo el índice para la fila:
+
+```{webr}
+mi_df[, ***] # Omite el índice de la fila para acceder a la columna completa
+```
+
+La manera más común de acceder a los valores en una variable (columna) es usando el separador `$`. Accede al valor de la columna `y` de `mi_df` usando el separador `$`:
+
+```{webr}
+mi_df$*** # Usa el nombre de la variable
+```
+
+Accede a al elemento que está en la segunda fila y en la segunda columna de `mi_df`:
+
+```{webr}
+
+mi_df[***, ***] # Acceder al elemento de la fila 2, columna 2
+```
+
+Comprueba el número de filas y columnas (dimensiones) que tiene `mi_df` usando la función `dim`:
+
+```{webr}
+
+dim(***) # Dimensiones del dataframe (números de columnas y filas)
+```
+
+Comprueba el número de filas que tiene `mi_df` usando la función `nrow`:
+
+```{webr}
+
+nrow(***) # Número de filas en un dataframe
+```
+
+Comprueba el número de columnas que tiene `mi_df` usando la función `ncol`:
+
+```{webr}
+
+ncol(***) # Número de columnas en un dataframe
+```
+
+Crea un *dataframe* de una sola columna llamada `z` que contenga los valores enteros de 6 a 10, asígnalo a la variable `nueva_columna` y visualiza su contenido en la siguiente línea:
+
+```{webr}
+
+nueva_columna <- data.frame(*** = c(***:***)) # Debe tener el mismo número de filas que el dataframe
+***
+```
+
+Agrega la columna del dataframe `nueva_columna` a `mi_df` usando la función `cbind`:
+
+```{webr}
+
+mi_df <- cbind(mi_df, ***)
+***
+```
+
+Extrae la fila 2 de `mi_df`, asígnala a la variable `nueva_fila` y visualiza su contenido:
+
+```{webr}
+
+nueva_fila <- mi_df[***, ] # Agregar una copia de la fila 2, debe tener los mismos nombres de variables o se agregarán nuevas columnas con los nombres restantes
+*** # Visualiza el contenido del dataframe
+```
+
+Agregar la fila de `nueva_fila` al `mi_df`usando la función `rbind`:
+
+```{webr}
+
+mi_df <- rbind(mi_df, ***)
+***
+```
+
+Usa la función `str` para visualizar un resumen de la estructura y contenido del *dataframe* `mi_df`:
+
+```{webr}
+#| eval: false
+str(***)
+```
+
+Revisa los estadísticos básicos de las columnas del dataframe `mi_df` usando la función `summary`:
+
+```{r}
+#| eval: false
+summary(***)
+```l índice de la fila para acceder a la columna completa
+```
+
+La manera más común de acceder a los valores en una variable (columna) es usando el separador `$`. Accede al valor de la columna `y` de `mi_df` usando el separador `$`:
+
+```{webr}
+mi_df$*** # Usa el nombre de la variable
+```
+
+Accede a al elemento que está en la segunda fila y en la segunda columna de `mi_df`:
+
+```{webr}
+
+mi_df[***, ***] # Acceder al elemento de la fila 2, columna 2
+```
+
+Comprueba el número de filas y columnas (dimensiones) que tiene `mi_df` usando la función `dim`:
+
+```{webr}
+
+dim(***) # Dimensiones del dataframe (números de columnas y filas)
+```
+
+Comprueba el número de filas que tiene `mi_df` usando la función `nrow`:
+
+```{webr}
+
+nrow(***) # Número de filas en un dataframe
+```
+
+Comprueba el número de columnas que tiene `mi_df` usando la función `ncol`:
+
+```{webr}
+
+ncol(***) # Número de columnas en un dataframe
+```
+
+Crea un *dataframe* de una sola columna llamada `z` que contenga los valores enteros de 6 a 10, asígnalo a la variable `nueva_columna` y visualiza su contenido en la siguiente línea:
+
+```{webr}
+
+nueva_columna <- data.frame(*** = c(***:***)) # Debe tener el mismo número de filas que el dataframe
+***
+```
+
+Agrega la columna del dataframe `nueva_columna` a `mi_df` usando la función `cbind`:
+
+```{webr}
+
+mi_df <- cbind(mi_df, ***)
+***
+```
+
+Extrae la fila 2 de `mi_df`, asígnala a la variable `nueva_fila` y visualiza su contenido:
+
+```{webr}
+
+nueva_fila <- mi_df[***, ] # Agregar una copia de la fila 2, debe tener los mismos nombres de variables o se agregarán nuevas columnas con los nombres restantes
+*** # Visualiza el contenido del dataframe
+```
+
+Agregar la fila de `nueva_fila` al `mi_df`usando la función `rbind`:
+
+```{webr}
+
+mi_df <- rbind(mi_df, ***)
+***
+```
+
+Usa la función `str` para visualizar un resumen de la estructura y contenido del *dataframe* `mi_df`:
+
+```{webr}
+#| eval: false
+str(***)
+```
+
+Revisa los estadísticos básicos de las columnas del dataframe `mi_df` usando la función `summary`:
+
+```{r}
+#| eval: false
+summary(***)
+```

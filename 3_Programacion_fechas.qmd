@@ -1,0 +1,154 @@
+---
+title: "Untitled"
+author: "J. Miguel Salazar (msalazar@centrogeo.edu.mx), _Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
+format: live-html
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+{{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
+
+
+
+
+### Programación
+
+
+#### for 
+Para una secuencia donde la variable `i` toma valores desde 1 hasta 10, usa la estructura `for` para repetir las siguientes operaciones: 
+
+* Multiplica el valor de la variable `i` por 10 y asigna el resultado a la variable `j` 
+* Imprime el valor de `j`
+
+```{webr}
+#| eval: false
+for(i in ***:***) {
+  j <- i * ***
+  print(***)
+}
+```
+
+Asigna el valor de 1 a la variable `i` para que sea el valor inicial. Después usa la estructura `while` para repetir las siguientes operaciones mientras que el valor de `i` sea menor a 10: \* Imprime el valor actual de `i` \* Al valor de `i` súmale 1 y vuelva a asignar el resultado a la variable `i` para actualizarla
+
+```{webr}
+i <- *** # Valor inicial de i, si no se especifica correctamente el ciclo se puede ejecutar infinitamente
+while(i < ***) {
+  print(***)
+  i <- i + ***
+}
+```
+
+Asigna el valor de 40 a la variable `k`. Usa la estructura `if` para verificar si el valor de `k` es mayor a 10, en caso de que lo sea imprime el texto `"La variable k es mayor que 10"`, o en caso contrario imprime el texto `"La variable k es menor o igual que 10"`:
+
+```{webr}
+k <- ***
+if(k > 10) {
+  print(***)
+} else {
+  print(***)
+}
+```
+
+Las funciones permiten repetir un bloque de operaciones comunes cambiando parámetros de entrada para obtener los resultados deseados, reciclando así el código.
+
+Construye una función para calcular el porcentaje que representa el parámetro `parte` respecto al parámetro `total`. Para ello, usa la estructura de `function` para realizar las siguientes operaciones: 
+
+* Asigna a `calcular_porcentaje` una nueva función con `function` y especifica los parámetros necesarios para el cálculo: `parte` y `total`.
+
+* Calcula la división de `parte` entre `total`, multiplícalo por 100 y asígnalo a la variable `porcentaje` \* Especifica a la función que regrese como resultado el valor de la variable `porcentaje` usando `return`:
+
+```{webr}
+
+calcular_porcentaje <- function(parte, total) {
+  porcentaje <- *** / *** * 100
+  return(***)
+}
+```
+
+
+Usa la función `calcular_porcentaje` para calcular el porcentaje que representa 15 en 234, usando como parámetros de la función `parte = 15` y `total = 234`:
+
+```{webr}
+# Llama la función:
+calcular_porcentaje(parte = ***, total = ***)
+```
+
+Usa nuevamente la función `calcular_porcentaje` para calcular el porcentaje que representa 20 en 200, omitiendo los nombres de los parámetros y pasando los parámetros en el mismo orden en que se definieron en la función:
+
+```{webr}
+#| eval: false
+# Omitiendo nombres de parámetros, escribir los valores en el orden que se definieron los parámetros en la función:
+***(***, ***) 
+```
+
+
+
+### Fechas
+
+Los datos de hora y fechas merecen una atención especial, pues no han sido uniformes y la forma en la forma en la cual se representa varia. 
+
+Para ayudarnos con esta dificultades vamos a utilizar la biblioteca `Lubridate` la cual la podemos instalar 
+
+
+```{webr}
+Sys.Date()
+```
+
+```{webr}
+lubridate::today()
+```
+
+En *R* tenemos tres tipos de datos de horas y fechas 
+```{webr}
+class(Sys.Date())
+## [1] "Date"
+class(lubridate::now())
+## [1] "POSIXct" "POSIXt"
+class(release_date)
+## [1] "character"
+```
+
+La clase de dato `Date` representa fechas en el calendario
+
+```{webr}
+class(as.Date("2025-05-05"))
+```
+
+Las fechas pueden ser comparadas 
+
+```{webr}
+
+lubridate::today() > as.Date("2024-05-14")
+
+```
+Pero tambien puede entender hacer una comparación con el string de una fecha.
+
+```{webr}
+lubridate::today() > "2024-05-14"
+```
+
+Esto siempre que no haya una ambiguedad 
+
+
+
+```{webr}
+#| exercise: ex_1_fecha
+_____ ### Fecha del dia del amor y amistad año pasado 
+```
+
+
+```{webr}
+#| exercise: ex_1_fecha
+#| check: true
+
+if (identical(.result, as.Date("2024-02-14"))) {
+  list(correct = TRUE, message = "Nice work!")
+} else {
+  list(correct = FALSE, message = "That's incorrect, sorry.")
+}
+```
+
+
+Esto no salio 
+
+
+## Referencias

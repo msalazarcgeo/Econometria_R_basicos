@@ -1,0 +1,315 @@
+---
+title: "1.Basicos R Operaciones y tipos de datos"
+author: "J. Miguel Salazar (msalazar@centrogeo.edu.mx), Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
+format: live-html
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Introducción
+
+*R* es un lenguaje de programación para a la computación estadística. Es un software libre de código abierto ampliamente utilizado para el desarrollo de análisis de datos y más recientemente, para aplicaciones modernas como la ciencia de datos, el aprendizaje automático o la inteligencia artificial.
+
+El exito de *R* es gracias a su versatilidad y potencia las cuales provienen de las contribuciones de las comunidades científicas y de desarrolladores de software que crean y publican paquetes que extienden las capacidades básicas del lenguaje *R* y que están rigurosamente documentados. El ecosistema de *R* permite el reaprovechamiento continuo del conocimiento y de la técnica para facilitar las tareas de procesamiento de información en prácticamente cualquier campo de trabajo. 
+
+## Objetivo
+
+El objetivo de esta sesión es repasar las funciones básicas del lenguaje R para familiarizarse con su entorno y sintaxis.
+
+
+## Operadores básicos
+
+Ejecuta el siguiente *chunk* para obtener el resultado de la suma de
+`34 + 56`:
+
+
+```{webr}
+34 + 56
+```
+
+Completa el siguiente bloque para obtener la resta de `45 - 13`
+(sustituye los asteriscos \*\*\* con el valor necesario):
+
+```{webr}
+45 - ***
+```
+
+Obtén los resultados de la multiplicación de `34 * 0.14` y la división
+de `89.4 / 5`:
+
+```{webr}
+34 *** ***
+
+```
+
+
+```{webr}
+*** / ***
+```
+
+
+Mas operaciones matematicas que se utilizan comunmente   
+```{webr}
+2^4 #Exponencial
+```
+
+```{webr}
+2**4 #?
+```
+
+```{webr}
+20%4 ## Modulo 
+```
+
+```{webr}
+5 %/% 3  ##Division entera
+```
+
+```{webr}
+3 > 4  # FALSE
+```
+
+```{webr}
+3 < 6  # TRUE
+```
+
+```{webr}
+3 >= 7 # FALSE
+```
+
+```{webr}
+3 <= 7 # TRUE
+```
+
+```{webr}
+3 == 7 # FALSE
+```
+
+```{webr}
+3 != 9 # TRUE
+```
+Como vemos el resultado de las últimas operaciones no son numeros este tipo de dato se le conoce como boleano o logico los cuales tiene 2 valores `FALSE` y `TRUE`. En este contexto nos sirve para hacer comparaciónes pero dentro de los lenguajes de programación son muy importantes. 
+
+## Asignación de variables
+
+
+Para crear variables y asignarles un valor se usan los operadores `<-` o
+`=`. Asigna el valor numérico de `45` a la variable `mi_numero`:
+
+```{webr}
+mi_numero <- *** # Más común en R
+```
+ 
+Para ver el valor de una variable, escribe su nombre y ejecuta el código. Ejecuta el siguiente *chunk* para visualizar el valor de la variable `mi_numero`:
+
+```{webr}
+mi_numero
+```
+
+La asignación de valores a una variable también se puede hacer de manera inversa usando la flecha `->` en vez de `<-` y especificando primero el valor y luego el nombre de la variable. Asigna nuevamente el valor `36` a la variable `otro_numero`, usando ahora la asignación inversa, y
+visualiza el valor de la variable `otro_numero` en la siguiente línea: 
+
+```{webr}
+36 -> ***
+
+```
+
+```{webr}
+otro_numero
+```
+
+Para asignar una variable de tipo texto o caracter, el valor tiene que escribirse entre comillas dobles `"` o simples `'`. Asigna el valor `"Este es un texto!"` a la variable `mi_texto`:
+
+```{webr}
+mi_texto <- ***
+```
+
+
+## Tipos de datos
+
+Al igual que otros lenguajes de programación, *R* maneja diferentes tipos de datos básicos para almacenar datos. Es importante entender estos tipos de datos para poder utilizar las funciones de *R* correctamente.
+
+
+#### Numérico
+
+Son números que tienen un valor decimal o son una fracción. Asigna el valor númerico de `1.5` a la variable `a` y en la siguiente línea visualiza su valor:
+
+```{webr}
+a <- ***
+
+# Visualizar el valor de a:
+***
+```
+
+La función `class` se usa para comprobar el tipo de dato de una variable. Comprueba el tipo de dato de la variable `a`:
+
+```{webr}
+class(a)
+```
+
+Tambien se puede usar  la función `typeof()`. 
+
+### Entero
+
+Los números que no contienen valores decimales tienen un tipo de datos *entero*. Por defecto, si se escribe un número sin valor decimal, *R* lo interpreta como *numérico*, por lo que es necesario declararlo explícitamente como entero utilizando la función `as.integer`. Cambia el valor numérico de la variable `a` por el valor entero de `1` convirtiendo `1.5` con la función `as.integer` y visualiza el nuevo valor de `a`:
+
+```{webr}
+a <- as.integer(***) # Cuando se convierte el número a entero se trunca la parte decimal
+
+```
+
+Ahora, comprueba el nuevo tipo de datos de la variable `a`:
+
+```{webr}
+***(***)
+```
+
+### Caracter
+
+Una letra, número o una combinación de letras encerrada entre comillas simples `'` o dobles `"` es considerada como un tipo de datos de caracter por *R*. Cambia el valor de la variable entera `a` por el texto `"Me gusta este taller! (O no?)"` y visualiza el nuevo valor de `a`:
+
+```{webr}
+a <- *** 
+*** # Visualizar el valor de la variable
+```
+
+Ahora, comprueba el nuevo tipo de dato de la variable `a`:
+
+```{webr}
+***(***)
+```
+
+Los tipos de datos de tipo caracter también se conocen como *cadenas de texto*.
+
+### Lógico
+
+Una variable que sólo puede tener los valores `TRUE` (verdadero) y `FALSE` (falso) es conocida como *variable lógica* o *booleana*. Cambia el valor de la variable de caracter `a` con el valor `FALSE` (con mayúsculas) y visualiza su valor:
+
+```{webr}
+a <- ***
+***
+```
+
+Ahora, comprueba el nuevo tipo de dato de la variable `a`:
+
+```{webr}
+***(***)
+```
+
+
+
+## Condicionales
+
+Asigna el valor 5 a la variable `a` y el valor 6 a la variable `a`:
+
+```{webr}
+a <- ***
+*** -> b # Asignación inversa
+```
+
+Ejecuta el siguiente *chunk* para comparar los valores de las variables `a` y `b`:
+
+```{webr}
+a == b # Igual
+a != b # No igual
+a > b # a es mayor a b
+a >= b # a es mayor o igual que b
+a < b # a es menor que b
+a <= b # a es menor o igual que b
+is.na(a) # No tiene valor (NA)
+is.null(b) # Tiene un valor vacío (NULL)
+```
+
+Es posible comparar valores únicos, vectores de múltiples elementos o ambos. Comprueba cada uno de los elementos de `mi_vector` para verificar si son mayores que el valor de `a`:
+
+```{webr}
+mi_vector > *** # Comparar cada elemento en mi_vector con la variable a
+```
+
+Verificar si el valor de `b` está entre los elementos de `mi_vector` usando el operador `%in%`:
+
+```{webr}
+b %in% *** # b es un elemento de mi_vector?
+```
+
+
+
+## Vectores y Listas
+
+
+## Vectores
+
+Los vectores son estructuras básicas de datos que se usan en *R* para computar múltiples valores a la vez y para almacenar elementos con el mismo tipo de datos. Completa los valores necesarios para crear un vector con los elementos `(5, 2, 4, 9, 8, 9, 1, 2, 2)` usando `c()`, asignalo a la variable `mi_vector` y visualiza el valor de la variable en la siguiente línea:
+
+```{webr}
+mi_vector <- c(5, 2, 4, ***, ***, ***, ***, ***, ***)
+***
+```
+
+Ahora, comprueba el nuevo tipo de dato de la variable `mi_vector`:
+
+```{webr}
+***(***) # Tipo de datos de los elementos del vector
+```
+
+## Listas
+
+Las listas son estructuras que permiten almacenar múltiples *componentes* de cualquier tipo que *R* pueda manejar, como las *variables*, los *vectores* u otras *listas*. A diferencia de los vectores, las listas permiten almacenar diferentes tipos de datos y estructuras.
+
+Asigna los valores de texto `("A", "B", "C")` a la variable `b`, y crea una lista llamada `mi_lista` que contenga como componentes el valor `TRUE` y las variables `mi_vector` y `otro_vector` usando la función `list`. Visualiza el contenido de `mi_lista`:
+
+```{webr}
+otro_vector <- c("A", ***, ***) # Crear otro vector con valores
+mi_lista <- list(TRUE, ***, ***) # Construir la lista
+*** # Visualizar el contenido de la lista
+```
+
+Crea otra lista llamada `otra_lista` que contenga como componentes el valor `456.123` y la lista `mi_lista` y visualiza el contenido de `otra_lista`:
+
+```{webr}
+otra_lista <- ***(***, ***)
+*** # Previsualiza el contenido de la lista
+```
+
+Ahora, comprueba el tipo de dato de la variable `otra_lista`:
+
+```{webr}
+***(***)
+```
+
+## Factores
+
+Se usan para crear variables categóricas como por ejemplo *colores*, *bueno y malo*, *calificaciones de cursos o películas*, que son muy útiles para el modelado estadístico. Cambia el valor de la variable lógica `a` por un factor construido a partir de los valores `c("bajo", "bajo", "alto", "medio", "alto", "medio", "bajo")` usando la función `factor` y visualiza el nuevo valor de la variable `a` en la siguiente línea:
+
+```{webr}
+a <- factor(c("bajo", "bajo", ***, ***, ***, ***, ***))
+***
+```
+
+Un factor permite agrupar los valores por categorías llamadas `niveles`. Comprueba los niveles en los que se pueden agrupar los valores del factor `a`, usando la función `levels`:
+
+```{webr}
+levels(***)
+```
+
+Ahora, comprueba el nuevo tipo de dato de la variable `a`:
+
+```{webr}
+***(***)
+```
+
+
+
+## DataFrames 
+
+
+
+## Referencias
+
+-   Wickham, H., & Grolemund, G. (2017). *R for data science: Import,     tidy, transform, visualize and model data.  <https://r4ds.had.co.nz>*. O'Reilly.
+-   Xie, Y., Allaire, J. J., & Grolemund, G. (2018). *R markdown: The     definitive guide. <https://bookdown.org/yihui/rmarkdown/>*. CRC Press.
+
+-   *RStudio Cheatsheets*. (n.d.). Rstudio.com. Recuperado el 8 de     septiembre de 2021, desde
+    <https://www.rstudio.com/resources/cheatsheets/> 
+-   Baruffa O. (2021). *Big Book of R*.   <https://www.bigbookofr.com/index.html>
+

@@ -1,0 +1,346 @@
+---
+title: "2. Introducción al Tidyverse y exportación/importación de datos"
+
+author: " J. Miguel Salazar (msalazar@ecntrogeo.edu.mx), Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
+format: live-html
+---
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+## Introducción
+
+El *data wrangling*, también conocido como *limpieza de datos* se refiere al proceso manual o automatizado mediante el cual los datos crudos son transformados en formatos más útiles para el análisis. Estos procesos incluyen la identificación de faltantes de infromación, la eliminación de datos irrelevantes, la combinación de múltiples fuentes de datos o la transformación de su estructura en una más apropiada (más conocida como *datos ordenados*).
+
+Es posible usar el lenguaje *R* para leer, escribir y manipular datos que provienen de diferentes formatos, desde texto plano en *CSV* hasta formatos espaciales como *Shapefile*, *GeoPackage*, imágenes raster en *TIFF* entre otras. Una de las ventajas de usar *R* para el manejo de datos es la posibilidad de automatizar procesos previos al análisis de datos para ahorrar tiempo.
+
+## Objetivo
+
+El primer objetivo de esta sesión es realizar ejercicios con las principales funciones del paquete `tidyverse` para la manipulación de datos (*data wrangling*) y así filtrar, ordenar, agrupar y crear nuevas columnas. Para ello, usaremos el conjunto de datos de muestra llamado `iris` que se incluye en la instalación básica de *R*.
+
+A continuación analizaremos datos reales que el gobierno de México publica para estudiar los homicidios reportados desde diciembre de 2018 hasta marzo de 2022, y compararemos aquellos que ocurren en la Ciudad de México (CDMX) con los que se registraron en los demás estados del país. Entonces, el segundo objetivo de esta sesión es importar y preparar los datos usando las funciones del *Tidyverse*.
+
+
+
+## Repaso de Tidyverse
+
+Siempre es recomendable limpiar el entorno antes de comenzar a trabajar. Ejecuta el siguiente *chunk* para limpiar todos los objetos del entorno:
+
+```{webr Limpiar entorno}
+#| eval: false
+rm(list = ls(), quiet = TRUE)
+```
+
+```         
+Recuerda que para limpiar el entorno actual de R, también puedes utilizar el botón de la escoba en el panel *Environment*.
+```
+
+Para esta sesión nos aseguraremos de tener instalados y actualizados todos los paquetes necesarios (descomenta la siguiente instrucción para instalar o actualizar los paquetes necesarios en caso de no tenerlos):
+
+```{webr Instalar paquetes}
+install.packages("tidyverse")
+```
+
+::: {.callout-warning}
+
+Recuerda que también puedes instalar o actualizar los paquetes necesarios para la sesión usando el panel "Packages" de RStudio.
+:::
+
+Carga el conjunto de datos de muestra `iris` en el entorno de R usando la función `data` y visualízalo en la siguiente línea:
+
+```{webr Cargar datos de muestra}
+data("***") # Cargar el conjunto de datos "iris" en el entorno de R
+*** # Visualizar los datos
+```
+
+Usa la función `library` para cargar el paquete `tidyverse` que usaremos para manipular los datos:
+
+```{webr Cargar el paquete tidyverse}
+***(tidyverse)
+```
+
+### Exploración de datos
+
+Visualiza rápidamente la estructura y contenidos de `iris`, usando la función `glimpse`:
+
+```{webr Previsualizar datos}
+glimpse(***)
+```
+
+La función `glimpse` funciona como un equivalente en *Tidyverse* de la función básica `str`.
+
+El operador conocido como *piline* (`%>%`) toma el resultado de la instrucción anterior y lo convierte en la entrada de la siguiente instrucción. Reescribe la instrucción del *chunk* anterior, usando una *pipa*:
+
+```{webr Previsualizar datos usando piline}
+*** %>% 
+  ***()
+```
+
+Encuentra los valores únicos de la variable `Species` del *dataframe* `iris` usando la función `distinct` y la sintaxis de *pipa*:
+
+```{webr Valores distintos}
+*** %>% 
+  ***(Species) # Valores únicos de Species
+```
+
+### Seleccionar variables
+
+Selecciona las variables `Sepal.Length` y `Species` del *dataframe* `iris` usando sus nombres con la función `select` y visualiza el resultado usando `glimpse`:
+
+```{webr Seleccionar variables}
+*** %>% 
+  select(***, ***) %>% # Selecciona las variables deseadas
+  glimpse() # Muestra la nueva estructura de datos
+```
+
+Selecciona las variables `Sepal.Length`, `Sepal.Width` y `Species`del *dataframe* `iris`y multiplícalas para crear una nueva variable llamada `Sepal.Multiply` usando la función `mutate` y visualiza el resultado usando `glimpse`:
+
+```{webr Crear nuevas variables}
+*** %>% 
+  ***(***, ***, ***) %>% # Seleccionar las variables
+  mutate(Sepal.Multiply = *** * ***) %>% # A partir de las variables seleccionadas, crea una nueva
+  ***() # Muestra la estructura de datos
+```
+
+### Filtrar los datos
+
+Repite las operaciones anteriores pero conservando sólo las filas donde el valor de `Species` es *setosa*, usando la función `filter`:
+
+```{webr Filtrar los datos}
+*** %>% 
+  ***(***, ***, ***) %>% 
+  ***(*** = *** * ***) %>% 
+  filter(Species == "***") # Filtra las filas donde Species sea igual a "setosa"
+```
+
+Repite las operaciones anteriores, pero conservando sólo las filas donde los valores de `Species` son *setosa* y *versicolor* y el valores de `Sepal.Length` es mayor que 4.5, usando la función `filter`:
+
+```{webr Filtrar datos con varias condiciones}
+*** %>% 
+  ***(***, ***, ***) %>% 
+  ***(*** = *** * ***) %>%
+  filter(Species %in% c("***", "***") & Sepal.Length > ***)  # Filtra las filas con varias condiciones
+```
+
+### Ordenar los datos
+
+Repite las operaciones anteriores y ordena los datos por `Sepal.Length` en orden ascendente usando la función `arrange`:
+
+```{webr Ordenar datos}
+*** %>% 
+  ***(***, ***, ***) %>% 
+  ***(*** = *** * ***) %>% 
+  ***(*** %in% c("***", "***") & *** > ***) %>% 
+  arrange(***) # Ordena las filas
+```
+
+Repite las operaciones anteriores ordenando los datos ahora por `Sepal.Length` en orden descendente usando `desc` y luego por `Sepal.Multiply` orden ascendente, usando la función `arrange`:
+
+```{webr Ordenar datos con diferentes variables}
+*** %>% 
+  ***(***, ***, ***) %>% 
+  ***(*** = *** * ***) %>% 
+  ***(*** %in% c("***", "***") & *** > ***) %>% 
+  arrange(desc(***), ***) # Ordena las filas por Sepal.Length descendiente y Sepal.Multiply ascendente
+```
+
+### Agrupar y sumarizar los datos
+
+Cuenta el número de observaciones (filas) por cada valor único de la variable `Species` del *dataframe* `iris`, usando la función `count`:
+
+```{webr Obtener cuenta}
+*** %>% 
+  count(***)
+```
+
+Para crear grupos categóricos usando variables se usa la función `group_by`. Agrupa los datos del *dataframe* `iris` usando el campo categórico `Species`:
+
+```{webr Agrupar datos}
+*** %>% 
+  group_by(***) # Agrupar datos por valor
+```
+
+Este conjunto de datos no tiene cambios visibles, pero se crearon grupos para calcular en ellos estadísticos como estos:
+
+-   Número de observaciones (n, cuenta)
+-   Sumatoria
+-   Media
+-   Mínimo
+-   Máximo
+-   Mediana
+-   Desviación estándar
+
+Crea nuevas columnas con los estadísticos de la variable `Petal.Length` agrupados por cada valor único de la variable `Species`, usando la función `summarize` después de la función `group_by` y definiendo cada uno de los estadísticos con las funciones `n` (conteo), `sum` (sumatoria), `min` (mínimo), `max` (máximo), `mean` (promedio), `median` (mediana) y `sd` (desviación estándar):
+
+```{webr Sumarizar datos}
+*** %>% 
+  group_by(***) %>% 
+  summarize(Petal.Cuenta = n(),
+            Petal.Sumatoria = sum(Petal.Length),
+            Petal.Minimo = min(Petal.Length),
+            Petal.Maximo = max(Petal.Length),
+            Petal.Media = mean(Petal.Length),
+            Petal.Mediana = median(Petal.Length),
+            Petal.DesvEst = sd(Petal.Length))
+```
+
+Después de sumarizar los datos se conservan *agrupados*, es por eso que regularmente es necesario eliminar la agrupación y mantener el conjunto de datos transformado antes de realizar cualquier otra operación, para esto se usa la función `ungroup`. Repite la agrupación y sumarización del *chunk* anterior y desagrupa usando la función `ungroup`:
+
+```{webr Sumarizar y desagrupar datos}
+*** %>% 
+  ***(***) %>% 
+  ***(Petal.Cuenta = ***(),
+      Petal.Sumatoria = ***(***),
+      Petal.Minimo = ***(***),
+      Petal.Maximo = ***(***),
+      Petal.Media = ***(***),
+      Petal.Mediana = ***(***),
+      Petal.DesvEst = ***(***)) %>% 
+  ungroup()
+```
+
+## Caso práctico: Homicidios a nivel nacional
+
+### Importar los datos
+
+En esta sesión, usaremos los datos abiertos de incidencia delictiva que publica el *Secretariado Ejecutivo del Sistema Nacional de seguridad Pública (SESNSP)* que están disponibles en el portal de datos abiertos del Gobierno de México en <https://www.datos.gob.mx/busca/dataset/incidencia-delictiva-del-fuero-comun>. Estos datos contienen la información de delitos cometidos a nivel estatal y serán usados en el taller más adelante para comparar los niveles de homicidios que ocurrieron en la CDMX y en los demás estados del país.
+
+Carga el paquete `lubridate` para manejar más fácilmente los tipos de datos fecha-hora del conjunto de datos, y también carga el paquete `janitor` para realizar algunos procesos de limpieza a los datos:
+
+```{webr Cargar librerías para manipulación y limpieza de datos}
+***(lubridate)
+***(janitor)
+```
+
+Este es un conjunto de datos que originalmente viene en un formato de texto plano separado por comas (*CSV*). Observa y ejecuta el siguiente *chunk* para leer el archivo de datos usando la función de `read_csv` de `tidyverse` (no la instrucción `read.csv` de *R* base) y asigna los datos a una nueva variable que se llame `delitos`:
+
+```{webr Leer datos}
+#fuente_de_datos <- "Datos/IDEFC_NM.csv" # Desde el archivo descargado en la carpeta Datos
+
+url <- "https://coatless.github.io/raw-data/flights.csv"
+download.file(url, "flights.csv")
+
+read.csv("flights.csv")
+
+# fuente_de_datos <- "https://github.com/cris-silva/centrogeo-taller-siggypp/raw/main/Datos/IDEFC_NM_abr22.csv" # Directo desde el sitio del repositorio
+#download.file(fuente_de_datos, "IDEFC_NM.csv")
+#delitos <- 
+# read_csv(file = fuente_de_datos,
+#           locale = locale(encoding = "WINDOWS-1252")) %>%  
+#  clean_names() %>% 
+#  glimpse() 
+```
+
+En el *chunk* anterior, puedes observar lo siguiente:
+
+-   En la instrucción `read_csv` se incluye un parámetro `locale = locale(encoding = "WINDOWS-1252")`. Esto se usa por que los datos originales se crearon en Windows, y aunque se puede omitir, no especificar esto puede provocar que aparezcan caracteres incorrectos en los datos al importarlos en otros sistemas operativos como macOS o Linux que usan el tipo de codificación *UTF-8*. \# La función `clean_names` del paquete `janitor` convierte los nombres de las columnas a minúsculas, reemplaza los espacios con '\_' y reemplaza caracteres especiales y con acentos para evitar problemas al escribir códigos.
+
+### Preparar los datos
+
+Los datos agrupan los totales de delitos en 12 columnas para cada mes, pero esta estructura no es útil para filtrar los datos por rangos de fecha. Para poder filtrar los datos por fecha, será necesario tener una columna `mes` de tipo de datos *fecha* en una forma de tabla *larga*. El siguiente bloque ejecutará en cadena las siguientes operaciones:
+
+1.  Transformar la estructura a una forma *larga*, guardando los nombres de cada columna de mes en una nueva columna llamada `mes_nombre` y sus valores en una nueva columna llamada `total` usando la función `pivot_longer`.
+2.  Obtener el número del mes a partir de `mes_nombre` usando la función `case_when` para guardar el valor numérico correspondiente en una nueva columna llamada `mes_numero`.
+3.  Construir el mes en formato *fecha* usando las columnas `ano`, `mes_numero` y el número 1 para asumir el primer día del mes, para lo que se usa la función `make_date` para crear una nueva columna llamada `mes`.
+4.  Finalmente quitar las columnas `mes_nombre`, `mes_numero`, `ano` que ya son innecesarias usando la función `select` y el signo `-` para excluirlas del *tibble* resultante.
+
+Observa cómo se construyó ésta secuencia usando las *pipeline* en el siguiente *chunk*, ejecútalo y observa el resultado:
+
+```{webr Limpiar y transformar datos nacionales}
+delitos <-
+  delitos %>% 
+  pivot_longer(cols = 8:19,
+               names_to = "mes_nombre",
+               values_to = "total") %>% 
+  mutate(mes_numero = case_when(mes_nombre == "enero" ~ 1,
+                                mes_nombre == "febrero" ~ 2,
+                                mes_nombre == "marzo" ~ 3,
+                                mes_nombre == "abril" ~ 4,
+                                mes_nombre == "mayo" ~ 5,
+                                mes_nombre == "junio" ~ 6,
+                                mes_nombre == "julio" ~ 7,
+                                mes_nombre == "agosto" ~ 8,
+                                mes_nombre == "septiembre" ~ 9,
+                                mes_nombre == "octubre" ~ 10,
+                                mes_nombre == "noviembre" ~ 11,
+                                mes_nombre == "diciembre" ~ 12)) %>%
+  mutate(mes = make_date(ano, mes_numero, 1)) %>% 
+  select(-ano, -mes_nombre, -mes_numero) %>% 
+  glimpse()
+```
+
+Para conocer la clasificación de los delitos a partir de los datos, crea una lista de los tipos de delitos a partir de los datos. Para ello construye con *pipeline* la siguiente secuencia de operaciones y guarda el resultado en una nueva variable llamada `lista_delitos`:
+
+1.  Toma como base los datos del *tibble* `delitos`.
+2.  Usa la función `distinct` para obtener las categorías únicas de las columnas `bien_juridico_afectado`, `tipo_de_delito`, `subtipo_de_delito` y `modalidad`.
+3.  Ordena los datos usando los campos `bien_juridico_afectado`, `tipo_de_delito`, `subtipo_de_delito` y `modalidad` en ése orden con la función `arrange`.
+
+En la línea siguiente visualiza el contenido del *tibble* `lista_delitos` resultante.
+
+```{webr Crear lista de delitos}
+lista_delitos <-
+  *** %>% 
+  distinct(***, ***, ***, ****) %>% # Mantiene los valores únicos de las columnas
+  arrange(***, ***, ***, ***) # Ordena los valores de forma ascendente
+
+# Muestra la lista de delitos:
+***
+```
+
+Obtén los datos de homicidios que ocurrieron **desde diciembre 2018 hasta junio 2020**. Primero, es necesario definir las fechas de inicio y fin del periodo que necesitamos. Usa la función `make_date` del paquete `lubridate` para construir las variables `mes_inicial` y `mes_final` con tipo de datos de fecha:
+
+```{webr Definir el periodo requerido}
+mes_inicial <- make_date(2018, 12, 1) # 2018-12-01
+mes_final <- ***(***, ***, ***) # 2020-06-30
+```
+
+Después, usa las *pipeline* para arreglar los datos y guardar en una nueva variable llamada `homicidios` el resultado de la siguiente secuencia de operaciones:
+
+1.  Toma el *tibble* `delitos` como base.
+2.  Filtra los datos usando las condiciones `tipo_de_delito == "Homicidio"` y `mes %>% between(mes_inicial, mes_final)` para mantener sólo los datos de homicidios y sus subcategorías en el periodo indicado usando la función `filter`.
+3.  Visualiza la estructura del *tibble* resultante usando la función `glimpse`.
+
+```{webr Filtrar datos nacionales}
+homicidios <-
+  *** %>% # Datos de delitos
+  ***(*** == "***" & *** %>% between(***, ***)) %>% # Filtros aplicados
+  ***() # Visualizar la estructura del tibble resultante
+```
+
+Para conocer la evolución de los homicidios en cada estado y en el tiempo, agrupa y sumariza los totales de homicidios por entidad y mes. Asigna a una variable llamada `homicidios_por_estado` el resultado de las siguientes operaciones:
+
+1.  Toma el *tibble* homicidios como base.
+2.  Agrupa los datos por cada `clave_ent`, `entidad`, y `mes`.
+3.  Obtén la suma del total de homicidios (usando el parámetro `na.rm = TRUE` para omitir los registros vacíos o `NA`) y guárdala en una nueva columna llamada `homicidios_totales`.
+4.  Desagrupa los datos.
+5.  Visualiza la estructura resultante.
+
+```{webr Agrupar y sumarizar datos nacionales}
+homicidios_por_estado <-
+  *** %>% # Datos de homicidios
+  ***(***, ***, ***) %>% # Agrupar por clave_ent, entidad, y mes
+  ***(homicidios_totales = sum(***, na.rm = TRUE)) %>% # Sumarizar el total de delitos quitando vacíos
+  ***() %>% # Desagrupar
+  ***() # Visualizar la estructura del tibble resultante
+```
+
+### Exportar los datos
+
+Finalmente, guarda una copia de `homicidios_por_estado` usando *pipeline* y las funciones `write_csv` o `write_excel_csv` para guardar los datos en formato *CSV* en el archivo `homicidios_por_estado.csv` en la carpeta `Datos` (se usarán más adelante en el taller):
+
+```{webr Guardar datos nacionales en CSV}
+# Descomenta la versión que quieras usar de las siguientes instrucciones:
+
+# La instrucción write_csv respeta la codificación de Windows, macOS o Linux: 
+# homicidios_por_estado %>% 
+#   write_csv("***")
+
+# Usa esta función si los datos se van a abrir en Excel:
+homicidios_por_estado %>% 
+  write_excel_csv("***")
+```
+
+
+## Referencias
+
+-   Wickham, H., & Grolemund, G. (2017). *R for data science: Import, tidy, transform, visualize and model data.* <https://r4ds.had.co.nz>. O'Reilly.
+-   Lovelace, R., Nowosad, J., & Muenchow, J. (2019), *Geocomputation with R.* <https://geocompr.robinlovelace.net>. CRC Press.
+-   Tennekes, M., Nowosad, J. (2021). *Elegant and informative maps with tmap.* Recuperado el 8 de septembiembre, 2021, desde <https://r-tmap.github.io/tmap-book/>
+-   Engel, C. (2019). *Using Spatial Data with R.* cengel.github.io. Recuperado el 8 de septembiembre, 2021, desde [https://cengel.github.io/R-spatial/](https://cengel.github.io/R-spatial).
