@@ -1,10 +1,15 @@
 ---
-title: "2. Introducción al Tidyverse y exportación/importación de datos"
+title: "Introducción al Tidyverse y exportación/importación de datos"
 
 author: " J. Miguel Salazar (msalazar@ecntrogeo.edu.mx), Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
 format: live-html
+webr:
+  resources:
+    - https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/IDEFC_NM_abr22.csv
+
 ---
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
 ## Introducción
 
 El *data wrangling*, también conocido como *limpieza de datos* se refiere al proceso manual o automatizado mediante el cual los datos crudos son transformados en formatos más útiles para el análisis. Estos procesos incluyen la identificación de faltantes de infromación, la eliminación de datos irrelevantes, la combinación de múltiples fuentes de datos o la transformación de su estructura en una más apropiada (más conocida como *datos ordenados*).
@@ -13,10 +18,9 @@ Es posible usar el lenguaje *R* para leer, escribir y manipular datos que provie
 
 ## Objetivo
 
-El primer objetivo de esta sesión es realizar ejercicios con las principales funciones del paquete `tidyverse` para la manipulación de datos (*data wrangling*) y así filtrar, ordenar, agrupar y crear nuevas columnas. Para ello, usaremos el conjunto de datos de muestra llamado `iris` que se incluye en la instalación básica de *R*.
+El objetivo de esta sesión es realizar ejercicios con las principales funciones del paquete `tidyverse` para la manipulación de datos (*data wrangling*) y así filtrar, ordenar, agrupar y crear nuevas columnas. Para ello, usaremos el conjunto de datos de muestra llamado `iris` que se incluye en la instalación básica de *R*.
 
 A continuación analizaremos datos reales que el gobierno de México publica para estudiar los homicidios reportados desde diciembre de 2018 hasta marzo de 2022, y compararemos aquellos que ocurren en la Ciudad de México (CDMX) con los que se registraron en los demás estados del país. Entonces, el segundo objetivo de esta sesión es importar y preparar los datos usando las funciones del *Tidyverse*.
-
 
 
 ## Repaso de Tidyverse
@@ -28,9 +32,9 @@ Siempre es recomendable limpiar el entorno antes de comenzar a trabajar. Ejecuta
 rm(list = ls(), quiet = TRUE)
 ```
 
-```         
+:::{.callout-note}
 Recuerda que para limpiar el entorno actual de R, también puedes utilizar el botón de la escoba en el panel *Environment*.
-```
+:::
 
 Para esta sesión nos aseguraremos de tener instalados y actualizados todos los paquetes necesarios (descomenta la siguiente instrucción para instalar o actualizar los paquetes necesarios en caso de no tenerlos):
 
@@ -38,8 +42,7 @@ Para esta sesión nos aseguraremos de tener instalados y actualizados todos los 
 install.packages("tidyverse")
 ```
 
-::: {.callout-warning}
-
+::: {.callout-note}
 Recuerda que también puedes instalar o actualizar los paquetes necesarios para la sesión usando el panel "Packages" de RStudio.
 :::
 
@@ -66,14 +69,14 @@ glimpse(***)
 
 La función `glimpse` funciona como un equivalente en *Tidyverse* de la función básica `str`.
 
-El operador conocido como *piline* (`%>%`) toma el resultado de la instrucción anterior y lo convierte en la entrada de la siguiente instrucción. Reescribe la instrucción del *chunk* anterior, usando una *pipa*:
+El operador conocido como *piline* (`%>%`) toma el resultado de la instrucción anterior y lo convierte en la entrada de la siguiente instrucción. Reescribe la instrucción del *chunk* anterior, usando una *pipe*:
 
 ```{webr Previsualizar datos usando piline}
 *** %>% 
   ***()
 ```
 
-Encuentra los valores únicos de la variable `Species` del *dataframe* `iris` usando la función `distinct` y la sintaxis de *pipa*:
+Encuentra los valores únicos de la variable `Species` del *dataframe* `iris` usando la función `distinct` y la sintaxis de *pipe*:
 
 ```{webr Valores distintos}
 *** %>% 
@@ -183,7 +186,8 @@ Crea nuevas columnas con los estadísticos de la variable `Petal.Length` agrupad
 
 Después de sumarizar los datos se conservan *agrupados*, es por eso que regularmente es necesario eliminar la agrupación y mantener el conjunto de datos transformado antes de realizar cualquier otra operación, para esto se usa la función `ungroup`. Repite la agrupación y sumarización del *chunk* anterior y desagrupa usando la función `ungroup`:
 
-```{webr Sumarizar y desagrupar datos}
+```{webr }
+#| label: Sumarizar y desagrupar datos
 *** %>% 
   ***(***) %>% 
   ***(Petal.Cuenta = ***(),
@@ -214,18 +218,13 @@ Este es un conjunto de datos que originalmente viene en un formato de texto plan
 ```{webr Leer datos}
 #fuente_de_datos <- "Datos/IDEFC_NM.csv" # Desde el archivo descargado en la carpeta Datos
 
-url <- "https://coatless.github.io/raw-data/flights.csv"
-download.file(url, "flights.csv")
-
-read.csv("flights.csv")
-
-# fuente_de_datos <- "https://github.com/cris-silva/centrogeo-taller-siggypp/raw/main/Datos/IDEFC_NM_abr22.csv" # Directo desde el sitio del repositorio
+# fuente_de_datos <- "https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/IDEFC_NM_abr22.csv" # Directo desde el sitio del repositorio
 #download.file(fuente_de_datos, "IDEFC_NM.csv")
-#delitos <- 
-# read_csv(file = fuente_de_datos,
-#           locale = locale(encoding = "WINDOWS-1252")) %>%  
-#  clean_names() %>% 
-#  glimpse() 
+delitos <- 
+ read_csv(file = fuente_de_datos,
+           locale = locale(encoding = "WINDOWS-1252")) %>%  
+  clean_names() %>% 
+  glimpse() 
 ```
 
 En el *chunk* anterior, puedes observar lo siguiente:
