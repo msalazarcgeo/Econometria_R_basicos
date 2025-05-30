@@ -9,4 +9,8 @@ Este git contiene los qmd de las versión de los elementos basicos de R para el 
 
 * Poder mostrarlo en un sitio alojandolo en github.
 
+El link a [github pages](https://msalazarcgeo.github.io/Econometria_R_basicos/)
+
+
+
 
