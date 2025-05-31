@@ -3,6 +3,8 @@ project:
   output-dir: docs
 website:
   title: "Econometría 0"
+  page-navigation: true
+  page-footer: "Copyright 2025, CentroGeo" 
   navbar:
     right:
       - icon: github
@@ -10,16 +12,19 @@ website:
   sidebar:
     style: docked
     contents:
-      - href: /Index.qmd
-        text: "🏠 Home"
+      - text: "🏠 Home"
+        href: Index.qmd  
       - section: "Contenido"
         contents:
-        - href: /2_Basicos_R_operaciones_tipos.qmd
-          text: Operaciones Básicas
-        - href: /3_Programacion_fechas.qmd
-          text: Programaión Básicos
-        - href: /4_Tidyverse.qmd
-          text: Tidiverse Básicos
+        - text: "Basicos" 
+          href: 2_Basicos_R_operaciones_tipos.qmd
+        - text: "Estructuras y Dataframes"
+          href: 2_2_Estructuras_Dataframes.qmd
+        - text: "Programación Basicos"
+          href: 3_Programacion_fechas.qmd
+        - text: "Tidyverse"
+          href: 4_Tidyverse.qmd
+          
 format:
   html:
     theme: cosmo

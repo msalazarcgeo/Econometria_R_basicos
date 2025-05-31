@@ -1,6 +1,6 @@
 ---
 title: "Vectores, Listas y Dataframes"
-format: html
+format: live-html
 ---
 
 ### Operaciones con vectores 
