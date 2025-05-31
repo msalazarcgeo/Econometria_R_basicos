@@ -1,3 +1,27 @@
 project:
   type: website
-  output-dir: docs
+website:
+  title: "Econometría 0"
+  navbar:
+    right:
+      - icon: github
+        href: https://github.com/
+  sidebar:
+    style: docked
+    contents:
+      - href: /index.qmd
+        text: "🏠 Home"
+      - section: "Contenido"
+        contents:
+        - href: /2_Basicos_R_operaciones_tipos.qmd
+          text: Operaciones Básicas
+        - href: /3_Programacion_fechas.qmd
+          text: Programaión Básicos
+        - href: /4_Tidyverse.qmd
+          text: Tidiverse Básicos
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+execute:
+  freeze: auto

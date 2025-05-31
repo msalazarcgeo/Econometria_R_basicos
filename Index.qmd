@@ -1,0 +1,39 @@
+---
+title: "Econometría"
+subtitle: "Curso básico de R para Econometría"
+format: html
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+
+# Objetivo 
+Este es un curso de las cosas básicas que se necesitan para poder tomar el curso de Econometría de [CentroGeo](https://www.centrogeo.org.mx/)
+
+En este módulo se trataran los siguientes temas
+
+* Empezando con R
+    * Introducción a R.
+    * Documentos interactivos con RMarkdown y Quarto.
+
+* Operadores y estructuras de datos. 
+    * [Operaciones y tipos de datos básicos.](/2_Basicos_R_operaciones_tipos.qmd)
+    * [Estructuras de datos y conjuntos de datos (dataframes)](/2_2_Estructuras_Dataframes.qmd)
+
+* [Control de flujo, condicionales y funciones especiales.](/3_Programacion_fechas.qmd)
+    * Operadores, ciclos y funciones.
+    * Manipulación de fechas y horas.
+    * Transformación de datos con reshape.
+
+
+
+* [El tidyverse.](/4_Tidyverse.qmd) 
+    * ¿Qué es el tidyverse?
+    * Lectura y escritura de datos
+    * Manipulación de datos (data wrangling)
+    * Visualización de datos con ggplot2. 
+
+
+
+
+

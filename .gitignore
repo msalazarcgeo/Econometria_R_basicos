@@ -3,3 +3,5 @@
 4_Tidyverse_files/*
 _extensions/*
 /.quarto/
+_freeze/*
+_site/*
