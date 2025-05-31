@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Vectores, Listas y Dataframes – Econometría 0</title>
+<title>Econometría – Econometría 0</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -138,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Vectores, Listas y Dataframes</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Econometría</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -196,7 +162,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Vectores, Listas y Dataframes</h1>
+<h1 class="title">Econometría</h1>
+<p class="subtitle lead">Curso básico de R para Econometría</p>
 </div>
 
 
@@ -213,258 +180,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="operaciones-con-vectores" class="level3">
-<h3 class="anchored" data-anchor-id="operaciones-con-vectores">Operaciones con vectores</h3>
-<p>Crea un vector con una secuencia de números enteros del 2 al 10, usando la instrucción <code>2:10</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>***:***</code></pre>
-</div>
-<p>Crea un vector que contenga la secuencia de 0 a 10 con pasos de 2.5 usando la función <code>seq</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>seq(from = ***, to = ***, by = 2.5)</code></pre>
-</div>
-<p>Repite 4 veces los elementos del vector <code>1:3</code> usando la función <code>rep</code>, especificando el parámetro <code>times</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>rep(***, times = 4) # Repetir un vector n veces</code></pre>
-</div>
-<p>Repite 3 veces cada uno de los valores del vector <code>1:2</code> usando la función <code>rep</code>, especificando el parámetro <code>each</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>rep(***, each = 3) # Repetir cada valor de un vector n veces</code></pre>
-</div>
-<p>Ordena de manera ascendente los valores de <code>mi_vector</code> usando la función <code>sort</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>sort(***)</code></pre>
-</div>
-<p>Ordena de manera descendente los valores de <code>mi_vector</code> usando la función <code>sort</code>, ahora especificando el parámetro <code>decreasing = TRUE</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>sort(***, decreasing = ***) # Orden descendente</code></pre>
-</div>
-<p>Invierte el orden de los elementos de <code>mi_vector</code> usando la función <code>rev</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>rev(***)</code></pre>
-</div>
-<p>Obtén una tabla con el conteo de cada elemento de <code>mi_vector</code> usando <code>table</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>table(***)</code></pre>
-</div>
-<p>Obtén los valores únicos del vector <code>mi_vector</code> usando la función <code>unique</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>unique(***)</code></pre>
-</div>
-<section id="selecion-de-elementos" class="level4">
-<h4 class="anchored" data-anchor-id="selecion-de-elementos">Selecion de elementos</h4>
-<p>En <em>R</em> se utilizan los corchetes <code>[]</code> para seleccionar elementos internos, para seleccionar el cuarto elemento de <code>mi_vector</code></p>
-<div class="cell">
-<pre class="{webr}"><code>***[4] # Selecciona el 4to. elemento en mi_vector</code></pre>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>El índice en <em>R</em> empieza desde 1, otros lenguajes de programación es distinto.</p>
-</div>
-</div>
-<p>Selecciona todos los elementos de <code>mi_vector</code> excepto el cuarto usando el índice negativo <code>-4</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>***[-4] # Selecciona todo excepto el 4to. elemento en mi_vector</code></pre>
-</div>
-<p>Selecciona los elementos 2 al 5 de <code>mi_vector</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>***[***:5] # Selecciona del 2do. al 5to. elemento en mi_vector</code></pre>
-</div>
-<p>Selecciona todos los elementos de <code>mi_vector</code> excepto los del 2 al 5 usando el índice negativo <code>-(2:5)</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>***[-(2:***)] # Selecciona todos los elementos excepto los elementos del 2do. al 5to. en mi_vector</code></pre>
-</div>
-<p>Selecciona sólo los elementos 1 y 5 de <code>mi_vector</code> usando el vector <code>c(1,5)</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>***[c(***,5)] # Selecciona sólo el 1ro. y 5to. elementos en mi_vector</code></pre>
-</div>
-<p>Seleccionar elementos de <code>mi_vector</code> que son iguales a 2:</p>
-<div class="cell">
-<pre class="{webr}"><code>***[mi_vector == ***] # Seleccionar elementos iguales a 2 en mi_vector</code></pre>
-</div>
-<p>Selecciona elementos de <code>mi_vector</code> que sean menores a 3:</p>
-<div class="cell">
-<pre class="{webr}"><code>***[*** &lt; 3] # Selecciona los elementos menores a 3 en mi_vector</code></pre>
-</div>
-<p>Selecciona los elementos de <code>mi_vector</code> que sean iguales a 1, 2 ó 5 usando el operador <code>%in%</code> y un vector con los valores <code>c(1, 2, 5)</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>***[*** %in% c(1, ***, ***)]</code></pre>
-</div>
-</section>
-</section>
-<section id="dataframes" class="level2">
-<h2 class="anchored" data-anchor-id="dataframes">Dataframes</h2>
-<p>En <em>R</em>, un <em>dataframe</em> es una colección de elementos acoplados que construyen una tabla donde cada columna tienen un tipo de datos en particular. Los <em>dataframes</em> son las estructuras de datos fundamentales que usa la mayoría del software de modelado de <em>R</em>.</p>
-<p>Construye un <em>dataframe</em> usando la función <code>data.frame</code> e incluyendo como parámetros una columna <code>x</code> con los valores enteros de 1 a 5 y una columna <code>y</code> con los caracteres <code>("A", "B", "C", "D", "E")</code>, asígnalo a la variable <code>mi_df</code> y visualiza su contenido en la siguiente línea:</p>
-<pre><code>mi_df &lt;- data.frame(x = ***, y = c(***))
-*** # Visualizar el contenido del dataframe </code></pre>
-<p>Visualiza el contenido completo de <code>mi_df</code> usando la función <code>View</code> (en <em>RStudio</em>, se abre una nueva ventana):</p>
-<div class="cell">
-<pre class="{webr}"><code>View(***)</code></pre>
-</div>
-<p>También puedes visualizar los <em>dataframes</em> usando el panel <em>Environment</em> en <em>RStudio</em>.</p>
-<p>Visualiza rápidamente las primeras filas de <code>mi_df</code>, usando la función <code>head</code> para visualizar las primeras 5 filas especificando el parámetro <code>n = 5</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>head(***, n = ***) # Si se omite el parámetro n, la función head regresa las primeras 5 filas por defecto</code></pre>
-</div>
-<p>Visualiza rápidamente las últimas filas de <code>mi_df</code>, usando la función <code>tail</code> para visualizar las últimas 5 filas especificando el parámetro <code>n = 5</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>tail(***, n = ***) # Si se omite el parámetro n, la función tail regresa las últimas 5 filas por defecto</code></pre>
-</div>
-<p>Para acceder a una fila en particular en <em>dataframe</em>, especifica la posición del elemento entre corchetes ([Fila, Columna]). Accede al contenido de la primera fila completa de <code>mi_df</code>, omitiendo el índice para la columna:</p>
-<section id="dataframes-1" class="level3">
-<h3 class="anchored" data-anchor-id="dataframes-1">Dataframes</h3>
-<p>En <em>R</em>, un <em>dataframe</em> es una colección de elementos acoplados que construyen una tabla donde cada columna tienen un tipo de datos en particular. Los <em>dataframes</em> son las estructuras de datos fundamentales que usa la mayoría del software de modelado de <em>R</em>.</p>
-<p>Construye un <em>dataframe</em> usando la función <code>data.frame</code> e incluyendo como parámetros una columna <code>x</code> con los valores enteros de 1 a 5 y una columna <code>y</code> con los caracteres <code>("A", "B", "C", "D", "E")</code>, asígnalo a la variable <code>mi_df</code> y visualiza su contenido en la siguiente línea:</p>
-<pre><code>mi_df &lt;- data.frame(x = ***, y = c(***))
-*** # Visualizar el contenido del dataframe </code></pre>
-<p>Visualiza el contenido completo de <code>mi_df</code> usando la función <code>View</code> (en <em>RStudio</em>, se abre una nueva ventana):</p>
-<div class="cell">
-<pre class="{webr}"><code>View(***)</code></pre>
-</div>
-<p>También puedes visualizar los <em>dataframes</em> usando el panel <em>Environment</em> en <em>RStudio</em>.</p>
-<p>Visualiza rápidamente las primeras filas de <code>mi_df</code>, usando la función <code>head</code> para visualizar las primeras 5 filas especificando el parámetro <code>n = 5</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>head(***, n = ***) # Si se omite el parámetro n, la función head regresa las primeras 5 filas por defecto</code></pre>
-</div>
-<p>Visualiza rápidamente las últimas filas de <code>mi_df</code>, usando la función <code>tail</code> para visualizar las últimas 5 filas especificando el parámetro <code>n = 5</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>tail(***, n = ***) # Si se omite el parámetro n, la función tail regresa las últimas 5 filas por defecto</code></pre>
-</div>
-<p>Para acceder a una fila en particular en <em>dataframe</em>, especifica la posición del elemento entre corchetes ([Fila, Columna]). Accede al contenido de la primera fila completa de <code>mi_df</code>, omitiendo el índice para la columna:</p>
-<div class="cell">
-<pre class="{webr}"><code>mi_df[***, ] # Omite el índice de la columna para acceder a la fila completa</code></pre>
-</div>
-<p>Accede al contenido de la primer columna completa de <code>mi_df</code>, omitiendo el índice para la fila:</p>
-<div class="cell">
-<pre class="{webr}"><code>mi_df[, ***] # Omite el índice de la fila para acceder a la columna completa</code></pre>
-</div>
-<p>La manera más común de acceder a los valores en una variable (columna) es usando el separador <code>$</code>. Accede al valor de la columna <code>y</code> de <code>mi_df</code> usando el separador <code>$</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>mi_df$*** # Usa el nombre de la variable</code></pre>
-</div>
-<p>Accede a al elemento que está en la segunda fila y en la segunda columna de <code>mi_df</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-mi_df[***, ***] # Acceder al elemento de la fila 2, columna 2</code></pre>
-</div>
-<p>Comprueba el número de filas y columnas (dimensiones) que tiene <code>mi_df</code> usando la función <code>dim</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-dim(***) # Dimensiones del dataframe (números de columnas y filas)</code></pre>
-</div>
-<p>Comprueba el número de filas que tiene <code>mi_df</code> usando la función <code>nrow</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-nrow(***) # Número de filas en un dataframe</code></pre>
-</div>
-<p>Comprueba el número de columnas que tiene <code>mi_df</code> usando la función <code>ncol</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-ncol(***) # Número de columnas en un dataframe</code></pre>
-</div>
-<p>Crea un <em>dataframe</em> de una sola columna llamada <code>z</code> que contenga los valores enteros de 6 a 10, asígnalo a la variable <code>nueva_columna</code> y visualiza su contenido en la siguiente línea:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-nueva_columna &lt;- data.frame(*** = c(***:***)) # Debe tener el mismo número de filas que el dataframe
-***</code></pre>
-</div>
-<p>Agrega la columna del dataframe <code>nueva_columna</code> a <code>mi_df</code> usando la función <code>cbind</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-mi_df &lt;- cbind(mi_df, ***)
-***</code></pre>
-</div>
-<p>Extrae la fila 2 de <code>mi_df</code>, asígnala a la variable <code>nueva_fila</code> y visualiza su contenido:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-nueva_fila &lt;- mi_df[***, ] # Agregar una copia de la fila 2, debe tener los mismos nombres de variables o se agregarán nuevas columnas con los nombres restantes
-*** # Visualiza el contenido del dataframe</code></pre>
-</div>
-<p>Agregar la fila de <code>nueva_fila</code> al <code>mi_df</code>usando la función <code>rbind</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-mi_df &lt;- rbind(mi_df, ***)
-***</code></pre>
-</div>
-<p>Usa la función <code>str</code> para visualizar un resumen de la estructura y contenido del <em>dataframe</em> <code>mi_df</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>#| eval: false
-str(***)</code></pre>
-</div>
-<p>Revisa los estadísticos básicos de las columnas del dataframe <code>mi_df</code> usando la función <code>summary</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="sc">**</span><span class="er">*</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">l índice de la fila para acceder a la columna completa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>La manera más común de acceder a los valores en una variable (columna) es usando el separador <code>$</code>. Accede al valor de la columna <code>y</code> de <code>mi_df</code> usando el separador <code>$</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>mi_df$*** # Usa el nombre de la variable</code></pre>
-</div>
-<p>Accede a al elemento que está en la segunda fila y en la segunda columna de <code>mi_df</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-mi_df[***, ***] # Acceder al elemento de la fila 2, columna 2</code></pre>
-</div>
-<p>Comprueba el número de filas y columnas (dimensiones) que tiene <code>mi_df</code> usando la función <code>dim</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-dim(***) # Dimensiones del dataframe (números de columnas y filas)</code></pre>
-</div>
-<p>Comprueba el número de filas que tiene <code>mi_df</code> usando la función <code>nrow</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-nrow(***) # Número de filas en un dataframe</code></pre>
-</div>
-<p>Comprueba el número de columnas que tiene <code>mi_df</code> usando la función <code>ncol</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-ncol(***) # Número de columnas en un dataframe</code></pre>
-</div>
-<p>Crea un <em>dataframe</em> de una sola columna llamada <code>z</code> que contenga los valores enteros de 6 a 10, asígnalo a la variable <code>nueva_columna</code> y visualiza su contenido en la siguiente línea:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-nueva_columna &lt;- data.frame(*** = c(***:***)) # Debe tener el mismo número de filas que el dataframe
-***</code></pre>
-</div>
-<p>Agrega la columna del dataframe <code>nueva_columna</code> a <code>mi_df</code> usando la función <code>cbind</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-mi_df &lt;- cbind(mi_df, ***)
-***</code></pre>
-</div>
-<p>Extrae la fila 2 de <code>mi_df</code>, asígnala a la variable <code>nueva_fila</code> y visualiza su contenido:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-nueva_fila &lt;- mi_df[***, ] # Agregar una copia de la fila 2, debe tener los mismos nombres de variables o se agregarán nuevas columnas con los nombres restantes
-*** # Visualiza el contenido del dataframe</code></pre>
-</div>
-<p>Agregar la fila de <code>nueva_fila</code> al <code>mi_df</code>usando la función <code>rbind</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>
-mi_df &lt;- rbind(mi_df, ***)
-***</code></pre>
-</div>
-<p>Usa la función <code>str</code> para visualizar un resumen de la estructura y contenido del <em>dataframe</em> <code>mi_df</code>:</p>
-<div class="cell">
-<pre class="{webr}"><code>#| eval: false
-str(***)</code></pre>
-</div>
-<p>Revisa los estadísticos básicos de las columnas del dataframe <code>mi_df</code> usando la función <code>summary</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="sc">**</span><span class="er">*</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="objetivo" class="level1">
+<h1>Objetivo</h1>
+<p>Este es un curso de las cosas básicas que se necesitan para poder tomar el curso de Econometría de <a href="https://www.centrogeo.org.mx/">CentroGeo</a></p>
+<p>En este módulo se trataran los siguientes temas</p>
+<ul>
+<li>Empezando con R
+<ul>
+<li>Introducción a R.</li>
+<li>Documentos interactivos con RMarkdown y Quarto.</li>
+</ul></li>
+<li>Operadores y estructuras de datos.
+<ul>
+<li><a href="./2_Basicos_R_operaciones_tipos.html">Operaciones y tipos de datos básicos.</a></li>
+<li><a href="./2_2_Estructuras_Dataframes.html">Estructuras de datos y conjuntos de datos (dataframes)</a></li>
+</ul></li>
+<li><a href="./3_Programacion_fechas.html">Control de flujo, condicionales y funciones especiales.</a>
+<ul>
+<li>Operadores, ciclos y funciones.</li>
+<li>Manipulación de fechas y horas.</li>
+<li>Transformación de datos con reshape.</li>
+</ul></li>
+<li><a href="./4_Tidyverse.html">El tidyverse.</a>
+<ul>
+<li>¿Qué es el tidyverse?</li>
+<li>Lectura y escritura de datos</li>
+<li>Manipulación de datos (data wrangling)</li>
+<li>Visualización de datos con ggplot2.</li>
+</ul></li>
+</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
