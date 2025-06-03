@@ -6,11 +6,7 @@ format: live-html
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
-## Introducción
-
-*R* es un lenguaje de programación para a la computación estadística. Es un software libre de código abierto ampliamente utilizado para el desarrollo de análisis de datos y más recientemente, para aplicaciones modernas como la ciencia de datos, el aprendizaje automático o la inteligencia artificial.
-
-El exito de *R* es gracias a su versatilidad las cuales provienen de las contribuciones de las comunidades científicas y de desarrolladores de software que crean y publican paquetes que extienden las capacidades básicas del lenguaje *R* los que están rigurosamente documentados. El ecosistema de *R* permite el reaprovechamiento continuo del conocimiento y de la técnica para facilitar las tareas de procesamiento de información en prácticamente cualquier campo de trabajo. 
+R como cualquier lenguaje de programación tiene una sintaxis especifica, 
 
 ## Objetivo
 

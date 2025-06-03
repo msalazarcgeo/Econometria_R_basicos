@@ -3,7 +3,7 @@ title: "Vectores, Listas y Dataframes"
 format: live-html
 ---
 
-### Operaciones con vectores 
+## Operaciones con vectores 
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 

@@ -1,0 +1,19 @@
+---
+title: "Inicio de R"
+format: html
+author: J. Miguel Salazar (msalazar@centrogeo.edu.mx)
+---
+
+
+
+## Introducción
+
+*R* es un lenguaje de programación para computación estadistica y visualización de datos. R es un software de código abierto y [software libre](https://en.wikipedia.org/wiki/Free_software). El lenguaje se ha desarrollado desde el principio de los años 90's y ha tenido una evolución constante más recientemente se ha utilizado también para el desarrollo de aplicaciones como la ciencia de datos, el aprendizaje automático o la inteligencia artificial.
+
+*R* fue inspirado por el lenguaje de [programación S](https://en.wikipedia.org/wiki/S_(programming_language)), lo que se ve pues después de *S* sigue *R*. 
+
+
+
+Parte del uso extendido de *R*, es gracias a su versatilidad las cuales provienen de las contribuciones de las comunidades científicas y de desarrolladores de software que crean y publican paquetes que extienden las capacidades básicas del lenguaje *R* los que están rigurosamente documentados. El ecosistema de *R* permite el reaprovechamiento continuo del conocimiento y de la técnica para facilitar las tareas de procesamiento de información en prácticamente cualquier campo de trabajo. 
+
+
