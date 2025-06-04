@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="J. Miguel Salazar (msalazar@centrogeo.edu.mx)">
 
-<title>Econometría – Econometría 0</title>
+<title>Inicio de R – Econometría 0</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./1_Empezando_R.html" rel="next">
+<link href="./2_Basicos_R_operaciones_tipos.html" rel="next">
+<link href="./Index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -107,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Index.html">🏠 Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1_Empezando_R.html">Contenido</a></li><li class="breadcrumb-item"><a href="./1_Empezando_R.html">Empezando</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -121,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">🏠 Home</span></a>
   </div>
 </li>
@@ -136,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_Empezando_R.html" class="sidebar-item-text sidebar-link">
+  <a href="./1_Empezando_R.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Empezando</span></a>
   </div>
 </li>
@@ -169,16 +171,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1_Empezando_R.html">Contenido</a></li><li class="breadcrumb-item"><a href="./1_Empezando_R.html">Empezando</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Econometría</h1>
-<p class="subtitle lead">Curso básico de R para Econometría</p>
+<h1 class="title">Inicio de R</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>J. Miguel Salazar (msalazar@centrogeo.edu.mx) </p>
+          </div>
+  </div>
     
   
     
@@ -189,35 +196,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="objetivo" class="level1">
-<h1>Objetivo</h1>
-<p>Este es un curso de las cosas básicas que se necesitan para poder tomar el curso de Econometría de <a href="https://www.centrogeo.org.mx/">CentroGeo</a></p>
-<p>En este módulo se trataran los siguientes temas</p>
-<ul>
-<li><a href="./1_Empezando_R.html">Empezando con R</a>
-<ul>
-<li>Introducción a R.</li>
-<li>Documentos interactivos con RMarkdown y Quarto.</li>
-</ul></li>
-<li><a href="./2_Basicos_R_operaciones_tipos.html">Operadores y estructuras de datos.</a>
-<ul>
-<li>Operaciones y tipos de datos básicos.</li>
-<li>Estructuras de datos y conjuntos de datos (dataframes)</li>
-</ul></li>
-<li><a href="./3_Programacion_fechas.html">Control de flujo, condicionales y funciones especiales.</a>
-<ul>
-<li>Operadores, ciclos y funciones.</li>
-<li>Manipulación de fechas y horas.</li>
-<li>Transformación de datos con reshape.</li>
-</ul></li>
-<li><a href="./4_Tidyverse.html">El tidyverse.</a>
-<ul>
-<li>¿Qué es el tidyverse?</li>
-<li>Lectura y escritura de datos</li>
-<li>Manipulación de datos (data wrangling)</li>
-<li>Visualización de datos con ggplot2.</li>
-</ul></li>
-</ul>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p><em>R</em> es un lenguaje de programación para computación estadistica y visualización de datos. R es un software de código abierto y <a href="https://en.wikipedia.org/wiki/Free_software">software libre</a>. El lenguaje se ha desarrollado desde el principio de los años 90’s y ha tenido una evolución constante más recientemente se ha utilizado también para el desarrollo de aplicaciones como la ciencia de datos, el aprendizaje automático o la inteligencia artificial.</p>
+<p><em>R</em> fue inspirado por el lenguaje de <a href="https://en.wikipedia.org/wiki/S_(programming_language)">programación S</a>, lo que se ve pues después de <em>S</em> sigue <em>R</em>.</p>
+<p>Parte del uso extendido de <em>R</em>, es gracias a su versatilidad las cuales provienen de las contribuciones de las comunidades científicas y de desarrolladores de software que crean y publican paquetes que extienden las capacidades básicas del lenguaje <em>R</em> los que están rigurosamente documentados. El ecosistema de <em>R</em> permite el reaprovechamiento continuo del conocimiento y de la técnica para facilitar las tareas de procesamiento de información en prácticamente cualquier campo de trabajo.</p>
 
 
 </section>
@@ -645,10 +628,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Index.html" class="pagination-link" aria-label="🏠 Home">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">🏠 Home</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./1_Empezando_R.html" class="pagination-link" aria-label="Empezando">
-        <span class="nav-page-text">Empezando</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./2_Basicos_R_operaciones_tipos.html" class="pagination-link" aria-label="Basicos">
+        <span class="nav-page-text">Basicos</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

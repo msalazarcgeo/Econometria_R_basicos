@@ -12,13 +12,13 @@ Este es un curso de las cosas básicas que se necesitan para poder tomar el curs
 
 En este módulo se trataran los siguientes temas
 
-* Empezando con R
+* [Empezando con R](/1_Empezando_R.qmd)
     * Introducción a R.
     * Documentos interactivos con RMarkdown y Quarto.
 
-* Operadores y estructuras de datos. 
-    * [Operaciones y tipos de datos básicos.](/2_Basicos_R_operaciones_tipos.qmd)
-    * [Estructuras de datos y conjuntos de datos (dataframes)](/2_2_Estructuras_Dataframes.qmd)
+* [Operadores y estructuras de datos. ](/2_Basicos_R_operaciones_tipos.qmd)
+    * Operaciones y tipos de datos básicos.
+    * Estructuras de datos y conjuntos de datos (dataframes)
 
 * [Control de flujo, condicionales y funciones especiales.](/3_Programacion_fechas.qmd)
     * Operadores, ciclos y funciones.
@@ -32,7 +32,6 @@ En este módulo se trataran los siguientes temas
     * Lectura y escritura de datos
     * Manipulación de datos (data wrangling)
     * Visualización de datos con ggplot2. 
-
 
 
 

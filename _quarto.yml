@@ -1,10 +1,15 @@
 project:
   type: website
   output-dir: docs
+  render: 
+    - Index.qmd
+    - 1_Empezando_R.qmd
+    - 2_Basicos_R_operaciones_tipos.qmd
+    - 3_Programacion_fechas.qmd
+    - 4_Tidyverse.qmd
 website:
   title: "Econometría 0"
   page-navigation: true
-  page-footer: "Copyright 2025, CentroGeo" 
   navbar:
     right:
       - icon: github
@@ -16,15 +21,20 @@ website:
         href: Index.qmd  
       - section: "Contenido"
         contents:
+        - text: "Empezando" 
+          href: 1_Empezando_R.qmd
         - text: "Basicos" 
           href: 2_Basicos_R_operaciones_tipos.qmd
-        - text: "Estructuras y Dataframes"
-          href: 2_2_Estructuras_Dataframes.qmd
         - text: "Programación Basicos"
           href: 3_Programacion_fechas.qmd
         - text: "Tidyverse"
           href: 4_Tidyverse.qmd
-          
+  page-footer:
+    background: dark #light # or `dark`
+    left: Copyright 2025, CentroGeo
+    right: Link Github [{{< fa brands github title="The GitHub octocat logo" >}}](https://github.com/msalazarcgeo/Econometria_R_basicos){target=_blank}
+    
+
 format:
   html:
     theme: cosmo
