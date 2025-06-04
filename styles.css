@@ -1,0 +1,55 @@
+
+
+<!-- link to Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=News+Cycle:wght@400;700&display=swap" rel="stylesheet">
+
+
+```{css, echo = FALSE}
+/* override font family with new font family
+   need to override all places "spacelab" theme explicitly sets fonts */
+body {
+  /* new font "Lobster", add to start of "spacelab" stack
+     Google Fonts link needs to be referenced elsewhere */
+  font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1, .h1{
+  font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-style: bold;
+  color: #969696;
+}
+h2, .h2{
+  font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-style: bold;
+  color: #4D4D4D;
+}
+
+h3, .h3{
+  font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 550;
+  font-style: bold;
+  color: #FF4D6D;
+}
+.tooltip, .popover {
+  font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+```
+
+
+```{r logo_centrogeo, echo=FALSE}
+htmltools::img(src = knitr::image_uri(file.path("D:/EducDist/Econometria/regresion_lineal/logo_cg.png")), 
+               style = 'position:absolute; top:35px; right:0; padding:10px; max-width: 15%')
+```
+
+
+
+
+
+
+
+```{r imagen_final ,echo=FALSE, fig.align='center'}
+htmltools::img(src = knitr::image_uri(file.path("D:/EducDist/Econometria/regresion_lineal/footer.png")), 
+               alt = 'footer', 
+               style = 'position:absolute; max-width: 900px')
+```

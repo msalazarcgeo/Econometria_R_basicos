@@ -11,6 +11,7 @@ website:
   title: "Econometría 0"
   page-navigation: true
   navbar:
+    logo: ./Logo_Secihti_CG.png
     right:
       - icon: github
         href: https://github.com/
@@ -37,7 +38,9 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: minty
+      dark: solar
     css: styles.css
 execute:
   freeze: auto
