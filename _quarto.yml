@@ -12,9 +12,7 @@ website:
   page-navigation: true
   navbar:
     logo: ./Logo_Secihti_CG.png
-    right:
-      - icon: github
-        href: https://github.com/
+    #logo: ./logo_cg.png
   sidebar:
     style: docked
     contents:
@@ -39,8 +37,24 @@ website:
 format:
   html:
     theme: 
-      light: minty
-      dark: solar
-    css: styles.css
+      #dark: solar
+      #light: flatly
+      - solar
+      - custom.scss
+      
+    mainfont: Montserrat
+    toc: true
+    page-layout: full  
+  
+  live-html:
+    theme: 
+      #dark: solar
+      #light: flatly
+      - solar
+      - custom.scss
+      
+    mainfont: Montserrat
+    toc: true
+    page-layout: full
 execute:
   freeze: auto

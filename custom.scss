@@ -1,0 +1,73 @@
+/*-- scss:defaults --*/
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sen:wght@400..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=News+Cycle:wght@400;700&display=swap");
+
+//Fonts 
+
+
+
+// Colors
+$dark-green: #858E79;
+$light-green: #D1D9CE;
+$cream: #FDFBF7;
+$gray: #64605f;
+$purple: #9158A2;
+$orange: #ad7237;
+$morado_geo: #691932;
+
+// Base document colors
+//$navbar-bg: $cream; // navbar
+$navbar-fg: $dark-green; // navbar foreground elements
+//$navbar-hl: $purple; // highlight color when hovering over navbar links
+//$body-bg: $light-green; // page background 
+//$body-color: $gray; // page text 
+//$footer-bg: $cream; // footer 
+$link-color: $purple; // hyperlinks 
+
+// Inline code
+//$code-bg: $cream; // inline code background color
+//$code-color: $purple; // inline code text color
+
+// Code blocks
+//$code-block-bg: $cream; // code block background color 
+
+/*-- scss:rules --*/
+
+h1, .h1{
+    font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    font-style: bold;
+    color:  #969696;
+}
+h2, .h2{
+    font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-style: bold;
+    color: #4D4D4D;
+}  
+h3, .h3{
+    font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 550;
+    font-style: bold;
+    color: #FF4D6D;
+}
+.tooltip, .popover {
+   font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+  
+
+
+.title {
+  color: $morado_geo;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.orange-text {
+  color: $orange;
+}
+
+/*-- scss:rules --*/
