@@ -10,11 +10,12 @@ format: html
 # Objetivo 
 Este es un curso de las cosas básicas que se necesitan para poder tomar el curso de Econometría de [CentroGeo](https://www.centrogeo.org.mx/)
 
-En este módulo se trataran los siguientes temas
+En este módulo se trataran los siguientes temas:
 
 * [Empezando con R](/1_Empezando_R.qmd)
     * Introducción a R.
     * Documentos interactivos con RMarkdown y Quarto.
+
 
 * [Operadores y estructuras de datos. ](/2_Basicos_R_operaciones_tipos.qmd)
     * Operaciones y tipos de datos básicos.
@@ -24,8 +25,6 @@ En este módulo se trataran los siguientes temas
     * Operadores, ciclos y funciones.
     * Manipulación de fechas y horas.
     * Transformación de datos con reshape.
-
-
 
 * [El tidyverse.](/4_Tidyverse.qmd) 
     * ¿Qué es el tidyverse?

@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.53">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="J. Miguel Salazar (msalazar@centrogeo.edu.mx)">
 
-<title>Inicio de R – Econometría 0</title>
+<title>Econometría 0 - Inicio de R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -42,6 +76,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -71,6 +107,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
@@ -96,11 +134,11 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1_Empezando_R.html">Contenido</a></li><li class="breadcrumb-item"><a href="./1_Empezando_R.html">Empezando</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -119,9 +157,9 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Contenido</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -163,6 +201,23 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#instalación" id="toc-instalación" class="nav-link" data-scroll-target="#instalación">Instalación</a>
+  <ul class="collapse">
+  <li><a href="#instalación-r" id="toc-instalación-r" class="nav-link" data-scroll-target="#instalación-r">Instalación <em>R</em></a></li>
+  <li><a href="#instalación-rstudio" id="toc-instalación-rstudio" class="nav-link" data-scroll-target="#instalación-rstudio">Instalación RStudio</a></li>
+  </ul></li>
+  <li><a href="#uso-básico-de-rstudio" id="toc-uso-básico-de-rstudio" class="nav-link" data-scroll-target="#uso-básico-de-rstudio">Uso básico de RStudio</a>
+  <ul class="collapse">
+  <li><a href="#obtención-de-ayuda-en-r" id="toc-obtención-de-ayuda-en-r" class="nav-link" data-scroll-target="#obtención-de-ayuda-en-r">Obtención de ayuda en R</a></li>
+  <li><a href="#directorio-de-trabajo" id="toc-directorio-de-trabajo" class="nav-link" data-scroll-target="#directorio-de-trabajo">Directorio de trabajo</a></li>
+  </ul></li>
+  <li><a href="#instalación-de-paquetes-en-r" id="toc-instalación-de-paquetes-en-r" class="nav-link" data-scroll-target="#instalación-de-paquetes-en-r">Instalación de paquetes en R</a></li>
+  <li><a href="#cómo-funcionan-los-cuadernos-en-rmarkdown-.rmd" id="toc-cómo-funcionan-los-cuadernos-en-rmarkdown-.rmd" class="nav-link" data-scroll-target="#cómo-funcionan-los-cuadernos-en-rmarkdown-.rmd">Cómo funcionan los cuadernos en <em>RMarkdown (.Rmd)</em>?</a>
+  <ul class="collapse">
+  <li><a href="#qué-es-r-markdown" id="toc-qué-es-r-markdown" class="nav-link" data-scroll-target="#qué-es-r-markdown">¿Qué es R Markdown?</a></li>
+  <li><a href="#basicos-de-markdown" id="toc-basicos-de-markdown" class="nav-link" data-scroll-target="#basicos-de-markdown">Basicos de Markdown</a></li>
+  <li><a href="#comentar-el-código" id="toc-comentar-el-código" class="nav-link" data-scroll-target="#comentar-el-código">Comentar el código</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -199,11 +254,331 @@ ul.task-list li input[type="checkbox"] {
 <p><em>R</em> es un lenguaje de programación para computación estadistica y visualización de datos. R es un software de código abierto y <a href="https://en.wikipedia.org/wiki/Free_software">software libre</a>. El lenguaje se ha desarrollado desde el principio de los años 90’s y ha tenido una evolución constante más recientemente se ha utilizado también para el desarrollo de aplicaciones como la ciencia de datos, el aprendizaje automático o la inteligencia artificial.</p>
 <p><em>R</em> fue inspirado por el lenguaje de <a href="https://en.wikipedia.org/wiki/S_(programming_language)">programación S</a>, lo que se ve pues después de <em>S</em> sigue <em>R</em>.</p>
 <p>Parte del uso extendido de <em>R</em>, es gracias a su versatilidad las cuales provienen de las contribuciones de las comunidades científicas y de desarrolladores de software que crean y publican paquetes que extienden las capacidades básicas del lenguaje <em>R</em> los que están rigurosamente documentados. El ecosistema de <em>R</em> permite el reaprovechamiento continuo del conocimiento y de la técnica para facilitar las tareas de procesamiento de información en prácticamente cualquier campo de trabajo.</p>
+</section>
+<section id="instalación" class="level2">
+<h2 class="anchored" data-anchor-id="instalación">Instalación</h2>
+<p>Para hacer uso de <em>R</em> vamos a installar <em>R</em> en nuestro sistema y después vamos a instalar <em>RStudio</em> el cual es un software que nos facilita la interacción con los elementos de <em>R</em>.</p>
+<section id="instalación-r" class="level3">
+<h3 class="anchored" data-anchor-id="instalación-r">Instalación <em>R</em></h3>
+<ul>
+<li><p>Paso 1: Descargar R</p>
+<ul>
+<li>R es el lenguaje de programación en sí mismo. Primero, necesitamos instalarlo.</li>
+<li>Abre tu navegador web y ve al sitio web oficial de CRAN (The Comprehensive R Archive Network): https://cran.r-project.org/ Imagen de Página principal de CRAN</li>
+</ul>
+<p>En la sección “Download, Packages”, haz clic en el enlace correspondiente a tu sistema operativo: * Windows: Haz clic en “Download R for Windows”. Imagen de Enlace de descarga de R para Windows * macOS: Haz clic en “Download R for macOS”. Imagen de Enlace de descarga de R para macOS</p>
+<pre><code>  * Linux: Haz clic en "Download R for Linux" y sigue las instrucciones específicas para tu distribución de Linux.
+      Imagen de Enlace de descarga de R para Linux</code></pre>
+<p>*Para Windows: Haz clic en “base”. Imagen de Enlace a la instalación base de R para Windows</p>
+<p>Para Windows: Haz clic en el enlace para descargar la última versión de R (por ejemplo, “Download R 4.3.1 for Windows”). Imagen de Enlace de descarga de la última versión de R para Windows</p>
+<p>Una vez que la descarga se complete, abre el archivo ejecutable (.exe en Windows, .pkg en macOS) y sigue las instrucciones del asistente de instalación. Generalmente, puedes dejar las opciones predeterminadas.</p></li>
+</ul>
+<p>Windows:</p>
+<p>Imagen de Asistente de instalación de R en Windows</p>
+<p>macOS:</p>
+<p>Imagen de Asistente de instalación de R en macOS</p>
+<p>Una vez finalizada la instalación, R estará instalado en tu computadora. Puedes buscarlo en el menú de inicio (Windows) o en la carpeta de Aplicaciones (macOS) para verificar que se haya instalado correctamente.</p>
+<p>Windows (Ejemplo):</p>
+<p>Imagen de R en el menú de inicio de Windows</p>
+</section>
+<section id="instalación-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="instalación-rstudio">Instalación RStudio</h3>
+<p>RStudio es un entorno de desarrollo integrado (IDE) que facilita el trabajo con R. Es muy recomendable instalarlo.</p>
+<ol type="1">
+<li><p>Para su instalación abre en tu navegador web y ve al sitio web oficial de RStudio: <a href="https://rstudio.com/products/rstudio/download/">https://rstudio.com/products/rstudio/download/</a></p>
+<p>Imagen de Página de descarga de RStudio</p></li>
+<li><p>Baja hasta la sección “RStudio Desktop” y haz clic en el botón “Download”. Imagen de Botón de descarga de RStudio Desktop</p></li>
+<li><p>En la siguiente página, busca la sección “Installers for Supported Platforms” y descarga la versión correspondiente a tu sistema operativo:</p>
+<ul>
+<li><p>Windows: Haz clic en el archivo .exe.</p>
+<p>Imagen de Enlace de descarga de RStudio para Windows</p></li>
+<li><p>macOS: Haz clic en el archivo .dmg.</p>
+<p>Imagen de Enlace de descarga de RStudio para macOS</p></li>
+<li><p>Linux : Puedes ver las instrucciones específicas para Debian o Ubuntu o descargar el archivo .deb si es aplicable.</p>
+<p>Imagen de Enlace de descarga de RStudio para Ubuntu</p></li>
+</ul></li>
+<li><p>Una vez que la descarga se complete, abre el archivo ejecutable y sigue las instrucciones del asistente de instalación. Nuevamente, generalmente puedes dejar las opciones predeterminadas.</p>
+<ul>
+<li><p>Windows:</p>
+<p>Imagen de Asistente de instalación de RStudio en Windows</p></li>
+<li><p>macOS: Arrastra el icono de RStudio a la carpeta de Aplicaciones.</p>
+<p>Imagen de Arrastrar RStudio a la carpeta de Aplicaciones en macOS</p></li>
+</ul></li>
+<li><p>Una vez finalizada la instalación, RStudio estará listo para ser utilizado. Puedes buscarlo en el menú de inicio (Windows) o en la carpeta de Aplicaciones (macOS) y abrirlo.</p></li>
+</ol>
+<ul>
+<li><p>Ejemplo de la interfaz de RStudio:</p>
+<pre><code>  Imagen de Interfaz de RStudio</code></pre></li>
+</ul>
+</section>
+</section>
+<section id="uso-básico-de-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="uso-básico-de-rstudio">Uso básico de RStudio</h2>
+<p><em>RStudio</em> es un IDE pensado especificamente para <em>R</em> lo que permite que aprender y trabajar dentro con R dentro de este IDE sea muy eficiente y amigable.</p>
+<p>Al abrir RStudio, verás una interfaz dividida en varias “paneles” o “ventanas”, cada una con una función específica. Imagen de Paneles principales de RStudio</p>
+<p>Aunque la configuración puede variar, los paneles más comunes son:</p>
+<ul>
+<li><p><strong>Consola</strong> (Console): Es donde puedes escribir comandos de R directamente y ver los resultados de forma inmediata. Es útil para probar líneas de código rápidas o para ejecutar scripts. * Ubicación: Generalmente en la parte inferior izquierda. * Uso: Escribe 2 + 2 y presiona Enter. Verás el resultado [1] 4.</p></li>
+<li><p><strong>Editor de Script</strong> (Source Editor): Aquí es donde escribes y guardas tus scripts de R (archivos .R). Es el lugar ideal para desarrollar tu código de forma organizada y reproducible.</p>
+<ul>
+<li><strong>Uso:</strong> Puedes escribir múltiples líneas de código y luego ejecutarlas seleccionándolas y presionando Ctrl + Enter (Windows/Linux) o Cmd + Enter (macOS).</li>
+<li>Ubicación: Generalmente en la parte superior izquierda.</li>
+</ul></li>
+<li><p><strong>Entorno / Historial / Conexiones / Tutorial</strong> (Environment / History / Connections / Tutorial):</p>
+<ul>
+<li><p><strong>Entorno</strong> (Environment): Muestra todos los objetos (variables, funciones, conjuntos de datos) que has creado o cargado en tu sesión de R. Es una forma útil de ver qué datos tienes disponibles.</p></li>
+<li><p><strong>Historial</strong> (History): Guarda un registro de todos los comandos que has ejecutado en la consola.</p></li>
+<li><p>Ubicación: Generalmente en la parte superior derecha.</p></li>
+</ul></li>
+<li><p><strong>Archivos / Plots / Paquetes / Ayuda / Visor</strong> (Files / Plots / Packages / Help / Viewer):</p>
+<ul>
+<li><p><strong>Archivos</strong> (Files): Un explorador de archivos que te permite navegar por los directorios de tu computadora.</p></li>
+<li><p><strong>Gráficos</strong> (Plots): Aquí se mostrarán todos los gráficos que generes con tu código R.</p></li>
+<li><p><strong>Paquetes</strong> (Packages): Te permite ver los paquetes instalados y cargar/descargar paquetes. También puedes instalar nuevos paquetes desde aquí.</p></li>
+<li><p><strong>Ayuda</strong> (Help): Proporciona acceso a la documentación de R y de los paquetes, lo cual es invaluable para entender cómo funcionan las funciones.</p></li>
+<li><p><strong>Visor</strong> (Viewer): Se utiliza para visualizar contenido web local, como documentos HTML generados por R Markdown.</p></li>
+<li><p>Ubicación: Generalmente en la parte inferior derecha.</p></li>
+</ul></li>
+</ul>
+<section id="obtención-de-ayuda-en-r" class="level3">
+<h3 class="anchored" data-anchor-id="obtención-de-ayuda-en-r">Obtención de ayuda en R</h3>
+<p><em>R</em> es un lenguaje de programación que está completamente documentado. Es importante aprender a consultar la ayuda para entender mejor cómo utilizar las funciones de <em>R</em> de la mejor manera posible.</p>
+<p>Ejecuta el siguiente <em>chunk</em> para obtener ayuda sobre la función <code>for</code> usando la función <code>help</code> (la ayuda aparecerá en el panel <em>Help</em>):</p>
+<div class="cell">
+<div>
+<div id="webr-1" class="exercise-cell">
+
+</div>
+<script type="webr-1-contents">
+eyJjb2RlIjoiaGVscChcImZvclwiKSIsImF0dHIiOnsiZXZhbCI6dHJ1ZSwiZWRpdCI6dHJ1ZX19
+</script>
+</div>
+</div>
+<p>Existe otra forma común de consultar la ayuda. Selecciona o ubica el cursor en la función <code>R.Version()</code> y presiona la tecla <strong>F1</strong> (no es necesario correr este <em>chunk</em>, la ayuda aparecerá en el panel <em>Help</em>) :</p>
+<div class="cell">
+<div>
+<div id="webr-2" class="exercise-cell">
+
+</div>
+<script type="webr-2-contents">
+eyJjb2RlIjoiUi5WZXJzaW9uKCkiLCJhdHRyIjp7ImV2YWwiOnRydWUsImVkaXQiOnRydWV9fQ==
+</script>
+</div>
+</div>
+<p>Ejecuta el siguiente <em>chunk</em> para buscar documentación relacionada con estructuras de control buscando el término <code>"control flow"</code> usando la función <code>help.search</code> (el índice de temas relacionados aparecerá en el panel <em>Help</em>):</p>
+<div class="cell">
+<div>
+<div id="webr-3" class="exercise-cell">
+
+</div>
+<script type="webr-3-contents">
+eyJjb2RlIjoiaGVscC5zZWFyY2goXCJjb250cm9sIGZsb3dcIikiLCJhdHRyIjp7ImV2YWwiOnRydWUsImVkaXQiOnRydWV9fQ==
+</script>
+</div>
+</div>
+</section>
+<section id="directorio-de-trabajo" class="level3">
+<h3 class="anchored" data-anchor-id="directorio-de-trabajo">Directorio de trabajo</h3>
+<p>Una buena práctica para programar en <em>R</em> es establecer un directorio de trabajo para almacenar todos los programas, cuadernos y datos para tener una mejor organización y facilidad al escribir códigos.</p>
+<p>Ejecuta el siguiente <em>chunk</em> para ver el directorio de trabajo actual usando la función <code>getwd</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Define el directorio de trabajo que usarás para el taller usando la función <code>setwd</code>, escribe entre comillas la ruta de la carpeta del taller que descargaste desde <em>GitHub</em> (dentro de las comillas puedes presionar la tecla <em>Tab</em> después de cada diagonal para definir la ruta):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo para definir la carpeta de trabajo en Windows:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># setwd("C:\centrogeo-taller-sigypp") </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo para definir la carpeta de trabajo en macOS o Linux:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># setwd(dir = "/Users/Usuario/Documents/Centro Geo/centrogeo-taller-sigypp")</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="sc">**</span><span class="er">*</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>También se pueden usar los proyectos en <em>RStudio</em> para definir una carpeta de trabajo.</p>
+</section>
+</section>
+<section id="instalación-de-paquetes-en-r" class="level2">
+<h2 class="anchored" data-anchor-id="instalación-de-paquetes-en-r">Instalación de paquetes en R</h2>
+<p>Para instalar paquetes dentro de <strong>R</strong> lo mas sencillo es utilizar la función <code>install.packages()</code></p>
+</section>
+<section id="cómo-funcionan-los-cuadernos-en-rmarkdown-.rmd" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-funcionan-los-cuadernos-en-rmarkdown-.rmd">Cómo funcionan los cuadernos en <em>RMarkdown (.Rmd)</em>?</h2>
+<p>Los cuadernos interactivos en formato <em>RMarkdown</em> nos permiten combinar en un mismo documento texto, imágenes, ecuaciones y código que se puede ejecutar para mostrar su resultado. <em>RStudio</em> sirve para crear cuadernos como éste y ejecutar de manera interactiva su código en lenguaje <em>R</em> (entre otros), además de que podemos documentar nuestros ejercicios para comunicar lo que hemos desarrollado a otras personas ya que un cuaderno <em>RMarkdown</em> se puede exportar en otros formatos más compatibles como <em>HTML</em>, <em>PDF</em> o <em>Word</em>.</p>
+<p>En el siguinete link pueden enontrar una hoja donde se enuentra resumido muchas de las cosas que se pueden hacer con markdown dentro de r <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown-2.0.pdf">link</a></p>
+<p>A continuacion hacemos un resumen para las cosas básicas que vamos a necesitar.</p>
+<section id="qué-es-r-markdown" class="level3">
+<h3 class="anchored" data-anchor-id="qué-es-r-markdown">¿Qué es R Markdown?</h3>
+<p>RMarkdown es un formato de archivo que permite crear documentos dinámicos y reproducibles a partir de R. Combina:</p>
+<ul>
+<li><p><strong>Markdown:</strong> Un lenguaje de marcado simple para formatear texto (títulos, negritas, cursivas, listas, etc.).</p></li>
+<li><p><strong>Código R:</strong> Puedes insertar y ejecutar bloques de código R directamente en tu documento.</p></li>
+<li><p><strong>Resultados de R:</strong> Los resultados del código (tablas, gráficos, etc.) se incrustan automáticamente en el documento.</p></li>
+</ul>
+</section>
+<section id="basicos-de-markdown" class="level3">
+<h3 class="anchored" data-anchor-id="basicos-de-markdown">Basicos de Markdown</h3>
+<section id="encabezados" class="level4">
+<h4 class="anchored" data-anchor-id="encabezados">Encabezados</h4>
+<p>Usa el símbolo de numeral (#) seguido de un espacio para crear encabezados. El número de almohadillas indica el nivel del encabezado (del 1 al 6).</p>
+<pre><code>##### Encabezado 5
+
+###### Encabezado 6</code></pre>
+<section id="encabezado-5" class="level5">
+<h5 class="anchored" data-anchor-id="encabezado-5">Encabezado 5</h5>
+<section id="encabezado-6" class="level6">
+<h6 class="anchored" data-anchor-id="encabezado-6">Encabezado 6</h6>
+</section>
+</section>
+</section>
+<section id="párrafos" class="level4">
+<h4 class="anchored" data-anchor-id="párrafos">Párrafos</h4>
+<p>Simplemente escribe el texto. Un párrafo se crea separando líneas de texto con una línea en blanco.</p>
+<pre><code>Este es el primer párrafo de mi documento.
+
+Este es el segundo párrafo. Se separa del anterior por una línea en blanco.</code></pre>
+</section>
+<section id="cursiva-y-negritas" class="level4">
+<h4 class="anchored" data-anchor-id="cursiva-y-negritas">Cursiva y Negritas</h4>
+<p>Negritas: Usa dos asteriscos (<strong>texto</strong>) o dos guiones bajos (<strong>texto</strong>).</p>
+<p>Cursivas: Usa un asterisco (<em>texto</em>) o un guion bajo (<em>texto</em>).</p>
+<pre><code>*Cursiva* y **Negritas**</code></pre>
+<p><em>Cursiva</em> y <strong>Negritas</strong></p>
+</section>
+<section id="listas" class="level4">
+<h4 class="anchored" data-anchor-id="listas">Listas</h4>
+<ul>
+<li><p>Listas desordenadas: Usa asteriscos (*), guiones (-) o signos de suma (+) seguidos de un espacio.</p></li>
+<li><p>Listas ordenadas: Usa números seguidos de un punto y un espacio (1.).</p></li>
+<li><p>Cosa 1</p></li>
+<li><p>Cosa 2</p></li>
+<li><p>Cosa 3</p>
+<ul>
+<li>Cosa 3.1</li>
+</ul></li>
+</ul>
+<pre><code>* Cosa 1 
+* Cosa 2 
+* Cosa 3
+    - Cosa 3.1
+</code></pre>
+</section>
+<section id="tablas" class="level4">
+<h4 class="anchored" data-anchor-id="tablas">Tablas</h4>
+<pre><code>| Normal | Izquierda | Derecha | Centro |
+|---------|:-----|------:|:------:|
+| abc     | abc  | abc   | abc    |
+| abcd    | abcd | abcd  | abcd   |
+| a       | a    | a     | a      |
+</code></pre>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Normal</th>
+<th style="text-align: left;">Izquierda</th>
+<th style="text-align: right;">Derecha</th>
+<th style="text-align: center;">Centro</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>abc</td>
+<td style="text-align: left;">abc</td>
+<td style="text-align: right;">abc</td>
+<td style="text-align: center;">abc</td>
+</tr>
+<tr class="even">
+<td>abcd</td>
+<td style="text-align: left;">abcd</td>
+<td style="text-align: right;">abcd</td>
+<td style="text-align: center;">abcd</td>
+</tr>
+<tr class="odd">
+<td>a</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">a</td>
+<td style="text-align: center;">a</td>
+</tr>
+</tbody>
+</table>
+<p>Se pueden hace muchas más cosas dentro de Markdown.</p>
+</section>
+<section id="imágenes" class="level4">
+<h4 class="anchored" data-anchor-id="imágenes">Imágenes</h4>
+<p>Usa un signo de exclamación, corchetes para el texto alternativo (que se muestra si la imagen no carga) y paréntesis para la ruta de la imagen.</p>
+<pre><code>![Logo de RStudio](ruta/a/tu/imagen.png)</code></pre>
+</section>
+<section id="sintaxis-de-code-chunks-bloques-de-código-en-r-markdown" class="level4">
+<h4 class="anchored" data-anchor-id="sintaxis-de-code-chunks-bloques-de-código-en-r-markdown">Sintaxis de Code Chunks (Bloques de Código) en R Markdown</h4>
+<p>En un cuaderno de <em>RMarkdown</em>, los códigos en lenguaje R se escriben dentro de bloques llamados <em>chunks</em>. En RStudio podemos ejecutar el contenido de un <em>chunk</em> presionando el botón verde de reproducción llamado <code>Run Current Chunk</code> ó situando el cursor dentro del <em>chunk</em> y presionando las teclas <code>Ctrl+Enter</code>.</p>
+<p>Los <em>chunks</em> de código o celdas se limitan haciendo uso de <code>```</code> tanto al inicio como al final.</p>
+<p>Fuera de estos <em>chunks</em>, podemos escribir texto el cual podemos resaltar haciendo uso dentro del texto con simples marcadores.</p>
+<pre><code>::: {.cell}
+
+```{.r .cell-code}
+# Este es un bloque de código R
+# Puedes escribir cualquier código R aquí
+x &lt;- 1:10
+print(x)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+ [1]  1  2  3  4  5  6  7  8  9 10
+```
 
 
+:::
+:::</code></pre>
+</section>
+</section>
+<section id="comentar-el-código" class="level3">
+<h3 class="anchored" data-anchor-id="comentar-el-código">Comentar el código</h3>
+<p>Se pueden agregar notas y comentarios a los códigos sin que se ejecuten anteponiendo <code>#</code>. Ejecuta la siguiente instrucción para que aparezca el mensaje <code>"Puedo ver este texto!"</code> sin que aparezcan los comentarios que están en la misma línea y en la siguiente:</p>
+<div class="cell">
+<div>
+<div id="webr-4" class="exercise-cell">
+
+</div>
+<script type="webr-4-contents">
+eyJjb2RlIjoicHJpbnQoXCJQdWVkbyB2ZXIgZXN0ZSB0ZXh0byFcIikgIyBFc3RlIGVzIHVuIGNvbWVudGFyaW8gcXVlIG5vIHNlIHZlXG4jIE5vIHB1ZWRvIHZlciBlc3RlIHRleHRvISIsImF0dHIiOnsiZXZhbCI6dHJ1ZSwiZWRpdCI6dHJ1ZX19
+</script>
+</div>
+</div>
+
+
+<script type="webr-data">
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC40LjIvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyJdLCJyZXBvcyI6W119LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC00Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV80O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIiwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0IiwiaW5saW5lIjpmYWxzZX0seyJjZWxsTmFtZSI6IndlYnItNCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNCA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici00LWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzQgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzQsIHt9KTtcbiIsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJpbmxpbmUiOmZhbHNlfSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtMyIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMztcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsImlubGluZSI6ZmFsc2V9LHsiY2VsbE5hbWUiOiJ3ZWJyLTMiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0zLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8zLCB7fSk7XG4iLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjpmYWxzZX0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTIiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzI7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4iLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJpbmxpbmUiOmZhbHNlfSx7ImNlbGxOYW1lIjoid2Vici0yIiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl8yID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMi1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTItY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMiwge30pO1xuIiwibWV0aG9kTmFtZSI6ImludGVycHJldCIsImlubGluZSI6ZmFsc2V9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xIiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIiwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0IiwiaW5saW5lIjpmYWxzZX0seyJjZWxsTmFtZSI6IndlYnItMSIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMSA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzEgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzEsIHt9KTtcbiIsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJpbmxpbmUiOmZhbHNlfSx7ImNlbGxOYW1lIjoid2Vici1wcmVsdWRlIiwic291cmNlIjoid2ViUk9qcyA9IHtcbiAgY29uc3QgeyBXZWJSLCBDaGFubmVsVHlwZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZS5XZWJSO1xuICBjb25zdCB7XG4gICAgV2ViUkV2YWx1YXRvcixcbiAgICBXZWJSRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyB3ZWJSIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIC8vIFVzZSBQb3N0TWVzc2FnZSBjaGFubmVsIGZvciBhc3luYyBjb21tdW5pY2F0aW9uXG4gIC8vIFdlIGRvIG5vdCBleHBlY3QgdG8gdGFrZSBuZXN0ZWQgcHJvbXB0IGlucHV0IGluIFF1YXJ0byBMaXZlIGNlbGxzXG4gIGRhdGEub3B0aW9ucy5jaGFubmVsVHlwZSA9IENoYW5uZWxUeXBlLlBvc3RNZXNzYWdlO1xuXG4gIC8vIEluaXRpYWxpc2Ugd2ViUiBhbmQgc2V0dXAgZm9yIFIgY29kZSBldmFsdWF0aW9uXG4gIGxldCB3ZWJSUHJvbWlzZSA9IChhc3luYyAod2ViUikgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgd2ViUmA7XG4gICAgYXdhaXQgd2ViUi5pbml0KCk7XG5cbiAgICAvLyBJbnN0YWxsIHByb3ZpZGVkIGxpc3Qgb2YgcGFja2FnZXNcbiAgICAvLyBFbnN1cmUgd2ViUiBkZWZhdWx0IHJlcG8gaXMgaW5jbHVkZWRcbiAgICBkYXRhLnBhY2thZ2VzLnJlcG9zLnB1c2goXCJodHRwczovL3JlcG8uci13YXNtLm9yZ1wiKVxuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIHdlYlIuZXZhbFJWb2lkKGBcbiAgICAgICAgd2Vicjo6aW5zdGFsbChwa2csIHJlcG9zID0gcmVwb3MpXG4gICAgICAgIGxpYnJhcnkocGtnLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpXG4gICAgICBgLCB7IGVudjoge1xuICAgICAgICBwa2c6IHBrZyxcbiAgICAgICAgcmVwb3M6IGRhdGEucGFja2FnZXMucmVwb3MsXG4gICAgICB9fSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCB3ZWJSLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKCFlLm1lc3NhZ2UuaW5jbHVkZXMoXCJGUyBlcnJvclwiKSkge1xuICAgICAgICAgICAgdGhyb3cgZTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHJldHVybiBhd2FpdCB3ZWJSLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluc3RhbGxpbmcgd2ViUiBzaGltc2A7XG4gICAgYXdhaXQgd2ViUi5ldmFsUlZvaWQoYHdlYnI6OnNoaW1faW5zdGFsbCgpYCk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFdlYlIgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUih3ZWJSLCBkYXRhKTtcblxuICAgIHN0YXR1c1RleHQucmVtb3ZlKCk7XG4gICAgaWYgKHN0YXR1c0NvbnRhaW5lci5jaGlsZHJlbi5sZW5ndGggPT0gMCkge1xuICAgICAgc3RhdHVzQ29udGFpbmVyLnBhcmVudE5vZGUucmVtb3ZlKCk7XG4gICAgfVxuICAgIHJldHVybiB3ZWJSO1xuICB9KShuZXcgV2ViUihkYXRhLm9wdGlvbnMpKTtcblxuICAvLyBLZWVwIHRyYWNrIG9mIGluaXRpYWwgT0pTIGJsb2NrIHJlbmRlclxuICBjb25zdCByZW5kZXJlZE9qcyA9IHt9O1xuXG4gIGNvbnN0IHByb2Nlc3MgPSBhc3luYyAoY29udGV4dCwgaW5wdXRzKSA9PiB7XG4gICAgY29uc3Qgd2ViUiA9IGF3YWl0IHdlYlJQcm9taXNlO1xuICAgIGNvbnN0IGV2YWx1YXRvciA9IG5ldyBXZWJSRXZhbHVhdG9yKHdlYlIsIGNvbnRleHQpXG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHJvY2VzcyxcbiAgICB3ZWJSUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgfTtcbn1cbiIsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsImlubGluZSI6ZmFsc2V9XX0=
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -239,7 +614,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -271,29 +657,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -301,7 +665,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
