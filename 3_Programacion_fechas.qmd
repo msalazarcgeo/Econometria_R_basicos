@@ -1,6 +1,6 @@
 ---
 title: "Untitled"
-author: "J. Miguel Salazar (msalazar@centrogeo.edu.mx), _Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
+#author: "J. Miguel Salazar (msalazar@centrogeo.edu.mx), _Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
 format: live-html
 ---
 
