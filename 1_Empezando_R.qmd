@@ -318,16 +318,13 @@ Los *chunks* de código o celdas se limitan haciendo uso de ` ``` ` tanto al ini
 Fuera de estos *chunks*, podemos escribir texto el cual podemos resaltar haciendo uso dentro del texto con simples marcadores. 
 
 
+
+````markdown
+```
+# Esto es un codigo que se 
+print("queremos que esto se muestre ")
+```
 ````
-#| eval: false
-```{r echo=FALSE}
-# Este código se ejecuta pero no se muestra en el documento final
-summary(cars)
-``` 
-````
-
-
-
 
 
 ### Comentar el código
@@ -338,4 +335,8 @@ Se pueden agregar notas y comentarios a los códigos sin que se ejecuten antepon
 print("Puedo ver este texto!") # Este es un comentario que no se ve 
 # No puedo ver este texto!
 ```
+
+
+
+
 
