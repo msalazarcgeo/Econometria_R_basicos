@@ -28,38 +28,39 @@ Para hacer uso de *R* vamos a installar *R* en nuestro sistema y después vamos 
 
     * R es el lenguaje de programación en sí mismo. Primero, necesitamos instalarlo.
     * Abre tu navegador web y ve al sitio web oficial de CRAN (The Comprehensive R Archive Network): https://cran.r-project.org/
-    Imagen de Página principal de CRAN
+
+    ![Imagen de Página principal de CRAN](Imagenes/Empezando/Cran_prin.png)
 
 
     En la sección "Download, Packages", haz clic en el enlace correspondiente a tu sistema operativo:
         * Windows: Haz clic en "Download R for Windows".
-            Imagen de Enlace de descarga de R para Windows
+            ![Download windows](Imagenes/Empezando/Download_windos_0.png)
+
         * macOS: Haz clic en "Download R for macOS".
-            Imagen de Enlace de descarga de R para macOS
+            
 
         * Linux: Haz clic en "Download R for Linux" y sigue las instrucciones específicas para tu distribución de Linux.
-            Imagen de Enlace de descarga de R para Linux
+            
     *Para Windows: Haz clic en "base".
-        Imagen de Enlace a la instalación base de R para Windows
+        ![Download windows base](Imagenes/Empezando/Download_r_3.png)
         
     Para Windows: Haz clic en el enlace para descargar la última versión de R (por ejemplo, "Download R 4.3.1 for Windows").
-    Imagen de Enlace de descarga de la última versión de R para Windows
+    ![Imagen de Enlace de descarga de la última versión de R para Windows](Imagenes/Empezando/Download_R_win_3.png)
 
     Una vez que la descarga se complete, abre el archivo ejecutable (.exe en Windows, .pkg en macOS) y sigue las instrucciones del asistente de instalación. Generalmente, puedes dejar las opciones predeterminadas.
 
 Windows:
 
-Imagen de Asistente de instalación de R en Windows
+![Imagen de Asistente de instalación de R en Windows 1](Imagenes/Empezando/Install_R_0.png)
 
-macOS:
 
-Imagen de Asistente de instalación de R en macOS
+![Imagen de Asistente de instalación de R en Windows 2](Imagenes/Empezando/Installacion_2.png)
+
+
+![Imagen de Asistente de instalación de R en Windows 3](Imagenes/Empezando/Installacion_R_3.png)
 
 Una vez finalizada la instalación, R estará instalado en tu computadora. Puedes buscarlo en el menú de inicio (Windows) o en la carpeta de Aplicaciones (macOS) para verificar que se haya instalado correctamente.
 
-Windows (Ejemplo):
-
-Imagen de R en el menú de inicio de Windows
 
 
 ### Instalación RStudio 
@@ -69,39 +70,36 @@ RStudio es un entorno de desarrollo integrado (IDE) que facilita el trabajo con 
 
  1. Para su instalación abre  en tu navegador web y ve al sitio web oficial de RStudio: [https://rstudio.com/products/rstudio/download/](https://rstudio.com/products/rstudio/download/)
 
-    Imagen de Página de descarga de RStudio
+    ![Imagen de Página de descarga de RStudio](Imagenes/Empezando/R_studio_0.png)
 
  2. Baja hasta la sección "RStudio Desktop" y haz clic en el botón "Download".
-    Imagen de Botón de descarga de RStudio Desktop
+    ![Imagen de Botón de descarga de RStudio Desktop](Imagenes/Empezando/R_studio_1.png)
 
  3. En la siguiente página, busca la sección "Installers for Supported Platforms" y descarga la versión correspondiente a tu sistema operativo:
     * Windows: Haz clic en el archivo .exe.
 
-        Imagen de Enlace de descarga de RStudio para Windows
-
     * macOS: Haz clic en el archivo .dmg.
-
-        Imagen de Enlace de descarga de RStudio para macOS
 
     * Linux : Puedes ver las instrucciones específicas para Debian o Ubuntu o descargar el archivo .deb si es aplicable.
 
-        Imagen de Enlace de descarga de RStudio para Ubuntu
+        
 
 4. Una vez que la descarga se complete, abre el archivo ejecutable y sigue las instrucciones del asistente de instalación. Nuevamente, generalmente puedes dejar las opciones predeterminadas.
 
     * Windows:
 
-        Imagen de Asistente de instalación de RStudio en Windows
+        ![](Imagenes/Empezando/R_studio_2.png)
+        ![](Imagenes/Empezando/R_studio_3.png)
+        ![](Imagenes/Empezando/R_studio_4.png)
 
     * macOS: Arrastra el icono de RStudio a la carpeta de Aplicaciones.
 
-        Imagen de Arrastrar RStudio a la carpeta de Aplicaciones en macOS
-
+        
 5. Una vez finalizada la instalación, RStudio estará listo para ser utilizado. Puedes buscarlo en el menú de inicio (Windows) o en la carpeta de Aplicaciones (macOS) y abrirlo.
 
 * Ejemplo de la interfaz de RStudio:
-
-        Imagen de Interfaz de RStudio
+    ![](Imagenes/Empezando/R_studio_5.png)
+        
 
 
 ## Uso básico de RStudio
@@ -141,7 +139,7 @@ Aunque la configuración puede variar, los paneles más comunes son:
 
 ### Obtención de ayuda en R
 
-*R* es un lenguaje de programación que está completamente documentado. Es importante aprender a consultar la ayuda para entender mejor cómo utilizar las funciones de *R* de la mejor manera posible. 
+*R* es un lenguaje de programación que está completamente documentado. Es importante aprender a consultar la ayuda para entender mejor cómo utilizar las funciones de *R* de la mejor manera posible.
 
 Ejecuta el siguiente *chunk* para obtener ayuda sobre la función `for` usando la función `help` (la ayuda aparecerá en el panel *Help*):
 
