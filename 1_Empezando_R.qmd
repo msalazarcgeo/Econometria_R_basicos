@@ -88,9 +88,11 @@ RStudio es un entorno de desarrollo integrado (IDE) que facilita el trabajo con 
 
     * Windows:
 
-        ![](Imagenes/Empezando/R_studio_2.png)
-        ![](Imagenes/Empezando/R_studio_3.png)
-        ![](Imagenes/Empezando/R_studio_4.png)
+        ![Instalacion R studio 1](Imagenes/Empezando/R_studio_2.png)
+        
+        ![Instalacion R studio 2](Imagenes/Empezando/R_studio_3.png)
+
+        ![Instalacion R studio termino](Imagenes/Empezando/R_studio_4.png)
 
     * macOS: Arrastra el icono de RStudio a la carpeta de Aplicaciones.
 

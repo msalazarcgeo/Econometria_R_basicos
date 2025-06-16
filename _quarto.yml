@@ -11,8 +11,8 @@ website:
   title: "Econometría 0"
   page-navigation: true
   navbar:
-    logo: ./Logo_Secihti_CG.png
-    #logo: ./logo_cg.png
+    #logo: ./Logo_Secihti_CG.png
+    logo: ./logo_cg.png
   sidebar:
     style: docked
     contents:
