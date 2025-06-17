@@ -14,11 +14,11 @@ $cream: #FDFBF7;
 $gray: #64605f;
 $purple: #9158A2;
 $orange: #ad7237;
-$morado_geo: #691932;
+$morado_geo:#ff4d6d ;// #691932;
 
 // Base document colors
 //$navbar-bg: $cream; // navbar
-$navbar-fg: $dark-green; // navbar foreground elements
+//$navbar-fg: $dark-green; // navbar foreground elements
 //$navbar-hl: $purple; // highlight color when hovering over navbar links
 //$body-bg: $light-green; // page background 
 //$body-color: $gray; // page text 
@@ -33,6 +33,7 @@ $link-color: $purple; // hyperlinks
 //$code-block-bg: $cream; // code block background color 
 
 /*-- scss:rules --*/
+
 
 h1, .h1{
     font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -60,6 +61,7 @@ h3, .h3{
 
 .title {
   color: $morado_geo;
+  
 }
 
 .center-text {

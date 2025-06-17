@@ -1,5 +1,5 @@
 ---
-title: "Basicos R Operaciones y tipos de datos"
+title: "Operaciones y tipos de datos"
 #author: "J. Miguel Salazar (msalazar@centrogeo.edu.mx), Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
 format: live-html
 ---

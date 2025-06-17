@@ -8,9 +8,9 @@ format: live-html
 
 ## Introducción
 
-*R* es un lenguaje de programación para computación estadistica y visualización de datos. R es un software de código abierto y [software libre](https://en.wikipedia.org/wiki/Free_software). El lenguaje se ha desarrollado desde el principio de los años 90's y ha tenido una evolución constante, recientemente se ha utilizado también para el desarrollo de aplicaciones como la ciencia de datos, el aprendizaje automático o la inteligencia artificial.
+*R* es un lenguaje de programación para computación estadistica y visualización de datos. R es un software de código abierto y [software libre](https://en.wikipedia.org/wiki/Free_software){target="_blank"}. El lenguaje se ha desarrollado desde el principio de los años 90's y ha tenido una evolución constante, recientemente se ha utilizado también para el desarrollo de aplicaciones como la ciencia de datos, el aprendizaje automático o la inteligencia artificial.
 
-*R* fue inspirado por el lenguaje de [programación S](https://en.wikipedia.org/wiki/S_(programming_language)), lo que se ve pues después de *S* sigue *R*. 
+*R* fue inspirado por el lenguaje de [programación S](https://en.wikipedia.org/wiki/S_(programming_language)){target="_blank"}, lo que se ve pues después de *S* sigue *R*. 
 
 
 Parte del uso extendido de *R*, es gracias a su versatilidad las cuales provienen de las contribuciones de las comunidades científicas y de desarrolladores de software que crean y publican paquetes que extienden las capacidades básicas del lenguaje *R* que están rigurosamente documentados. El ecosistema de *R* permite el aprovechamiento continuo del conocimiento y de la técnica para facilitar las tareas de procesamiento de información en prácticamente cualquier campo de trabajo. 
@@ -27,9 +27,9 @@ Para hacer uso de *R* vamos a installar *R* en nuestro sistema y después vamos 
 * Paso 1: Descargar R
 
     * R es el lenguaje de programación en sí mismo. Primero, necesitamos instalarlo.
-    * Abre tu navegador web y ve al sitio web oficial de CRAN (The Comprehensive R Archive Network): https://cran.r-project.org/
+    * Abre tu navegador web y ve al sitio web oficial de CRAN (The Comprehensive R Archive Network): [https://cran.r-project.org/](https://cran.r-project.org/){target="_blank"}
 
-    ![Imagen de Página principal de CRAN](Imagenes/Empezando/Cran_prin.png)
+    ![Imagen de Página principal de CRAN](Imagenes/Empezando/home_cran.png)
 
 
     En la sección "Download, Packages", haz clic en el enlace correspondiente a tu sistema operativo:
@@ -68,7 +68,7 @@ Una vez finalizada la instalación, R estará instalado en tu computadora. Puede
 
 RStudio es un entorno de desarrollo integrado (IDE) que facilita el trabajo con R. Es muy recomendable instalarlo.
 
- 1. Para su instalación abre  en tu navegador web y ve al sitio web oficial de RStudio: [https://rstudio.com/products/rstudio/download/](https://rstudio.com/products/rstudio/download/)
+ 1. Para su instalación abre  en tu navegador web y ve al sitio web oficial de RStudio: [https://rstudio.com/products/rstudio/download/](https://rstudio.com/products/rstudio/download/){target="_blank"}
 
     ![Imagen de Página de descarga de RStudio](Imagenes/Empezando/R_studio_0.png)
 
@@ -207,7 +207,7 @@ install.packages("rmarkdown")
 Los cuadernos interactivos en formato *RMarkdown* nos permiten combinar en un mismo documento texto, imágenes, ecuaciones y código que se puede ejecutar para mostrar su resultado. *RStudio* sirve para crear cuadernos como éste y ejecutar de manera interactiva su código en lenguaje *R* (entre otros), además de que podemos documentar nuestros ejercicios para comunicar lo que hemos desarrollado a otras personas ya
 que un cuaderno *RMarkdown* se puede exportar en otros formatos más compatibles como *HTML*, *PDF* o *Word*.
 
-En el siguinete link pueden enontrar una hoja donde se enuentra resumido muchas de las cosas que se pueden hacer con markdown dentro de r [link](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown-2.0.pdf)
+En el siguinete link pueden enontrar una hoja donde se enuentra resumido muchas de las cosas que se pueden hacer con markdown dentro de r [link](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown-2.0.pdf){target="_blank"}
 
 A continuacion hacemos un resumen para las cosas básicas que vamos a necesitar. 
 
