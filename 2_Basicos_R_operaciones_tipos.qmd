@@ -23,6 +23,7 @@ Ejecuta el siguiente *chunk* para obtener el resultado de la suma de
 
 
 ```{webr}
+#| label: cell_suma
 34 + 56
 ```
 
@@ -30,6 +31,7 @@ Completa el siguiente bloque para obtener la resta de `45 - 13`
 (sustituye los asteriscos \*\*\* con el valor necesario):
 
 ```{webr}
+#| label: cell_resta
 45 - ***
 ```
 
@@ -37,54 +39,71 @@ Obtén los resultados de la multiplicación de `34 * 0.14` y la división
 de `89.4 / 5`:
 
 ```{webr}
+#| label: cell_multiplicacion
 34 *** ***
 
 ```
 
 
 ```{webr}
+#| label: cell_division
 *** / ***
 ```
 
 
 Mas operaciones matematicas que se utilizan comunmente   
+
+**Exponente**
 ```{webr}
+#| label: cell_exponencial
 2^4 #Exponencial
 ```
 
 ```{webr}
+#| label: cell_exponencial_2
 2**4 #?
 ```
+**Modulo**
 
 ```{webr}
+#| label: cell_modulo
 20%4 ## Modulo 
 ```
 
+**División entero más cercano**
 ```{webr}
+#| label: cell_div_entero
 5 %/% 3  ##Division entera
 ```
 
+**Mayor**
 ```{webr}
+#| label: cell_mayor
 3 > 4  # FALSE
 ```
-
+**Menor**
 ```{webr}
+#| label: cell_menor
 3 < 6  # TRUE
 ```
-
+**Mayor o igual**
 ```{webr}
+#| label: cell_mayor_igual
 3 >= 7 # FALSE
 ```
-
+**Menor o igual**
 ```{webr}
+#| label: cell_menor_igual
 3 <= 7 # TRUE
 ```
-
+**Comparar igualdad**
 ```{webr}
+#| label: cell_comparar
 3 == 7 # FALSE
 ```
-
+**Distinto**
 ```{webr}
+#| label: cell_distintos
 3 != 9 # TRUE
 ```
 Como vemos el resultado de las últimas operaciones no son numeros este tipo de dato se le conoce como boleano o logico los cuales tiene 2 valores `FALSE` y `TRUE`. En este contexto nos sirve para hacer comparaciónes pero dentro de los lenguajes de programación son muy importantes. 
@@ -96,12 +115,14 @@ Para crear variables y asignarles un valor se usan los operadores `<-` o
 `=`. Asigna el valor numérico de `45` a la variable `mi_numero`:
 
 ```{webr}
+#| label: cell_asignar
 mi_numero <- *** # Más común en R
 ```
  
 Para ver el valor de una variable, escribe su nombre y ejecuta el código. Ejecuta el siguiente *chunk* para visualizar el valor de la variable `mi_numero`:
 
 ```{webr}
+#| label: cell_mostrar
 mi_numero
 ```
 
@@ -109,17 +130,20 @@ La asignación de valores a una variable también se puede hacer de manera inver
 visualiza el valor de la variable `otro_numero` en la siguiente línea: 
 
 ```{webr}
+#| label: cell_asignar_contrario
 36 -> ***
 
 ```
 
 ```{webr}
+#| label: cell_mostrar_2
 otro_numero
 ```
 
 Para asignar una variable de tipo texto o caracter, el valor tiene que escribirse entre comillas dobles `"` o simples `'`. Asigna el valor `"Este es un texto!"` a la variable `mi_texto`:
 
 ```{webr}
+#| label: cell_asignar_2
 mi_texto <- ***
 ```
 
@@ -134,6 +158,7 @@ Al igual que otros lenguajes de programación, *R* maneja diferentes tipos de da
 Son números que tienen un valor decimal o son una fracción. Asigna el valor númerico de `1.5` a la variable `a` y en la siguiente línea visualiza su valor:
 
 ```{webr}
+#| label: cell_asignar_a_mostrar
 a <- ***
 
 # Visualizar el valor de a:
@@ -143,6 +168,7 @@ a <- ***
 La función `class` se usa para comprobar el tipo de dato de una variable. Comprueba el tipo de dato de la variable `a`:
 
 ```{webr}
+#| label: cell_ver_clase
 class(a)
 ```
 
@@ -153,6 +179,7 @@ Tambien se puede usar  la función `typeof()`.
 Los números que no contienen valores decimales tienen un tipo de datos *entero*. Por defecto, si se escribe un número sin valor decimal, *R* lo interpreta como *numérico*, por lo que es necesario declararlo explícitamente como entero utilizando la función `as.integer`. Cambia el valor numérico de la variable `a` por el valor entero de `1` convirtiendo `1.5` con la función `as.integer` y visualiza el nuevo valor de `a`:
 
 ```{webr}
+#| label: cell_eonvertir_entero
 a <- as.integer(***) # Cuando se convierte el número a entero se trunca la parte decimal
 
 ```
@@ -160,6 +187,7 @@ a <- as.integer(***) # Cuando se convierte el número a entero se trunca la part
 Ahora, comprueba el nuevo tipo de datos de la variable `a`:
 
 ```{webr}
+#| label: cell_exercicio_tipo_dato
 ***(***)
 ```
 
