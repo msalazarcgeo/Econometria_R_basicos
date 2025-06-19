@@ -1,11 +1,14 @@
 ---
-title: "Untitled"
+title: "Control de flujo, condicionales y funciones especiales"
 #author: "J. Miguel Salazar (msalazar@centrogeo.edu.mx), _Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
 format: live-html
+webr:
+  packages:
+    - learnr
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
-{{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
+
 
 
 
@@ -20,7 +23,6 @@ Para una secuencia donde la variable `i` toma valores desde 1 hasta 10, usa la e
 * Imprime el valor de `j`
 
 ```{webr}
-#| eval: false
 for(i in ***:***) {
   j <- i * ***
   print(***)
@@ -133,15 +135,16 @@ Esto siempre que no haya una ambiguedad
 
 
 ```{webr}
+#| caption: Exercicio_fecha 
 #| exercise: ex_1_fecha
 _____ ### Fecha del dia del amor y amistad año pasado 
 ```
 
 
+
 ```{webr}
 #| exercise: ex_1_fecha
 #| check: true
-
 if (identical(.result, as.Date("2024-02-14"))) {
   list(correct = TRUE, message = "Nice work!")
 } else {
@@ -150,7 +153,20 @@ if (identical(.result, as.Date("2024-02-14"))) {
 ```
 
 
-Esto no salio 
+
+::: {.solution exercise="ex_1_fecha"}
+#### Solution
+
+```{webr}
+#| exercise: ex_1_fecha
+#| solution: true
+as.Date("2024-02-14")
+```
+:::
+
+
+
+
 
 
 ## Referencias
