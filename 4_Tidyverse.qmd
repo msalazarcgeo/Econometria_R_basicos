@@ -1,6 +1,5 @@
 ---
 title: "Introducción al Tidyverse y exportación/importación de datos"
-
 #author: " J. Miguel Salazar (msalazar@ecntrogeo.edu.mx), Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
 format: live-html
 webr:
