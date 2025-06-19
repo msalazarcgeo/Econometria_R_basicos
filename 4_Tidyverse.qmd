@@ -339,7 +339,7 @@ homicidios_por_estado %>%
 
 ## Referencias
 
--   Wickham, H., & Grolemund, G. (2017). *R for data science: Import, tidy, transform, visualize and model data.* <https://r4ds.had.co.nz>. O'Reilly.
--   Lovelace, R., Nowosad, J., & Muenchow, J. (2019), *Geocomputation with R.* <https://geocompr.robinlovelace.net>. CRC Press.
--   Tennekes, M., Nowosad, J. (2021). *Elegant and informative maps with tmap.* Recuperado el 8 de septembiembre, 2021, desde <https://r-tmap.github.io/tmap-book/>
--   Engel, C. (2019). *Using Spatial Data with R.* cengel.github.io. Recuperado el 8 de septembiembre, 2021, desde [https://cengel.github.io/R-spatial/](https://cengel.github.io/R-spatial){target="_blank"}.
+-   Wickham, H., & Grolemund, G. (2017). *R for data science: Import, tidy, transform, visualize and model data.* [https://r4ds.had.co.nz](https://r4ds.had.co.nz){target="_blank"}. O'Reilly.
+-   Lovelace, R., Nowosad, J., & Muenchow, J. (2019), *Geocomputation with R.* [https://geocompr.robinlovelace.net](https://geocompr.robinlovelace.net){target="_blank"}. CRC Press.
+-   Tennekes, M., Nowosad, J. (2021). *Elegant and informative maps with tmap. Desde [https://r-tmap.github.io/tmap-book/](https://r-tmap.github.io/tmap-book/){target="_blank"}
+-   Engel, C. (2019). *Using Spatial Data with R.* cengel.github.io. Desde [https://cengel.github.io/R-spatial/](https://cengel.github.io/R-spatial){target="_blank"}.

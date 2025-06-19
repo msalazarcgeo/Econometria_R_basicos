@@ -8,7 +8,7 @@ format: html
 
 
 # Objetivo 
-Este es un curso de las cosas básicas que se necesitan para poder tomar el curso de Econometría de [CentroGeo](https://www.centrogeo.org.mx/)
+Este es un curso de las cosas básicas que se necesitan para poder tomar el curso de Econometría de [CentroGeo](https://www.centrogeo.org.mx/){target="blank"}
 
 En este módulo se trataran los siguientes temas:
 
