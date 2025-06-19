@@ -2,14 +2,15 @@
 title: "Operaciones y tipos de datos"
 #author: "J. Miguel Salazar (msalazar@centrogeo.edu.mx), Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
 format: live-html
+encoding: UTF-8
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
-*R* como cualquier lenguaje de programación tiene una sintaxis especifica, en este pequeño espacio vamos a repasar dicha sintaxis para hacer operaciones, declarar vasiables, ver los tipos de datos, y ver ciertas funciones básicas que nos haran la vida más facil para programar en *R*.
+*R* como cualquier lenguaje de programación tiene una sintaxis especifica, en este pequeño espacio vamos a repasar dicha sintaxis para hacer operaciones, declarar variables, ver los tipos de datos, y ver ciertas funciones básicas que nos haran la vida más facil para programar en *R*.
 
 
-Este sitio se pueden ejecutar las celdas de código, en R-Studio se puede ejecutar en la consola de *R* o pueden hacer un Markdown para tomar notas.  
+Este sitio se pueden ejecutar las celdas de código, en RStudio se puede ejecutar en la consola de *R* o pueden hacer un Markdown para tomar notas.
 
 ## Objetivo
 
