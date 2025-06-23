@@ -3,6 +3,10 @@ title: "Introducción al Tidyverse y exportación/importación de datos"
 #author: " J. Miguel Salazar (msalazar@ecntrogeo.edu.mx), Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
 format: live-html
 webr:
+  packages:
+    - tidyverse
+    - lubridate
+    - janitor
   resources:
     - https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/IDEFC_NM_abr22.csv
 
@@ -143,18 +147,20 @@ Repite las operaciones anteriores ordenando los datos ahora por `Sepal.Length` e
   arrange(desc(***), ***) # Ordena las filas por Sepal.Length descendiente y Sepal.Multiply ascendente
 ```
 
-### Agrupar y sumarizar los datos
+### Agrupar y resumir los datos
 
 Cuenta el número de observaciones (filas) por cada valor único de la variable `Species` del *dataframe* `iris`, usando la función `count`:
 
-```{webr Obtener cuenta}
+```{webr }
+#| label: contar 
 *** %>% 
   count(***)
 ```
 
 Para crear grupos categóricos usando variables se usa la función `group_by`. Agrupa los datos del *dataframe* `iris` usando el campo categórico `Species`:
 
-```{webr Agrupar datos}
+```{webr }
+#| label: Agrupar
 *** %>% 
   group_by(***) # Agrupar datos por valor
 ```
@@ -171,7 +177,10 @@ Este conjunto de datos no tiene cambios visibles, pero se crearon grupos para ca
 
 Crea nuevas columnas con los estadísticos de la variable `Petal.Length` agrupados por cada valor único de la variable `Species`, usando la función `summarize` después de la función `group_by` y definiendo cada uno de los estadísticos con las funciones `n` (conteo), `sum` (sumatoria), `min` (mínimo), `max` (máximo), `mean` (promedio), `median` (mediana) y `sd` (desviación estándar):
 
-```{webr Sumarizar datos}
+```{webr}
+#| label: Sumerize
+#| caption: Conmpendio
+#| exercise: ex_summerize
 *** %>% 
   group_by(***) %>% 
   summarize(Petal.Cuenta = n(),
@@ -183,10 +192,31 @@ Crea nuevas columnas con los estadísticos de la variable `Petal.Length` agrupad
             Petal.DesvEst = sd(Petal.Length))
 ```
 
-Después de sumarizar los datos se conservan *agrupados*, es por eso que regularmente es necesario eliminar la agrupación y mantener el conjunto de datos transformado antes de realizar cualquier otra operación, para esto se usa la función `ungroup`. Repite la agrupación y sumarización del *chunk* anterior y desagrupa usando la función `ungroup`:
+::: {.solution exercise="ex_summerize"}
+#### Solution
+
+```{webr}
+#| exercise: ex_summerize
+#| solution: true
+iris %>% 
+  group_by(Species) %>% 
+  summarize(Petal.Cuenta = n(),
+            Petal.Sumatoria = sum(Petal.Length),
+            Petal.Minimo = min(Petal.Length),
+            Petal.Maximo = max(Petal.Length),
+            Petal.Media = mean(Petal.Length),
+            Petal.Mediana = median(Petal.Length),
+            Petal.DesvEst = sd(Petal.Length))
+
+```
+:::
+
+
+Después de resumir los datos se conservan *agrupados*, es por eso que regularmente es necesario eliminar la agrupación y mantener el conjunto de datos transformado antes de realizar cualquier otra operación, para esto se usa la función `ungroup`. Repite la agrupación y sumarización del *chunk* anterior y desagrupa usando la función `ungroup`:
 
 ```{webr }
-#| label: Sumarizar y desagrupar datos
+#| label: resumir y desagrupar datos
+
 *** %>% 
   ***(***) %>% 
   ***(Petal.Cuenta = ***(),
@@ -207,17 +237,21 @@ En esta sesión, usaremos los datos abiertos de incidencia delictiva que publica
 
 Carga el paquete `lubridate` para manejar más fácilmente los tipos de datos fecha-hora del conjunto de datos, y también carga el paquete `janitor` para realizar algunos procesos de limpieza a los datos:
 
-```{webr Cargar librerías para manipulación y limpieza de datos}
+```{webr }
+#| label: Librerías para manipulación y limpieza de datos
 ***(lubridate)
 ***(janitor)
+
 ```
+
 
 Este es un conjunto de datos que originalmente viene en un formato de texto plano separado por comas (*CSV*). Observa y ejecuta el siguiente *chunk* para leer el archivo de datos usando la función de `read_csv` de `tidyverse` (no la instrucción `read.csv` de *R* base) y asigna los datos a una nueva variable que se llame `delitos`:
 
-```{webr Leer datos}
+```{webr}
+
 #fuente_de_datos <- "Datos/IDEFC_NM.csv" # Desde el archivo descargado en la carpeta Datos
 
-# fuente_de_datos <- "https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/IDEFC_NM_abr22.csv" # Directo desde el sitio del repositorio
+fuente_de_datos <- "https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/IDEFC_NM_abr22.csv" # Directo desde el sitio del repositorio
 #download.file(fuente_de_datos, "IDEFC_NM.csv")
 delitos <- 
  read_csv(file = fuente_de_datos,
@@ -241,7 +275,8 @@ Los datos agrupan los totales de delitos en 12 columnas para cada mes, pero esta
 
 Observa cómo se construyó ésta secuencia usando las *pipeline* en el siguiente *chunk*, ejecútalo y observa el resultado:
 
-```{webr Limpiar y transformar datos nacionales}
+```{webr }
+#| label: Limpiar_transformar
 delitos <-
   delitos %>% 
   pivot_longer(cols = 8:19,
@@ -272,7 +307,9 @@ Para conocer la clasificación de los delitos a partir de los datos, crea una li
 
 En la línea siguiente visualiza el contenido del *tibble* `lista_delitos` resultante.
 
-```{webr Crear lista de delitos}
+```{webr }
+#| label: Crear lista de delitos
+#| exercise: ex_list_delitos
 lista_delitos <-
   *** %>% 
   distinct(***, ***, ***, ****) %>% # Mantiene los valores únicos de las columnas
@@ -281,6 +318,22 @@ lista_delitos <-
 # Muestra la lista de delitos:
 ***
 ```
+::: {.solution exercise="ex_list_delitos"}
+#### Solución
+
+```{webr}
+#| exercise: ex_list_delitos
+#| solution: true
+lista_delitos <-
+  delitos %>% 
+  distinct(bien_juridico_afectado, tipo_de_delito, subtipo_de_delito,modalidad) %>% 
+  arrange(bien_juridico_afectado, tipo_de_delito, subtipo_de_delito ,modalidad) # Ordena los valores de forma ascendente
+
+# Muestra la lista de delitos:
+glimpse(lista_delitos)
+
+```
+:::
 
 Obtén los datos de homicidios que ocurrieron **desde diciembre 2018 hasta junio 2020**. Primero, es necesario definir las fechas de inicio y fin del periodo que necesitamos. Usa la función `make_date` del paquete `lubridate` para construir las variables `mes_inicial` y `mes_final` con tipo de datos de fecha:
 
@@ -295,12 +348,26 @@ Después, usa las *pipeline* para arreglar los datos y guardar en una nueva vari
 2.  Filtra los datos usando las condiciones `tipo_de_delito == "Homicidio"` y `mes %>% between(mes_inicial, mes_final)` para mantener sólo los datos de homicidios y sus subcategorías en el periodo indicado usando la función `filter`.
 3.  Visualiza la estructura del *tibble* resultante usando la función `glimpse`.
 
-```{webr Filtrar datos nacionales}
+```{webr}
+#| label: Filtrar datos nacionales
+#| exercise: ex_filtrar_datos
 homicidios <-
   *** %>% # Datos de delitos
   ***(*** == "***" & *** %>% between(***, ***)) %>% # Filtros aplicados
   ***() # Visualizar la estructura del tibble resultante
 ```
+
+::: {.solution exercise="ex_filtrar_datos"}
+#### Solution
+```{webr}
+#| exercise: ex_filtrar_datos
+#| solution: true
+
+homicidios <- delitos %>% # Datos de delitos
+  filter(tipo_de_delito == "Homicidio" & mes %>% between(mes_inicial,mes_final )) #%>% # Filtros aplicados
+glimpse(homicidios) # Visualizar la 
+```
+:::
 
 Para conocer la evolución de los homicidios en cada estado y en el tiempo, agrupa y sumariza los totales de homicidios por entidad y mes. Asigna a una variable llamada `homicidios_por_estado` el resultado de las siguientes operaciones:
 
@@ -310,7 +377,9 @@ Para conocer la evolución de los homicidios en cada estado y en el tiempo, agru
 4.  Desagrupa los datos.
 5.  Visualiza la estructura resultante.
 
-```{webr Agrupar y sumarizar datos nacionales}
+```{webr}
+#| label: Agrupar y sumarizar homicidios
+#| exercise: ex_agrupar_sum
 homicidios_por_estado <-
   *** %>% # Datos de homicidios
   ***(***, ***, ***) %>% # Agrupar por clave_ent, entidad, y mes
@@ -318,6 +387,27 @@ homicidios_por_estado <-
   ***() %>% # Desagrupar
   ***() # Visualizar la estructura del tibble resultante
 ```
+
+::: {.solution exercise="ex_agrupar_sum"}
+#### Solution
+```{webr}
+#| exercise: ex_agrupar_sum
+#| solution: true
+
+homicidios_por_estado <-
+  homicidios %>% # Datos de homicidios
+  group_by(clave_ent, entidad,  mes) %>% # Agrupar por clave_ent, entidad, y mes
+  summarize(homicidios_totales = sum(total, na.rm = TRUE)) %>% # Sumarizar el total de delitos quitando vacíos
+  ungroup() %>% # Desagrupar
+  glimpse() # Visualizar la estructura del tibble resultante
+
+```
+:::
+
+
+
+
+
 
 ### Exportar los datos
 
@@ -344,8 +434,6 @@ En **R** para generar gráficos qe nos ayunden a entender las problemáticas de 
 ```{webr}
 library(ggplot2)
 ```
-
-
 
 Para empezar a construir algunas visualizaciones a partir de datos, usaremos los datos de muestra llamados `mtcars` que se incluyen con la distribución base de *R*. Para saber más acerca de la fuente y del contenido de este conjunto de datos, usa la función `help` para consultar la documentación de `mtcars` en el panel *Help* de *RStudio*:
 
@@ -507,7 +595,7 @@ Carga en el entorno los datos de muestra incluidos en *R* llamados `mtcars` usan
 ```{webr Cargar datos iris}
 ***("iris")
 
-*** # Previsualiza el contenido de mtcars la tabla de datos
+*** # Previsualiza el contenido de iris la tabla de datos
 ```
 
 Ejecuta el siguiente *chunk* para verificar la distribución de las medidas de longitud del sépalo (`Sepal.Length`) para cada una de las especies (`Species`) usando la geometría `geom_boxplot`:
@@ -523,41 +611,21 @@ Repite el gráfico anterior y agrega las etiquetas necesarias para documentar el
 # Escribe aquí el código
 ```
 
+```{webr}
+ggplot(iris, aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()+
+labs(
+  title="Especies de flores",
+  x="Especies",
+  y="Sépalo"
+)+
+theme_linedraw()
+```
+
 ### Gráficas de líneas
 
-Las gráficas de líneas son útiles para explorar tendencias en series de datos. Para este ejercicio usaremos los datos de muestra de el cambio del precio del oro a lo largo del tiempo, estos datos se incluyen en el archivo `1990-2021.csv` en la carpeta `Datos`. Consulta y lee la documentación de estos datos en el sitio de [Kaggle](https://www.kaggle.com/datasets/odins0n/monthly-gold-prices) de donde fueron obtenidos originalmente.
 
-Lee los datos desde el archivo `1990-2021.csv` usando la función `read_csv`, limpia los nombres de las variables usando la función `clean_names` y visualiza la estructura de los datos usando la función `glimpse` usando una secuencia con `pipas` y guarda los datos en una variable llamada `precios_oro`:
-
-```{webr Leer datos sobre precios del oro}
-precios_oro <- 
-  read_csv(***) %>% 
-  ***() %>% 
-  ***()
-```
-
-Ejecuta el siguiente *chunk* para construir una línea de tiempo de la tendencia de los precios del oro en dólares estadounidenses a lo largo del tiempo, poniendo la variable `date` en el eje *x* y la variable `united_states_usd` en el eje *y* como estética (`aes`) y usa la geometría `geom_line`:
-
-```{webr Gráfica de línea básica}
-ggplot(precios_oro, aes(x = date, y = united_states_usd)) +
-  geom_line()
-```
-
-**Ejercicio extra:** 
-Repite el gráfico anterior y agrega las etiquetas necesarias para documentar el gráfico y cambia el formato usando el tema `theme_minimal`. Incluye la fuente de los datos en el pie de gráfica.
-
-```{webr Ejercicio línea de tiempo}
-# Escribe aquí el código
-
-```
-
-Para guardar la gráfica en un archivo, utiliza la función `ggsave` usando como parámetro el nombre del archivo como texto. Esta función guarda la última gráfica generada, para este caso guarda la gráfica como `"grafica_precios_oro.png"` .
-
-```{webr Guardar archivo de la gráfica}
-ggsave(***)
-```
-
-## Caso práctico: Homicidios dolosos a nivel nacional
+### Caso práctico: Homicidios dolosos a nivel nacional
 
 Lee el conjunto de datos que se preparó anteriormente con los homicidios por estado y por mes (`homicidios_por_estado.csv`) usando la función `read_csv` y guárdalos en la variable `homicidios_por_estado`:
 
@@ -569,7 +637,7 @@ homicidios_por_estado <-
 
 ### Evolución de los homicidios a nivel nacional
 
-Para visualizar la tendencia nacional de homicidios, es necesario preparar una serie de datos por mes con el total sumarizado de homicidios. Construye la serie de datos necesaria haciendo la siguiente secuencia de operaciones usando *pipas*:
+Para visualizar la tendencia nacional de homicidios, es necesario preparar una serie de datos por mes con el total sumarizado de homicidios. Construye la serie de datos necesaria haciendo la siguiente secuencia de operaciones usando *pipes*:
 
 1.  Toma como base los datos de `homicidios_por_estado`.
 2.  Agrupa usando la variable `mes` usando la función `group_by`.
@@ -579,6 +647,7 @@ Para visualizar la tendencia nacional de homicidios, es necesario preparar una s
 Visualiza el contenido de la serie `homicidios_por_mes` para comprobar que la transformación está correcta.
 
 ```{webr Preparar serie de datos}
+
 homicidios_por_mes <-
   *** %>% 
   group_by(***) %>% 
