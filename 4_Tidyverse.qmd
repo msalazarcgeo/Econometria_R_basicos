@@ -336,6 +336,304 @@ homicidios_por_estado %>%
 ```
 
 
+## Visualización de datos
+
+En **R** para generar gráficos qe nos ayunden a entender las problemáticas de forma gráfica la biblioteca comunmente más utilizada es `ggplot2`. 
+
+
+```{webr}
+library(ggplot2)
+```
+
+
+
+Para empezar a construir algunas visualizaciones a partir de datos, usaremos los datos de muestra llamados `mtcars` que se incluyen con la distribución base de *R*. Para saber más acerca de la fuente y del contenido de este conjunto de datos, usa la función `help` para consultar la documentación de `mtcars` en el panel *Help* de *RStudio*:
+
+```{webr Ayuda sobre los datos de muestra}
+***(mtcars)
+```
+
+Carga en el entorno los datos de muestra incluidos en *R* llamados `mtcars` usando la función `data` y previsualiza su contenido:
+
+```{webr Cargar datos cars}
+***("mtcars")
+
+*** # Previsualiza el contenido de mtcars la tabla de datos
+```
+
+### Gráficas de dispersión de puntos (*scatterplot*)
+
+Consulta y lee la documentación de la función `ggplot` usando `help`:
+
+```{webr Ayuda sobre ggplot}
+***(***) # Consulta la ayuda de ggplot en el panel help
+```
+
+Ejecuta el siguiente *chunk* para construir una gráfica de dispersión de puntos a partir de los datos de `mtcars` para visualizar la correlación entre las millas por galón (`mpg`) en el eje *x* y el peso (`wt`) en el eje *y*, usando la función `ggplot` y sumando una capa de puntos con la función `geom_point`:
+
+```{webr Gráfica de dispersión básica}
+ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
+  geom_point()
+```
+
+De la gráfica anterior se puede observar una correlación negativa entre el peso y las millas por galón, es decir, **los vehículos con mayor peso tienen un rendimiento menor en millas por galón**.
+
+Repite el ejercicio anterior, pero ahora agrega una línea de tendencia sumando una capa `geom_smooth` a la gráfica anterior:
+
+```{webr Gráfica de dispersión con tendencia}
+***(data = ***, mapping = aes(x = ***, y = ***)) +
+  ***() +
+  geom_smooth()
+```
+
+Repite el ejercicio anterior, pero ahora agrega una línea de tendencia lineal sumando una capa `geom_smooth` a la gráfica anterior usando los parámetros `color = red` para pintar la línea de tendencia en rojo, `method = lm` para usar el modelo lineal y `se = FALSE` para ocultar el sombreado de error estándar. Guarda la gráfica en una nueva variable llamada `gráfica_mpg_vs_wt` y llámala para visualizarla:
+
+```{webr Gráfica de dispersión con tendencia lineal}
+grafica_mpg_vs_wt <-
+  ***(data = ***, mapping = aes(x = ***, y = ***)) +
+  ***() +
+  geom_smooth(color = ***,
+              method = ***,
+              se = ***)
+
+*** # Visualizar la gráfica
+```
+
+Agrega un título, un subtítulo y etiquetas los ejes *x* y *y* a la gráfica `grafica_mpg_vs_wt` sumándole la función `labs` con los siguientes parámetros:
+
+-   `title = "Correlación entre peso y millas por galón"` para incluir el título de la gráfica.
+-   `subtitle = "Conjunto de datos mtcars"` para incluir un subtítulo.
+-   `x = "Millas por galón"` para incluir la etiqueta del eje *x*.
+-   `y = "Peso (1000 lb)"` para incluir la etiqueta del eje *y*.
+-   `caption = "Fuente: 1974 Motor Trend US magazine"` para agregar una nota al pie.
+
+```{webr Gráfica de dispersión con etiquetas}
+grafica_mpg_vs_wt <-
+  *** +
+  labs(title = ***,
+       subtitle = ***,
+       x = ***,
+       y = ***,
+       caption = ***)
+
+*** # Visualiza la gráfica actualizada
+```
+
+Agrega un formato preestablecido (*tema*) a la gráfica usando `grafica_mpg_vs_wt` sumándole la función `theme_classic`:
+
+```{webr Gráfica de dispersión con tema}
+grafica_mpg_vs_wt <- 
+  *** +
+  theme_classic()
+
+*** # Visualiza la gráfica actualizada
+```
+
+Repite desde el principio el ejercicio anterior incluyendo todas las capas pero ahora categoriza coloreando de diferentes tonos cada uno de los puntos según el número de cilindros del auto (`cyl`) usando la estética `aes(x = mpg, y = wt, color = as.factor(cyl))` en la función `ggplot` del principio:
+
+```{webr Gráfica de dispersión coloreada por categorías}
+***(***, aes(x = ***, y = ***, color = as.factor(***))) + # Es necesario convertir cyl a factor ya que viene como numérico
+  ***) +
+  ***(*** = ***,
+      *** = ***,
+      *** = ***) +
+  ***(title = ***,
+      subtitle = ***,
+      x = ***,
+      y = ***,
+      caption = ***,
+      color = ***) + # Agrega el texto a la etiqueta "color" para la leyenda
+  theme_classic()
+```
+
+A veces es más conveniente usar diferentes gráficas por separado para cada categoría, a estas gráficas separadas pero vinculadas por la escala y los datos se les conoce como *facetas*. Repite el ejercicio anterior pero sin incluir `color = cyl"` en la estética `aes` ni `color = "Cilindros"` en las etiquetas `labs`, para comparar las correlaciones de millas por galón (`mpg`) y peso (`wt`) pero ahora usa la función `facet_wrap(~cyl)` para crear facetas por cilindraje:
+
+```{webr Gráfica de dispersión por facetas}
+***(***, aes(x = ***, y = ***)) + # Ya no es necesario incluir "cyl" como color
+  ***() +
+  ***(color = ***,
+      method = ***,
+      se = ***) +
+  ***(title = ***,
+      subtitle = ***,
+      x = ***,
+      y = ***,
+      caption = ***) +
+  facet_wrap(~cyl) +
+  theme_classic()
+```
+
+### Histogramas
+
+El paquete `ggplot2` tiene otras geometrías diferentes que puede utilizar para visualizar diferentes tipos de datos. Uno de los más comunes es el **histograma**.
+
+Ejecuta el siguiente *chunk* para crear un histograma a partir de la potencia de los autos (`hp`) en los datos de `mtcars` definiendo la estética `aes(x = hp)` y usando la geometría `geom_histogram`:
+
+```{webr Histograma básico}
+ggplot(mtcars, aes(x = hp)) +
+  geom_histogram()
+```
+
+Repite el ejercicio anterior separando por color de las barras los cilindros, usando la estética `aes(x = hp, fill = cyl)`:
+
+```{webr Histograma con categorías}
+***(***, aes(x = ***, fill = as.factor(***))) + # Recuerda convertir cyl a variable categórica (factor) con as.factor
+  ***()
+```
+
+Ordena las barras poniendolas lado a lado por categoría usando el parámetro `position = "stack"` en la función `geom_histogram`:
+
+```{webr Histograma con categorías lado a lado}
+***(***, aes(x = ***, fill = as.factor(***))) + # Recuerda convertir cyl a variable categórica (factor) con as.factor
+  ***(position = ***)
+```
+
+**Ejercicio extra:** Repite el gráfico anterior y agrega las etiquetas necesarias para documentar el gráfico y cambia el formato usando el tema `theme_dark`.
+
+```{webr Ejercicio histograma}
+# Escribe aquí el código
+```
+
+### Diagramas de cajas y bigotes (*box plot*)
+
+Permiten entender la distribución de los valores de una variable de manera visual. Para este ejercicio usaremos los datos de ejemplo de medidas de flores `iris` incluidas en *R*. Para saber más acerca de la fuente y del contenido de este conjunto de datos, consulta y lee la documentación de `mtcars` en el panel *Help* de *RStudio*, usando la función `help` :
+
+```{webr Ayuda sobre los datos de muestra iris}
+help(***)
+```
+
+Carga en el entorno los datos de muestra incluidos en *R* llamados `mtcars` usando la función `data` y previsualiza su contenido:
+
+```{webr Cargar datos iris}
+***("iris")
+
+*** # Previsualiza el contenido de mtcars la tabla de datos
+```
+
+Ejecuta el siguiente *chunk* para verificar la distribución de las medidas de longitud del sépalo (`Sepal.Length`) para cada una de las especies (`Species`) usando la geometría `geom_boxplot`:
+
+```{webr Diagrama de caja básico}
+ggplot(iris, aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()
+```
+
+Repite el gráfico anterior y agrega las etiquetas necesarias para documentar el gráfico y cambia el formato usando el tema `theme_linedraw`:
+
+```{webr Ejercicio diagrama de caja}
+# Escribe aquí el código
+```
+
+### Gráficas de líneas
+
+Las gráficas de líneas son útiles para explorar tendencias en series de datos. Para este ejercicio usaremos los datos de muestra de el cambio del precio del oro a lo largo del tiempo, estos datos se incluyen en el archivo `1990-2021.csv` en la carpeta `Datos`. Consulta y lee la documentación de estos datos en el sitio de [Kaggle](https://www.kaggle.com/datasets/odins0n/monthly-gold-prices) de donde fueron obtenidos originalmente.
+
+Lee los datos desde el archivo `1990-2021.csv` usando la función `read_csv`, limpia los nombres de las variables usando la función `clean_names` y visualiza la estructura de los datos usando la función `glimpse` usando una secuencia con `pipas` y guarda los datos en una variable llamada `precios_oro`:
+
+```{webr Leer datos sobre precios del oro}
+precios_oro <- 
+  read_csv(***) %>% 
+  ***() %>% 
+  ***()
+```
+
+Ejecuta el siguiente *chunk* para construir una línea de tiempo de la tendencia de los precios del oro en dólares estadounidenses a lo largo del tiempo, poniendo la variable `date` en el eje *x* y la variable `united_states_usd` en el eje *y* como estética (`aes`) y usa la geometría `geom_line`:
+
+```{webr Gráfica de línea básica}
+ggplot(precios_oro, aes(x = date, y = united_states_usd)) +
+  geom_line()
+```
+
+**Ejercicio extra:** 
+Repite el gráfico anterior y agrega las etiquetas necesarias para documentar el gráfico y cambia el formato usando el tema `theme_minimal`. Incluye la fuente de los datos en el pie de gráfica.
+
+```{webr Ejercicio línea de tiempo}
+# Escribe aquí el código
+
+```
+
+Para guardar la gráfica en un archivo, utiliza la función `ggsave` usando como parámetro el nombre del archivo como texto. Esta función guarda la última gráfica generada, para este caso guarda la gráfica como `"grafica_precios_oro.png"` .
+
+```{webr Guardar archivo de la gráfica}
+ggsave(***)
+```
+
+## Caso práctico: Homicidios dolosos a nivel nacional
+
+Lee el conjunto de datos que se preparó anteriormente con los homicidios por estado y por mes (`homicidios_por_estado.csv`) usando la función `read_csv` y guárdalos en la variable `homicidios_por_estado`:
+
+```{webr Leer datos de homicidio por estado}
+homicidios_por_estado <-
+  ***(***) %>% 
+  ***()
+```
+
+### Evolución de los homicidios a nivel nacional
+
+Para visualizar la tendencia nacional de homicidios, es necesario preparar una serie de datos por mes con el total sumarizado de homicidios. Construye la serie de datos necesaria haciendo la siguiente secuencia de operaciones usando *pipas*:
+
+1.  Toma como base los datos de `homicidios_por_estado`.
+2.  Agrupa usando la variable `mes` usando la función `group_by`.
+3.  Sumariza la variable `homicidios_totales` y guarda el resultado en una nueva variable llamada `homicidios_total` usando las funciones `summarize` y `sum` (omite los valores vacíos si existen usando el parámetro `na.rm = TRUE`).
+4.  Desagrupa los datos usando la función `ungroup`.
+
+Visualiza el contenido de la serie `homicidios_por_mes` para comprobar que la transformación está correcta.
+
+```{webr Preparar serie de datos}
+homicidios_por_mes <-
+  *** %>% 
+  group_by(***) %>% 
+  ***(homicidios_total = sum(***, na.rm = ***)) %>% 
+  ***()
+
+# Visualiza la serie:
+***
+```
+
+Construye una gráfica de línea para visualizar la tendencia mensual de los homicidios siguiendo la siguiente secuencia de operaciones:
+
+1.  Toma como base los datos de `homicidios_por_mes`.
+2.  Define los campos que se usarán en los ejes *x* y *y* en la estética que usará la gráfica con `aes(x = mes, y = homicidios_totales)` dentro de la función `ggplot`.
+3.  Agrega una geometría de líneas sumando la función `geom_line`.
+4.  Agrega un modelo de regresión con la función `geom_smooth` (por esta ocasión usaremos los parámetros por defecto).
+5.  Incluye el título, subtítulo y las etiquetas de los ejes usando la función `labs`.
+
+```{webr Gráfica de líneas con datos nacionales}
+homicidios_por_mes %>% 
+  ***(aes(x = ***, y = ***)) + # Crea una gráfica vacía con el mes en x y los homicidios en y
+  ***() + # Agrega una línea de tendencia
+  ***() + # Agregar una línea de regresión
+  ***(title = ***,
+      subtitle = ***,
+      x = ***,
+      y = ***,
+      caption = ***) # Agrega los títulos y etiquetas de ejes
+```
+
+Repite los pasos anteriores para crear una línea de tendencia usando ahora sólo los datos de la CDMX para compararlos con la tendencia nacional. Para ello, sigue la siguiente secuencia de operaciones:
+
+1.  Toma como base los datos de `homicidios_por_estado`.
+2.  Filtra los datos donde `entidad == "Ciudad de México` usando la función `filter`.
+3.  Define los campos que se usarán en los ejes *x* y *y* en la estética que usará la gráfica con `aes(x = mes, y = homicidios_totales)` dentro de la función `ggplot`.
+4.  Agrega una geometría de líneas sumando la función `geom_line`.
+5.  Agrega un modelo de regresión con la función `geom_smooth` (por esta ocasión usaremos los parámetros por defecto).
+6.  Incluye el título, subtítulo y las etiquetas de los ejes usando la función `labs`.
+
+```{webr Gráfica de líneas con datos de CDMX}
+homicidios_por_estado %>%
+  ***(entidad == ***) %>% # Filtra los datos para CDMX
+  ***(aes(x = ***, y = ***)) + # Crea una gráfica vacía con el mes en x y los homicidios en y
+  ***() + # Agrega una línea de tendencia
+  ***() + # Agregar una línea de regresión
+  ***(title = ***,
+      subtitle = ***,
+      x = ***,
+      y = ***,
+      caption = ***) # Agregar títulos y etiquetas de ejes
+```
+
+Como puede observarse en ambas gráficas, durante el periodo de diciembre 2018 a junio 2021, la tendencia de homicidios a nivel nacional ha ido en descenso durante los meses recientes. Igualmente en la CDMX, han descendido durante el periodo con algunos incrementos durante los primeros meses del año
+
+
 ## Referencias
 
 -   Wickham, H., & Grolemund, G. (2017). *R for data science: Import, tidy, transform, visualize and model data.* [https://r4ds.had.co.nz](https://r4ds.had.co.nz){target="_blank"}. O'Reilly.
