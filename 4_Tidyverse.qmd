@@ -229,7 +229,7 @@ Después de resumir los datos se conservan *agrupados*, es por eso que regularme
   ungroup()
 ```
 
-## Caso práctico: Homicidios a nivel nacional
+### Caso práctico: Homicidios a nivel nacional
 
 ### Importar los datos
 
@@ -248,7 +248,7 @@ Carga el paquete `lubridate` para manejar más fácilmente los tipos de datos fe
 Este es un conjunto de datos que originalmente viene en un formato de texto plano separado por comas (*CSV*). Observa y ejecuta el siguiente *chunk* para leer el archivo de datos usando la función de `read_csv` de `tidyverse` (no la instrucción `read.csv` de *R* base) y asigna los datos a una nueva variable que se llame `delitos`:
 
 ```{webr}
-
+#| label: importar_datos
 #fuente_de_datos <- "Datos/IDEFC_NM.csv" # Desde el archivo descargado en la carpeta Datos
 
 fuente_de_datos <- "https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/IDEFC_NM_abr22.csv" # Directo desde el sitio del repositorio
@@ -307,8 +307,8 @@ Para conocer la clasificación de los delitos a partir de los datos, crea una li
 
 En la línea siguiente visualiza el contenido del *tibble* `lista_delitos` resultante.
 
-```{webr }
-#| label: Crear lista de delitos
+```{webr}
+#| label: Lista_delitos
 #| exercise: ex_list_delitos
 lista_delitos <-
   *** %>% 
@@ -320,7 +320,6 @@ lista_delitos <-
 ```
 ::: {.solution exercise="ex_list_delitos"}
 #### Solución
-
 ```{webr}
 #| exercise: ex_list_delitos
 #| solution: true
@@ -331,7 +330,6 @@ lista_delitos <-
 
 # Muestra la lista de delitos:
 glimpse(lista_delitos)
-
 ```
 :::
 
@@ -437,13 +435,15 @@ library(ggplot2)
 
 Para empezar a construir algunas visualizaciones a partir de datos, usaremos los datos de muestra llamados `mtcars` que se incluyen con la distribución base de *R*. Para saber más acerca de la fuente y del contenido de este conjunto de datos, usa la función `help` para consultar la documentación de `mtcars` en el panel *Help* de *RStudio*:
 
-```{webr Ayuda sobre los datos de muestra}
+```{webr}
+#| label: ayuda_datos
 ***(mtcars)
 ```
 
 Carga en el entorno los datos de muestra incluidos en *R* llamados `mtcars` usando la función `data` y previsualiza su contenido:
 
-```{webr Cargar datos cars}
+```{webr }
+#| label: carga_datos
 ***("mtcars")
 
 *** # Previsualiza el contenido de mtcars la tabla de datos
@@ -453,13 +453,15 @@ Carga en el entorno los datos de muestra incluidos en *R* llamados `mtcars` usan
 
 Consulta y lee la documentación de la función `ggplot` usando `help`:
 
-```{webr Ayuda sobre ggplot}
+```{webr}
+#| label: ayuda_ggplot
 ***(***) # Consulta la ayuda de ggplot en el panel help
 ```
 
 Ejecuta el siguiente *chunk* para construir una gráfica de dispersión de puntos a partir de los datos de `mtcars` para visualizar la correlación entre las millas por galón (`mpg`) en el eje *x* y el peso (`wt`) en el eje *y*, usando la función `ggplot` y sumando una capa de puntos con la función `geom_point`:
 
-```{webr Gráfica de dispersión básica}
+```{webr}
+#| label: Gráfica_dispersión_básica
 ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
   geom_point()
 ```
@@ -468,7 +470,8 @@ De la gráfica anterior se puede observar una correlación negativa entre el pes
 
 Repite el ejercicio anterior, pero ahora agrega una línea de tendencia sumando una capa `geom_smooth` a la gráfica anterior:
 
-```{webr Gráfica de dispersión con tendencia}
+```{webr }
+#| label: Grafica_dispersion_tendencia
 ***(data = ***, mapping = aes(x = ***, y = ***)) +
   ***() +
   geom_smooth()
@@ -476,7 +479,8 @@ Repite el ejercicio anterior, pero ahora agrega una línea de tendencia sumando 
 
 Repite el ejercicio anterior, pero ahora agrega una línea de tendencia lineal sumando una capa `geom_smooth` a la gráfica anterior usando los parámetros `color = red` para pintar la línea de tendencia en rojo, `method = lm` para usar el modelo lineal y `se = FALSE` para ocultar el sombreado de error estándar. Guarda la gráfica en una nueva variable llamada `gráfica_mpg_vs_wt` y llámala para visualizarla:
 
-```{webr Gráfica de dispersión con tendencia lineal}
+```{webr }
+#| label: Grafica_dispersion_tendencia_lineal
 grafica_mpg_vs_wt <-
   ***(data = ***, mapping = aes(x = ***, y = ***)) +
   ***() +
@@ -495,7 +499,8 @@ Agrega un título, un subtítulo y etiquetas los ejes *x* y *y* a la gráfica `g
 -   `y = "Peso (1000 lb)"` para incluir la etiqueta del eje *y*.
 -   `caption = "Fuente: 1974 Motor Trend US magazine"` para agregar una nota al pie.
 
-```{webr Gráfica de dispersión con etiquetas}
+```{webr}
+#| label: Grafica_etiquetas
 grafica_mpg_vs_wt <-
   *** +
   labs(title = ***,
@@ -509,7 +514,8 @@ grafica_mpg_vs_wt <-
 
 Agrega un formato preestablecido (*tema*) a la gráfica usando `grafica_mpg_vs_wt` sumándole la función `theme_classic`:
 
-```{webr Gráfica de dispersión con tema}
+```{webr}
+#| label: Grafica_dispersión_tema
 grafica_mpg_vs_wt <- 
   *** +
   theme_classic()
@@ -519,7 +525,8 @@ grafica_mpg_vs_wt <-
 
 Repite desde el principio el ejercicio anterior incluyendo todas las capas pero ahora categoriza coloreando de diferentes tonos cada uno de los puntos según el número de cilindros del auto (`cyl`) usando la estética `aes(x = mpg, y = wt, color = as.factor(cyl))` en la función `ggplot` del principio:
 
-```{webr Gráfica de dispersión coloreada por categorías}
+```{webr}
+#| label: Gráfica_dispersión_categorías
 ***(***, aes(x = ***, y = ***, color = as.factor(***))) + # Es necesario convertir cyl a factor ya que viene como numérico
   ***) +
   ***(*** = ***,
@@ -536,7 +543,8 @@ Repite desde el principio el ejercicio anterior incluyendo todas las capas pero 
 
 A veces es más conveniente usar diferentes gráficas por separado para cada categoría, a estas gráficas separadas pero vinculadas por la escala y los datos se les conoce como *facetas*. Repite el ejercicio anterior pero sin incluir `color = cyl"` en la estética `aes` ni `color = "Cilindros"` en las etiquetas `labs`, para comparar las correlaciones de millas por galón (`mpg`) y peso (`wt`) pero ahora usa la función `facet_wrap(~cyl)` para crear facetas por cilindraje:
 
-```{webr Gráfica de dispersión por facetas}
+```{webr}
+#| label: Grafica_dispersion_facetas
 ***(***, aes(x = ***, y = ***)) + # Ya no es necesario incluir "cyl" como color
   ***() +
   ***(color = ***,
@@ -578,7 +586,8 @@ Ordena las barras poniendolas lado a lado por categoría usando el parámetro `p
 
 **Ejercicio extra:** Repite el gráfico anterior y agrega las etiquetas necesarias para documentar el gráfico y cambia el formato usando el tema `theme_dark`.
 
-```{webr Ejercicio histograma}
+```{webr}
+#| label: Ejercicio_histograma
 # Escribe aquí el código
 ```
 
@@ -586,13 +595,15 @@ Ordena las barras poniendolas lado a lado por categoría usando el parámetro `p
 
 Permiten entender la distribución de los valores de una variable de manera visual. Para este ejercicio usaremos los datos de ejemplo de medidas de flores `iris` incluidas en *R*. Para saber más acerca de la fuente y del contenido de este conjunto de datos, consulta y lee la documentación de `mtcars` en el panel *Help* de *RStudio*, usando la función `help` :
 
-```{webr Ayuda sobre los datos de muestra iris}
+```{webr }
+#| label: ayuda_iris
 help(***)
 ```
 
 Carga en el entorno los datos de muestra incluidos en *R* llamados `mtcars` usando la función `data` y previsualiza su contenido:
 
-```{webr Cargar datos iris}
+```{webr}
+#| label: Cargar datos iris
 ***("iris")
 
 *** # Previsualiza el contenido de iris la tabla de datos
@@ -600,18 +611,23 @@ Carga en el entorno los datos de muestra incluidos en *R* llamados `mtcars` usan
 
 Ejecuta el siguiente *chunk* para verificar la distribución de las medidas de longitud del sépalo (`Sepal.Length`) para cada una de las especies (`Species`) usando la geometría `geom_boxplot`:
 
-```{webr Diagrama de caja básico}
+```{webr}
+#| label: Diagrama_caja_basico
 ggplot(iris, aes(x = Species, y = Sepal.Length)) +
   geom_boxplot()
 ```
 
 Repite el gráfico anterior y agrega las etiquetas necesarias para documentar el gráfico y cambia el formato usando el tema `theme_linedraw`:
 
-```{webr Ejercicio diagrama de caja}
+```{webr}
+#| label: Ejercicio_diagrama_caja
+#| exercise: ex_box_plot
 # Escribe aquí el código
 ```
 
 ```{webr}
+#| exercise: ex_box_plot
+#| solution: true
 ggplot(iris, aes(x = Species, y = Sepal.Length)) +
   geom_boxplot()+
 labs(
@@ -622,7 +638,7 @@ labs(
 theme_linedraw()
 ```
 
-### Gráficas de líneas
+
 
 
 ### Caso práctico: Homicidios dolosos a nivel nacional
