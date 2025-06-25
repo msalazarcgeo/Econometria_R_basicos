@@ -7,8 +7,10 @@ webr:
     - tidyverse
     - lubridate
     - janitor
+    
   resources:
     - https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/IDEFC_NM_abr22.csv
+    - https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/homicidios_por_estado.csv
 
 ---
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
@@ -658,12 +660,23 @@ theme_linedraw()
 
 Lee el conjunto de datos que se preparó anteriormente con los homicidios por estado y por mes (`homicidios_por_estado.csv`) usando la función `read_csv` y guárdalos en la variable `homicidios_por_estado`:
 
-```{webr Leer datos de homicidio por estado}
+```{webr}
+#| label: Ejercicio_read_homicidios
+#| exercise: ex_read_homicidios_edo
 homicidios_por_estado <-
   ***(***) %>% 
   ***()
 ```
 
+
+
+```{webr}
+#| exercise: ex_read_homicidios_edo
+#| solution: true
+datos_homicidio_estados <- "https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/homicidios_por_estado.csv"
+homicidios_por_estado <- read_csv(file = datos_homicidio_estados) %>%
+glimpse()
+```
 ### Evolución de los homicidios a nivel nacional
 
 Para visualizar la tendencia nacional de homicidios, es necesario preparar una serie de datos por mes con el total sumarizado de homicidios. Construye la serie de datos necesaria haciendo la siguiente secuencia de operaciones usando *pipes*:
@@ -675,7 +688,9 @@ Para visualizar la tendencia nacional de homicidios, es necesario preparar una s
 
 Visualiza el contenido de la serie `homicidios_por_mes` para comprobar que la transformación está correcta.
 
-```{webr Preparar serie de datos}
+```{webr}
+#| label: ejercicio_homicidios_mes
+#| exercise: ex_homicidios_mes
 
 homicidios_por_mes <-
   *** %>% 
@@ -687,15 +702,30 @@ homicidios_por_mes <-
 ***
 ```
 
+
+```{webr}
+#| exercise: ex_homicidios_mes
+#| solution: true
+datos_homicidio_estados <- "https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/homicidios_por_estado.csv"
+
+homicidios_por_mes <-
+  read_csv(file = datos_homicidio_estados) %>%
+  group_by(mes) %>% 
+  summarize(homicidios_total = sum(homicidios_totales, na.rm = TRUE)) %>% 
+  ungroup() %>%
+  glimpse()
+```
 Construye una gráfica de línea para visualizar la tendencia mensual de los homicidios siguiendo la siguiente secuencia de operaciones:
 
-1.  Toma como base los datos de `homicidios_por_mes`.
-2.  Define los campos que se usarán en los ejes *x* y *y* en la estética que usará la gráfica con `aes(x = mes, y = homicidios_totales)` dentro de la función `ggplot`.
-3.  Agrega una geometría de líneas sumando la función `geom_line`.
-4.  Agrega un modelo de regresión con la función `geom_smooth` (por esta ocasión usaremos los parámetros por defecto).
-5.  Incluye el título, subtítulo y las etiquetas de los ejes usando la función `labs`.
+ 1.  Toma como base los datos de `homicidios_por_mes`.
+ 1.  Define los campos que se usarán en los ejes *x* y *y* en la estética que usará la gráfica con `aes(x = mes, y = homicidios_totales)` dentro de la función `ggplot`.
+ 1.  Agrega una geometría de líneas sumando la función `geom_line`.
+ 1.  Agrega un modelo de regresión con la función `geom_smooth` (por esta ocasión usaremos los parámetros por defecto).
+ 1.  Incluye el título, subtítulo y las etiquetas de los ejes usando la función `labs`.
 
-```{webr Gráfica de líneas con datos nacionales}
+```{webr}
+#| label: ejercicio_grafica_homicidios_mes
+#| exercise: ex_graf_homicidios_mes
 homicidios_por_mes %>% 
   ***(aes(x = ***, y = ***)) + # Crea una gráfica vacía con el mes en x y los homicidios en y
   ***() + # Agrega una línea de tendencia
@@ -707,16 +737,40 @@ homicidios_por_mes %>%
       caption = ***) # Agrega los títulos y etiquetas de ejes
 ```
 
+
+```{webr}
+#| exercise: ex_graf_homicidios_mes
+#| solution: true
+homicidios_por_mes <- read_csv(file = "https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/homicidios_por_estado.csv") %>%
+  group_by(mes) %>% 
+  summarize(homicidios_total = sum(homicidios_totales, na.rm = TRUE)) %>% 
+  ungroup()
+
+  ggplot(homicidios_por_mes, aes(x = mes, y = homicidios_total)) + # Crea una gráfica vacía con el mes en x y los homicidios en y
+  geom_line() + # Agrega una línea de tendencia
+  geom_smooth() + # Agregar una línea de regresión
+  labs(title = "Tendencia mensual",
+      subtitle = "homicidios por mes",
+      x = "homicidios",
+      y = "totales",
+      caption = "Tendencias mensuales ") 
+```
+
 Repite los pasos anteriores para crear una línea de tendencia usando ahora sólo los datos de la CDMX para compararlos con la tendencia nacional. Para ello, sigue la siguiente secuencia de operaciones:
 
-1.  Toma como base los datos de `homicidios_por_estado`.
-2.  Filtra los datos donde `entidad == "Ciudad de México` usando la función `filter`.
-3.  Define los campos que se usarán en los ejes *x* y *y* en la estética que usará la gráfica con `aes(x = mes, y = homicidios_totales)` dentro de la función `ggplot`.
-4.  Agrega una geometría de líneas sumando la función `geom_line`.
-5.  Agrega un modelo de regresión con la función `geom_smooth` (por esta ocasión usaremos los parámetros por defecto).
-6.  Incluye el título, subtítulo y las etiquetas de los ejes usando la función `labs`.
+2. Toma como base los datos de `homicidios_por_estado`.
+2. Filtra los datos donde `entidad == "Ciudad de México` usando la función `filter`.
+2. Agrupa usando la variable `mes` usando la función `group_by`.
+2. Sumariza la variable `homicidios_totales` y guarda el resultado en una nueva variable llamada `homicidios_total` usando las funciones summarize y sum (omite los valores vacíos si existen usando el parámetro `na.rm = TRUE`).
+2. Define los campos que se usarán en los ejes *x* y *y* en la estética que usará la gráfica con `aes(x = mes, y = homicidios_totales)` dentro de la función `ggplot`.
+2. Agrega una geometría de líneas sumando la función `geom_line`.
+2. Agrega un modelo de regresión con la función `geom_smooth` (por esta ocasión usaremos los parámetros por defecto).
+2. Incluye el título, subtítulo y las etiquetas de los ejes usando la función `labs`.
 
-```{webr Gráfica de líneas con datos de CDMX}
+
+```{webr}
+#| label: graf_homi_edo
+#| exercise: ex_graf_homicidios_mes_cdmx
 homicidios_por_estado %>%
   ***(entidad == ***) %>% # Filtra los datos para CDMX
   ***(aes(x = ***, y = ***)) + # Crea una gráfica vacía con el mes en x y los homicidios en y
@@ -729,7 +783,27 @@ homicidios_por_estado %>%
       caption = ***) # Agregar títulos y etiquetas de ejes
 ```
 
-Como puede observarse en ambas gráficas, durante el periodo de diciembre 2018 a junio 2021, la tendencia de homicidios a nivel nacional ha ido en descenso durante los meses recientes. Igualmente en la CDMX, han descendido durante el periodo con algunos incrementos durante los primeros meses del año
+```{webr}
+#| exercise: ex_graf_homicidios_mes_cdmx
+#| solution: true 
+datos_homicidio_estados <- "https://msalazarcgeo.github.io/Econometria_R_basicos/Datos/homicidios_por_estado.csv"
+homicidios_por_mes_cdmx <- read_csv(file = datos_homicidio_estados) %>%
+  filter(entidad == 'Ciudad de México') %>%
+  group_by(mes) %>% 
+  summarize(homicidios_total = sum(homicidios_totales, na.rm = TRUE)) %>% 
+  ungroup() 
+
+ggplot(homicidios_por_mes_cdmx,  aes(x = mes, y = homicidios_total)) + # Crea una gráfica vacía con el mes en x y los homicidios en y
+  geom_line() + # Agrega una línea de tendencia
+  geom_smooth() + # Agregar una línea de regresión
+  labs(title = "Tendencia mensual",
+      subtitle = "homicidios por mes",
+      x = "homicidios",
+      y = "totales",
+      caption = "Tendencias mensuales ") 
+
+```
+Como puede observarse en ambas gráficas, durante el periodo de diciembre 2018 a junio 2020, la tendencia de homicidios a nivel nacional decendio. Igualmente en la CDMX, descendio durante el periodo con algunos incrementos durante los primeros meses del año 2020. 
 
 
 ## Referencias
