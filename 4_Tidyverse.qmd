@@ -30,7 +30,8 @@ A continuación analizaremos datos reales que el gobierno de México publica par
 
 Siempre es recomendable limpiar el entorno antes de comenzar a trabajar. Ejecuta el siguiente *chunk* para limpiar todos los objetos del entorno:
 
-```{webr Limpiar entorno}
+```{webr }
+#| label: Limpiar_entorno
 #| eval: false
 rm(list = ls(), quiet = TRUE)
 ```
@@ -41,7 +42,8 @@ Recuerda que para limpiar el entorno actual de R, también puedes utilizar el bo
 
 Para esta sesión nos aseguraremos de tener instalados y actualizados todos los paquetes necesarios (descomenta la siguiente instrucción para instalar o actualizar los paquetes necesarios en caso de no tenerlos):
 
-```{webr Instalar paquetes}
+```{webr}
+#| label: instalar_tidiverse
 install.packages("tidyverse")
 ```
 
@@ -51,14 +53,16 @@ Recuerda que también puedes instalar o actualizar los paquetes necesarios para 
 
 Carga el conjunto de datos de muestra `iris` en el entorno de R usando la función `data` y visualízalo en la siguiente línea:
 
-```{webr Cargar datos de muestra}
+```{webr}
+#| label: load_iris
 data("***") # Cargar el conjunto de datos "iris" en el entorno de R
 *** # Visualizar los datos
 ```
 
 Usa la función `library` para cargar el paquete `tidyverse` que usaremos para manipular los datos:
 
-```{webr Cargar el paquete tidyverse}
+```{webr}
+#| label: load_tidiverse
 ***(tidyverse)
 ```
 
@@ -66,7 +70,8 @@ Usa la función `library` para cargar el paquete `tidyverse` que usaremos para m
 
 Visualiza rápidamente la estructura y contenidos de `iris`, usando la función `glimpse`:
 
-```{webr Previsualizar datos}
+```{webr}
+#| label: glimp_iris
 glimpse(***)
 ```
 
@@ -74,14 +79,16 @@ La función `glimpse` funciona como un equivalente en *Tidyverse* de la función
 
 El operador conocido como *piline* (`%>%`) toma el resultado de la instrucción anterior y lo convierte en la entrada de la siguiente instrucción. Reescribe la instrucción del *chunk* anterior, usando una *pipe*:
 
-```{webr Previsualizar datos usando piline}
+```{webr}
+#| label: glimpse_pipe
 *** %>% 
   ***()
 ```
 
 Encuentra los valores únicos de la variable `Species` del *dataframe* `iris` usando la función `distinct` y la sintaxis de *pipe*:
 
-```{webr Valores distintos}
+```{webr}
+#| label: use_distinct
 *** %>% 
   ***(Species) # Valores únicos de Species
 ```
@@ -90,7 +97,8 @@ Encuentra los valores únicos de la variable `Species` del *dataframe* `iris` us
 
 Selecciona las variables `Sepal.Length` y `Species` del *dataframe* `iris` usando sus nombres con la función `select` y visualiza el resultado usando `glimpse`:
 
-```{webr Seleccionar variables}
+```{webr}
+#| label: use_select
 *** %>% 
   select(***, ***) %>% # Selecciona las variables deseadas
   glimpse() # Muestra la nueva estructura de datos
@@ -98,7 +106,8 @@ Selecciona las variables `Sepal.Length` y `Species` del *dataframe* `iris` usand
 
 Selecciona las variables `Sepal.Length`, `Sepal.Width` y `Species`del *dataframe* `iris`y multiplícalas para crear una nueva variable llamada `Sepal.Multiply` usando la función `mutate` y visualiza el resultado usando `glimpse`:
 
-```{webr Crear nuevas variables}
+```{webr}
+#| label: use_mutate
 *** %>% 
   ***(***, ***, ***) %>% # Seleccionar las variables
   mutate(Sepal.Multiply = *** * ***) %>% # A partir de las variables seleccionadas, crea una nueva
@@ -109,7 +118,8 @@ Selecciona las variables `Sepal.Length`, `Sepal.Width` y `Species`del *dataframe
 
 Repite las operaciones anteriores pero conservando sólo las filas donde el valor de `Species` es *setosa*, usando la función `filter`:
 
-```{webr Filtrar los datos}
+```{webr}
+#| label: use_filter
 *** %>% 
   ***(***, ***, ***) %>% 
   ***(*** = *** * ***) %>% 
@@ -118,7 +128,8 @@ Repite las operaciones anteriores pero conservando sólo las filas donde el valo
 
 Repite las operaciones anteriores, pero conservando sólo las filas donde los valores de `Species` son *setosa* y *versicolor* y el valores de `Sepal.Length` es mayor que 4.5, usando la función `filter`:
 
-```{webr Filtrar datos con varias condiciones}
+```{webr}
+#| label: use_filter_bool
 *** %>% 
   ***(***, ***, ***) %>% 
   ***(*** = *** * ***) %>%
@@ -129,7 +140,8 @@ Repite las operaciones anteriores, pero conservando sólo las filas donde los va
 
 Repite las operaciones anteriores y ordena los datos por `Sepal.Length` en orden ascendente usando la función `arrange`:
 
-```{webr Ordenar datos}
+```{webr}
+#| label: use_arrange_sort
 *** %>% 
   ***(***, ***, ***) %>% 
   ***(*** = *** * ***) %>% 
@@ -139,7 +151,8 @@ Repite las operaciones anteriores y ordena los datos por `Sepal.Length` en orden
 
 Repite las operaciones anteriores ordenando los datos ahora por `Sepal.Length` en orden descendente usando `desc` y luego por `Sepal.Multiply` orden ascendente, usando la función `arrange`:
 
-```{webr Ordenar datos con diferentes variables}
+```{webr}
+#| label: use_arrenge_desc
 *** %>% 
   ***(***, ***, ***) %>% 
   ***(*** = *** * ***) %>% 
@@ -151,7 +164,7 @@ Repite las operaciones anteriores ordenando los datos ahora por `Sepal.Length` e
 
 Cuenta el número de observaciones (filas) por cada valor único de la variable `Species` del *dataframe* `iris`, usando la función `count`:
 
-```{webr }
+```{webr}
 #| label: contar 
 *** %>% 
   count(***)
@@ -160,7 +173,7 @@ Cuenta el número de observaciones (filas) por cada valor único de la variable 
 Para crear grupos categóricos usando variables se usa la función `group_by`. Agrupa los datos del *dataframe* `iris` usando el campo categórico `Species`:
 
 ```{webr }
-#| label: Agrupar
+#| label: use_grupby
 *** %>% 
   group_by(***) # Agrupar datos por valor
 ```
