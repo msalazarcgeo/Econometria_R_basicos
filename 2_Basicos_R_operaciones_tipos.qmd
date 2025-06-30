@@ -680,6 +680,55 @@ Revisa los estadísticos básicos de las columnas del dataframe `mi_df` usando l
 #| eval: false
 summary(***)
 ```
+## Evaluación 
+
+* ¿ Cuál de los siguientes asigna a la variable `patito` el valor de la cadena de caracteres `"esta es la variable patito"`. 
+    * `patito <- esta es la variable patito`
+    * `patito -> esta es la variable patito`
+    * `patito -< "esta es la variable patito"`
+    * `patito <- "esta es la variable patito"`
+
+* ¿ Cuál de la siguentes asigna a la variable `patito` el valor flotante `2`  ?
+    
+    * `patito -> 2.0`
+    * `patito -< 2.0`
+    * `patito <- "2.0"`
+    * `patito <- 2`
+
+* ¿ Cuál de las siguientes genera una secuencia del 59 al 75 de 3 en 3 ?
+    * `seq(from = 59, to 75 , by = 3)`
+    * `seq(from = 59, to= 75 , by = 3)`
+    * `seq(59:75 , by = 3)`
+    * `seq(from = 75, to= 59 , by = 3)`
+
+* ¿ Cuál de las siguientes genera una secuencia del 59 al 75 de 3 en 3 ?
+    * `seq(from = 59, to 75 , by = 3)`
+    * `seq(from = 59, to= 75 , by = 3)`
+    * `seq(59:75 , by = 3)`
+    * `seq(from = 75, to= 59 , by = 3)`
+
+* ¿ Cuál genera un vector aleatorio ordenado de longitud 20 ? 
+     * `sample(seq(1:100), 20)`
+     * `head(sample(seq(1:100) , 20))` 
+     * `tail(sample(seq(1:100) , 20))`
+     * `sort(sample(seq(1:100), 20))`
+     
+
+* ¿ Cuál de los siguientes genera un dataframe con columnas A, B, C, D con los mismos valores en las columnas? 
+    * `data.frame(A = seq(15:30), B= seq(15:30), C= seq(15:30),D= seq(15:30))`
+    * `data.frame(A = 1:15, B= 16:30, C= 31:45,D= 46:60)`
+    * `data.frame(A = seq(1:15), B= 16:30, C= 31:45,D= 46:60)`
+    * `data.frame(A = seq(15:30), B= seq(15:30), C= seq(15:30),D= rev(seq(15:30)))`
+
+
+* ¿ Cual de las siguentes me permite acceder al numero 20 en en siguiente dataframe ?
+```r
+df <- data.frame(A = 1:15, B= 16:30, C= 31:45,D= 46:60)
+```
+    * df[5,20]
+    * df[2,3]
+    * df[5,'D']
+    * df[5,'B']
 
 ## Referencias
 

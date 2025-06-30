@@ -305,5 +305,16 @@
       "Contenido",
       "Tidyverse "
     ]
+  },
+  {
+    "objectID": "2_Basicos_R_operaciones_tipos.html#evaluación",
+    "href": "2_Basicos_R_operaciones_tipos.html#evaluación",
+    "title": "Operaciones y tipos de datos",
+    "section": "Evaluación",
+    "text": "Evaluación\n\n¿ Cuál de los siguientes asigna a la variable patito el valor de la cadena de caracteres \"esta es la variable patito\".\n\npatito &lt;- esta es la variable patito\npatito -&gt; esta es la variable patito\npatito -&lt; \"esta es la variable patito\"\npatito &lt;- \"esta es la variable patito\"\n\n¿ Cuál de la siguentes asigna a la variable patito el valor flotante 2 ?\n\npatito -&gt; 2.0\npatito -&lt; 2.0\npatito &lt;- \"2.0\"\npatito &lt;- 2\n\n¿ Cuál de las siguientes genera una secuencia del 59 al 75 de 3 en 3 ?\n\nseq(from = 59, to 75 , by = 3)\nseq(from = 59, to= 75 , by = 3)\nseq(59:75 , by = 3)\nseq(from = 75, to= 59 , by = 3)\n\n¿ Cuál de las siguientes genera una secuencia del 59 al 75 de 3 en 3 ?\n\nseq(from = 59, to 75 , by = 3)\nseq(from = 59, to= 75 , by = 3)\nseq(59:75 , by = 3)\nseq(from = 75, to= 59 , by = 3)\n\n¿ Cuál genera un vector aleatorio ordenado de longitud 20 ?\n\nsample(seq(1:100), 20)\nhead(sample(seq(1:100) , 20))\ntail(sample(seq(1:100) , 20))\nsort(sample(seq(1:100), 20))\n\n¿ Cuál de los siguientes genera un dataframe con columnas A, B, C, D con los mismos valores en las columnas?\n\ndata.frame(A = seq(15:30), B= seq(15:30), C= seq(15:30),D= seq(15:30))\ndata.frame(A = 1:15, B= 16:30, C= 31:45,D= 46:60)\ndata.frame(A = seq(1:15), B= 16:30, C= 31:45,D= 46:60)\ndata.frame(A = seq(15:30), B= seq(15:30), C= seq(15:30),D= rev(seq(15:30)))\n\n¿ Cual de las siguentes me permite acceder al numero 20 en en siguiente dataframe ?\n\ndf &lt;- data.frame(A = 1:15, B= 16:30, C= 31:45,D= 46:60)\n* df[5,20]\n* df[2,3]\n* df[5,'D']\n* df[5,'B']",
+    "crumbs": [
+      "Contenido",
+      "Operadores y estructuras "
+    ]
   }
 ]
