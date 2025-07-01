@@ -13,11 +13,73 @@ webr:
 
 
 
-### Programación
+# Estructuras de control 
+
+Las estructuras de control de flujo nos permiten usar una cierta lógica para controlar como se ejecutan las cosas dentro de los lenguajes de programación, cada lenguaje de programación tiene la sintaxix especifica para estas estructuras de control en este tutorial aprenderemos como se escriben y cuales son los usos comunes de estas estructuras. 
 
 
-#### for 
-Para una secuencia donde la variable `i` toma valores desde 1 hasta 10, usa la estructura `for` para repetir las siguientes operaciones: 
+## If else 
+
+La estructura de control `if else ` es la estructura de control más simple y más usada dentro de los lenguajes de programación. esta estructura de control verifica una condición si es cierta se ejecuta el código dentro de de las `{}`.
+
+```r
+if(condicion) {
+  ### Hacer algo cuando se cumple la condicion 
+} 
+
+```
+Si este no es el caso se puede añadir un codigo dentro de `{}` indicado previamente por la palabra `else`
+
+```r
+if(condicion) {
+  ### Hacer algo cuando se cumple la condicion 
+} 
+else {
+  ### Hacer cuando la condicion no se cumple 
+}
+```
+
+
+En el siguiente ejemplo vamos a a generar un número aleatorio usando la función `runif` dependiendo del valor de la variable `x` se le asigna el valor a la variable `y` si `x` es mayor que 3 entonces `y` valdrá 10 en caso contrario 0. 
+
+```{webr}
+
+x <- runif(1, 0, 10)  
+if(x > 3) {
+  y <- 10
+} else {
+  y <- 0
+}
+print(y)
+```
+
+Este ejemplo nos muetra que la condición entre los parentesis es la que determina el valor de la variable `y` mostrando las posibilidades de esta estructura. 
+
+
+## for 
+
+Los ciclos **for** nos permiten ejecutar una secuencia de instrucciones para un número fijo de veces. La mayoria de la veces este tipo de ciclo es suficiente aunque existen otros tipos de ciclos este es el más usado. 
+
+La estructura toma una variale y se le asigna un valor de una sequencia predeterminada, esta normalmente es un vector o una secuencia en R. 
+
+
+```r 
+for(i in 1:10) {
+  print(i)
+}
+
+```
+
+En este loop la variable `i` toma los valores de 1, 2, 3, 4, ... , 10, y se ejecuta el código que se encuentra entre las `{}` y se sale del ciclo. 
+
+Podemos iterar sobre objetos y que la variable sobre la cual hacemos el ciclo nos ayude hacer cosas más complicadas.  
+
+```{webr}
+for ( i in seq(from = 3, to= 15, by=3)){
+  print(i*2)
+}
+```
+En el siguiente ciclo  se ve que podemos hacer aumentar el numero de instrucciones y declarar variables dentro del ciclo o modificar variables ya existentes. 
 
 * Multiplica el valor de la variable `i` por 10 y asigna el resultado a la variable `j` 
 * Imprime el valor de `j`
@@ -29,15 +91,22 @@ for(i in ***:***) {
 }
 ```
 
-Asigna el valor de 1 a la variable `i` para que sea el valor inicial. Después usa la estructura `while` para repetir las siguientes operaciones mientras que el valor de `i` sea menor a 10: \* Imprime el valor actual de `i` \* Al valor de `i` súmale 1 y vuelva a asignar el resultado a la variable `i` para actualizarla
+## while
 
-```{webr}
-i <- *** # Valor inicial de i, si no se especifica correctamente el ciclo se puede ejecutar infinitamente
-while(i < ***) {
-  print(***)
-  i <- i + ***
+Los ciclos `while` nos permiten ejecutar el código dentro del ciclo mientras una cierta condicion sea verdadera. En cada iteración del ciclo se verifica que la condición sea verdadera en caso contrario el ciclo se termina y no se ejecuta. En este ciclo es muy importante verificar que el ciclo termine, es decir que la condición que se utiliza  eventualmente no se cumpla y que el ciclo termine. 
+
+
+```r 
+i <- 0 
+while(i < 10 ){
+  print(i)
+  i<- i+1
 }
+
 ```
+
+En el siguiente ejempo se asigna el valor de 1 a la variable `i` para que sea el valor inicial. Después usa la estructura `while` para repetir las siguientes operaciones mientras que el valor de `i` sea menor a 10: \* Imprime el valor actual de `i` \* Al valor de `i` súmale 1 y vuelva a asignar el resultado a la variable `i` para actualizarla.
+
 
 Asigna el valor de 40 a la variable `k`. Usa la estructura `if` para verificar si el valor de `k` es mayor a 10, en caso de que lo sea imprime el texto `"La variable k es mayor que 10"`, o en caso contrario imprime el texto `"La variable k es menor o igual que 10"`:
 
@@ -130,7 +199,7 @@ Pero tambien puede entender hacer una comparación con el string de una fecha.
 lubridate::today() > "2024-05-14"
 ```
 
-Esto siempre que no haya una ambiguedad 
+Esto siempre que no haya una ambiguedad.
 
 
 
@@ -170,3 +239,4 @@ as.Date("2024-02-14")
 
 
 ## Referencias
+- Roger D. Peng (2022) *R Programming for Data Science* [https://bookdown.org/rdpeng/rprogdatascience/](https://bookdown.org/rdpeng/rprogdatascience/)

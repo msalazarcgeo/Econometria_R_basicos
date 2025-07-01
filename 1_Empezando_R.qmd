@@ -18,36 +18,38 @@ Parte del uso extendido de *R*, es gracias a su versatilidad las cuales proviene
 
 ## Instalación
 
-Para hacer uso de *R* vamos a installar *R* en nuestro sistema y después vamos a instalar *RStudio* el cual es un software que nos facilita la interacción con los elementos de *R*.  
+Para hacer uso de *R* vamos a instalar *R* en nuestro sistema y después vamos a instalar *RStudio* el cual es un software que nos facilita la interacción con los elementos de *R*.  
 
 
 
 ### Instalación *R* 
 
-* Paso 1: Descargar R
+- Paso 1: Descargar R
 
-    * R es el lenguaje de programación en sí mismo. Primero, necesitamos instalarlo.
-    * Abre tu navegador web y ve al sitio web oficial de CRAN (The Comprehensive R Archive Network): [https://cran.r-project.org/](https://cran.r-project.org/){target="_blank"}
+    - R es el lenguaje de programación en sí mismo. Primero, necesitamos instalarlo.
+    - Abre tu navegador web y ve al sitio web oficial de CRAN (The Comprehensive R Archive Network): [https://cran.r-project.org/](https://cran.r-project.org/){target="_blank"}
 
     ![Imagen de Página principal de CRAN](Imagenes/Empezando/home_cran.png)
 
 
-    En la sección "Download, Packages", haz clic en el enlace correspondiente a tu sistema operativo:
-        * Windows: Haz clic en "Download R for Windows".
-            ![Download windows](Imagenes/Empezando/Download_windos_0.png)
+    En la sección *Download, Packages*, haz clic en el enlace correspondiente a tu sistema operativo:
 
-        * macOS: Haz clic en "Download R for macOS".
+    - Windows: Haz clic en *Download R for Windows*.
+    ![Download windows](Imagenes/Empezando/Download_windos_0.png)
+
+        
+    - MacOS: Haz clic en *Download R for macOS*.
             
 
-        * Linux: Haz clic en "Download R for Linux" y sigue las instrucciones específicas para tu distribución de Linux.
+    - Linux: Haz clic en *Download R for Linux* y sigue las instrucciones específicas para tu distribución de Linux.
             
-    *Para Windows: Haz clic en "base".
+    -Para Windows: Haz clic en "base".
         ![Download windows base](Imagenes/Empezando/Download_r_3.png)
         
-    Para Windows: Haz clic en el enlace para descargar la última versión de R (por ejemplo, "Download R 4.5.1 for Windows").
+    Para Windows: Haz clic en el enlace para descargar la última versión de R (por ejemplo, *Download R 4.5.1 for Windows*).
     ![Imagen de Enlace de descarga de la última versión de R para Windows](Imagenes/Empezando/Download_R_win_3.png)
 
-    Una vez que la descarga se complete, abre el archivo ejecutable (.exe en Windows, .pkg en macOS) y sigue las instrucciones del asistente de instalación. Generalmente, puedes dejar las opciones predeterminadas.
+- Paso 2: Una vez que la descarga se complete, abre el archivo ejecutable (.exe en Windows, .pkg en macOS) y sigue las instrucciones del asistente de instalación. Generalmente, puedes dejar las opciones predeterminadas.
 
 Windows:
 
@@ -72,10 +74,10 @@ RStudio es un entorno de desarrollo integrado (IDE) que facilita el trabajo con 
 
     ![Imagen de Página de descarga de RStudio](Imagenes/Empezando/R_studio_0.png)
 
- 2. Baja hasta la sección "Install RStudio" y haz clic en el botón "Download RStudio forwindows".
+ 2. Baja hasta la sección *Install RStudio* y haz clic en el botón "Download RStudio forwindows".
     ![Imagen de Botón de descarga de RStudio Desktop](Imagenes/Empezando/R_studio_1.png)
 
- 3. En la siguiente página, busca la sección "Installers for Supported Platforms" y descarga la versión correspondiente a tu sistema operativo:
+ 3. En la siguiente página, busca la sección *Installers for Supported Platforms* y descarga la versión correspondiente a tu sistema operativo:
     * Windows: Haz clic en el archivo .exe.
 
     * macOS: Haz clic en el archivo .dmg.
@@ -106,10 +108,10 @@ RStudio es un entorno de desarrollo integrado (IDE) que facilita el trabajo con 
 
 ## Uso básico de RStudio
 
-*RStudio* es un IDE pensado especificamente para *R* lo que permite que aprender y trabajar dentro con R dentro de este IDE sea muy eficiente y amigable. 
+*RStudio* es un IDE pensado especificamente para *R* lo que permite que aprender y trabajar dentro con R y *RStudio* sea muy eficiente y amigable. 
 
 
-Al abrir RStudio, verás una interfaz dividida en varias "paneles" o "ventanas", cada una con una función específica.
+Al abrir RStudio, verás una interfaz dividida en varias *paneles* o *ventanas*, cada una con una función específica.
     Imagen de Paneles principales de RStudio
 
 
@@ -141,7 +143,7 @@ Aunque la configuración puede variar, los paneles más comunes son:
 
 ### Obtención de ayuda en R
 
-*R* es un lenguaje de programación que está completamente documentado. Es importante aprender a consultar la ayuda para entender mejor cómo utilizar las funciones de *R* de la mejor manera posible.
+*R* es un lenguaje de programación que está completamente documentado. Es importante aprender a consultar la ayuda para entender mejor cómo utilizar las funciones dentro de *R* de la mejor manera posible.
 
 Ejecuta el siguiente *chunk* para obtener ayuda sobre la función `for` usando la función `help` (la ayuda aparecerá en el panel *Help*):
 
@@ -194,7 +196,7 @@ También se pueden usar los proyectos en *RStudio* para definir una carpeta de t
 
 Para instalar paquetes dentro de **R** lo mas sencillo es utilizar la función `install.packages()`. 
 
-A continuación vamos a instalar un paquete que nos permitira hacer Notebooks de markdown dentro de *R*.
+A continuación, vamos a instalar un paquete que nos permitira hacer Notebooks de markdown dentro de *R*.
 
 ```{r}
 #| eval: false
@@ -209,7 +211,7 @@ que un cuaderno *RMarkdown* se puede exportar en otros formatos más compatibles
 
 En el siguinete link pueden enontrar una hoja donde se enuentra resumido muchas de las cosas que se pueden hacer con markdown dentro de r [link](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown-2.0.pdf){target="_blank"}
 
-A continuacion hacemos un resumen para las cosas básicas que vamos a necesitar. 
+A continuacion, hacemos un resumen para las cosas básicas que vamos a necesitar. 
 
 ### ¿Qué es R Markdown?
 
@@ -342,23 +344,20 @@ print("Puedo ver este texto!") # Este es un comentario que no se ve
 
 ## Evaluación 
 
-La instalaión no se puede evaluar 
 
-
-
-* ¿ En que ventana se deve esccribir el comando para la instalación  de paquetes en R ?
+* ¿ En qué ventana se debe esccribir el comando para la instalación de paquetes en R ?
     * Editor de Scripts
     * Entorno
     * Archivos
     * Visor
 
-* ¿ Como se soliita ayuda desde la consola de R ? 
+* ¿ Como se solicita ayuda desde la consola de R ? 
     * getwd
     * setwd
     * help
     * version
 
-* Cual de los siguientes omandos installa la bibliotecca `ggplot2`
+* ¿ Cuál de los siguientes comandos instala la bibliotecca `ggplot2`
     * install.packages(ggplot2)
     * install.package(ggplot2)
     * install.packages('ggplot2')

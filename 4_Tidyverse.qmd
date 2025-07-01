@@ -2,6 +2,7 @@
 title: "Introducción al Tidyverse y exportación/importación de datos"
 #author: " J. Miguel Salazar (msalazar@ecntrogeo.edu.mx), Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
 format: live-html
+  
 webr:
   packages:
     - tidyverse
@@ -248,7 +249,7 @@ Después de resumir los datos se conservan *agrupados*, es por eso que regularme
 
 ### Importar los datos
 
-En esta sesión, usaremos los datos abiertos de incidencia delictiva que publica el *Secretariado Ejecutivo del Sistema Nacional de seguridad Pública (SESNSP)* que están disponibles en el portal de datos abiertos del Gobierno de México en <https://www.datos.gob.mx/busca/dataset/incidencia-delictiva-del-fuero-comun>. Estos datos contienen la información de delitos cometidos a nivel estatal y serán usados en el taller más adelante para comparar los niveles de homicidios que ocurrieron en la CDMX y en los demás estados del país.
+En esta sesión, usaremos los datos abiertos de incidencia delictiva que publica el *Secretariado Ejecutivo del Sistema Nacional de seguridad Pública (SESNSP)* que están disponibles en el portal de datos abiertos del Gobierno de México en [https://www.datos.gob.mx/busca/dataset/incidencia-delictiva-del-fuero-comun](https://www.datos.gob.mx/busca/dataset/incidencia-delictiva-del-fuero-comun){target="_blank"} . Estos datos contienen la información de delitos cometidos a nivel estatal y serán usados en el taller más adelante para comparar los niveles de homicidios que ocurrieron en la CDMX y en los demás estados del país.
 
 Carga el paquete `lubridate` para manejar más fácilmente los tipos de datos fecha-hora del conjunto de datos, y también carga el paquete `janitor` para realizar algunos procesos de limpieza a los datos:
 

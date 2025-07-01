@@ -10,11 +10,8 @@ encoding: UTF-8
 *R* como cualquier lenguaje de programación tiene una sintaxis especifica, en este pequeño espacio vamos a repasar dicha sintaxis para hacer operaciones, declarar variables, ver los tipos de datos, y ver ciertas funciones básicas que nos haran la vida más facil para programar en *R*.
 
 
-Este sitio se pueden ejecutar las celdas de código, en RStudio se puede ejecutar en la consola de *R* o pueden hacer un Markdown para tomar notas.
+En este sitio se pueden ejecutar las celdas de código, en RStudio se puede ejecutar en la consola de *R* o pueden hacer un Markdown para tomar notas.
 
-## Objetivo
-
-El objetivo de esta sesión es repasar las funciones básicas del lenguaje R para familiarizarse con su entorno y sintaxis.
 
 
 ## Operadores básicos
@@ -52,7 +49,7 @@ de `89.4 / 5`:
 ```
 
 
-Mas operaciones matematicas que se utilizan comunmente   
+Más operaciones matemáticas que se utilizan comunmente   
 
 **Exponente**
 ```{webr}
@@ -107,7 +104,7 @@ Mas operaciones matematicas que se utilizan comunmente
 #| label: cell_distintos
 3 != 9 # TRUE
 ```
-Como vemos el resultado de las últimas operaciones no son numeros este tipo de dato se le conoce como boleano o logico los cuales tiene 2 valores `FALSE` y `TRUE`. En este contexto nos sirve para hacer comparaciónes pero dentro de los lenguajes de programación son muy importantes. 
+Como vemos, el resultado de las últimas operaciones no son números este tipo de dato se le conoce como boleano o logico los cuales tiene 2 valores `FALSE` y `TRUE`. En este contexto, nos sirve para hacer comparaciónes pero dentro de los lenguajes de programación son muy importantes. 
 
 ## Asignación de variables
 
@@ -127,8 +124,7 @@ Para ver el valor de una variable, escribe su nombre y ejecuta el código. Ejecu
 mi_numero
 ```
 
-La asignación de valores a una variable también se puede hacer de manera inversa usando la flecha `->` en vez de `<-` y especificando primero el valor y luego el nombre de la variable. Asigna nuevamente el valor `36` a la variable `otro_numero`, usando ahora la asignación inversa, y
-visualiza el valor de la variable `otro_numero` en la siguiente línea: 
+La asignación de valores a una variable también se puede hacer de manera inversa usando la flecha `->` en vez de `<-` y especificando primero el valor y luego el nombre de la variable. Asigna nuevamente el valor `36` a la variable `otro_numero`, usando ahora la asignación inversa, y visualiza el valor de la variable `otro_numero` en la siguiente línea: 
 
 ```{webr}
 #| label: cell_asignar_contrario
@@ -325,10 +321,6 @@ Ahora, comprueba el nuevo tipo de dato de la variable `a`:
 ```{webr}
 ***(***)
 ```
-
-
-
-
 
 
 ## Operaciones con vectores 
@@ -735,7 +727,7 @@ df <- data.frame(A = 1:15, B= 16:30, C= 31:45,D= 46:60)
 -   Wickham, H., & Grolemund, G. (2017). *R for data science: Import,     tidy, transform, visualize and model data.  <https://r4ds.had.co.nz>*. O'Reilly.
 -   Xie, Y., Allaire, J. J., & Grolemund, G. (2018). *R markdown: The     definitive guide. <https://bookdown.org/yihui/rmarkdown/>*. CRC Press.
 
--   *RStudio Cheatsheets*. (n.d.). Rstudio.com. Recuperado el 8 de     septiembre de 2021, desde
+-   *RStudio Cheatsheets*. (n.d.). Rstudio.com. Recuperado el 8 de  septiembre de 2021, desde
     <https://www.rstudio.com/resources/cheatsheets/> 
 -   Baruffa O. (2021). *Big Book of R*.   <https://www.bigbookofr.com/index.html>
 
