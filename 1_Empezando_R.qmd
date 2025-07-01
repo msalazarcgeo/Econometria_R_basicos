@@ -1,6 +1,8 @@
 ---
 title: "Empezando con  R"
-format: live-html
+format:
+ live-html: default
+# pdf: default
 #author: J. Miguel Salazar (msalazar@centrogeo.edu.mx)
 ---
 
