@@ -1,7 +1,9 @@
 ---
 title: "Introducción al Tidyverse y exportación/importación de datos"
 #author: " J. Miguel Salazar (msalazar@ecntrogeo.edu.mx), Ana J. Alegre (jalegre@centrogeo.edu.mx), Cristian Silva (csilva@centrogeo.edu.mx)"
-format: live-html
+format: 
+  live-html
+  
   
 webr:
   packages:
@@ -420,9 +422,6 @@ homicidios_por_estado <-
 
 
 
-
-
-
 ### Exportar los datos
 
 Finalmente, guarda una copia de `homicidios_por_estado` usando *pipeline* y las funciones `write_csv` o `write_excel_csv` para guardar los datos en formato *CSV* en el archivo `homicidios_por_estado.csv` en la carpeta `Datos` (se usarán más adelante en el taller):
@@ -482,7 +481,7 @@ ggplot(data = mtcars, mapping = aes(x = mpg, y = wt)) +
   geom_point()
 ```
 
-De la gráfica anterior se puede observar una correlación negativa entre el peso y las millas por galón, es decir, **los vehículos con mayor peso tienen un rendimiento menor en millas por galón**.
+De la gráfica anterior, se puede observar una correlación negativa entre el peso y las millas por galón, es decir, **los vehículos con mayor peso tienen un rendimiento menor en millas por galón**.
 
 Repite el ejercicio anterior, pero ahora agrega una línea de tendencia sumando una capa `geom_smooth` a la gráfica anterior:
 
