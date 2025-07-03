@@ -171,7 +171,7 @@ mi_funcion_2 <- function(num ) {
 mi_funcion_2(4)
 ```
 
-A veces nos gustaria que la funcion nos regrese las cosas que se modificaron dentro de esta. Vamos a modificar la función antrerio para que regrese la 
+A veces nos gustaria ser más enfaticos en lo que nos regresa la función y determinar las  cosas que se modificaron dentro de esta. Esto se puede hacer con la palabra `return`, cuando se utiliza la palabra `return` se termina la función esto es especialmente útil cuando queremos que la función tenga un comportamiento distinto. 
 
 
 ```{webr}
@@ -397,7 +397,6 @@ Si 'x' es un vector números que se tiene que cambiar `***` para obtener el prom
 suma_total <-0 
 for (i in x){
   suma_total <- suma_total +***
-
 }
 if (length(x)==0){
   print('No hay elementos en x')
@@ -427,6 +426,120 @@ for(i in 1:30){
 * Imprime desde 1 hasta 30.
 * Imprime los números de 1 a 30 sin los múltiplos de 3.
 * Imprime los números de 1 a 30 que son de la forma $3n+1$.
+
+
+```r 
+x <- 1:12
+for(i in x){
+  if(i%%4==0){
+    print(x[(i-3):i])
+  }
+}
+
+```
+
+* Imprime todos los elementos de x de forma continua.
+* Imprime en 3 en 3.
+* Imprime en 4 en 4.
+* Imprime en 2 en 2.
+
+
+El siguiente código que imprime
+
+```r
+
+diametro <- 12
+radio_off <- (diametro/2)-0.5
+for( j in 1:diametro-1){
+    for( i in 1:diametro-1){
+        x <- i- radio_off
+        y <- j-radio_off
+        #print(x)
+        #print(y)
+        if ((x*x) + (y*y) <= radio_off * radio_off -1){
+           cat(' * ' )
+        }else {
+           cat('   ')#cat('no') #
+        }
+  }
+  cat('\n') 
+}
+```
+* Un cuadrado
+* Un círculo 
+* Un Octágono
+* Un Triángulo 
+
+
+
+Tomando la siguiente función cuál es el resultado de aplicar dicha función al vector `c(3,5,6,12,NA)`
+```r 
+rescalar <- function(x) {
+  (x - min(x)) / (max(x) - min(x))
+}
+```
+* 3 5 6 12 NA
+* NA NA NA NA NA
+* 0.0000000 0.2222222 0.3333333 1.0000000 NA
+* 0.0000000 0.2222222 0.3333333 1.0000000
+
+
+De la función en el ejercicio anterior vamos a modificarla para obtener 
+
+
+```r
+rescalar <- function(x) {
+  (x - min(x, na.rm = TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+}
+```
+
+* 3 5 6 12 NA
+* NA NA NA NA NA
+* 0.0000000 0.2222222 0.3333333 1.0000000 NA
+* 0.0000000 0.2222222 0.3333333 1.0000000
+
+¿ Qué hizo la modificación anterior ?
+
+* Nada.
+* No permite números.
+* Solo permite números.
+* Permite no evaluar la función en vectores sin cierta información.
+
+
+ Usando la siguiente función determine que hace. 
+```r
+f1 <- function(string, prefix) {
+  substr(string, 1, nchar(prefix)) == prefix
+}
+
+```
+
+* Concatena los strings `string`y `prefix`.
+* Determina si `prefix` es el prefico del string `string`.
+* Elimina el último caracter de `string`
+* Añade un caracter al string `string`. 
+
+
+¿Cómo se modifica la siguiente función para que regrese los elementos de un vector salvo el último?
+```r
+f2 <- function(x) {
+  if (length(x) <= 1) return(NULL)
+  x[length(x)]
+}
+```
+
+* Se deja igual.
+* Se añade `2:length(x)` dentro de `[]`
+* Se elimina `if (length(x) <= 1) return(NULL)`
+* Se añade `-` al interior dentro de `[]`
+
+¿ En la función anterior que hace el código `if (length(x) <= 1) return(NULL)`?
+
+* Nada
+* Si los elementos tienen longitud 1 o menor regresa NULL
+* Regresa el último elemento.
+* Regresa el vector completo.
+
 
 # Referencias
 - Roger D. Peng (2022) *R Programming for Data Science* [https://bookdown.org/rdpeng/rprogdatascience/](https://bookdown.org/rdpeng/rprogdatascience/)
