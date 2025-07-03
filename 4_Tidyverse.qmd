@@ -28,7 +28,7 @@ Es posible usar el lenguaje *R* para leer, escribir y manipular datos que provie
 
 El objetivo de esta sesión es realizar ejercicios con las principales funciones del paquete `tidyverse` para la manipulación de datos (*data wrangling*) y así filtrar, ordenar, agrupar y crear nuevas columnas. Para ello, usaremos el conjunto de datos de muestra llamado `iris` que se incluye en la instalación básica de *R*.
 
-A continuación analizaremos datos reales que el gobierno de México publica para estudiar los homicidios reportados desde diciembre de 2018 hasta marzo de 2022, y compararemos aquellos que ocurren en la Ciudad de México (CDMX) con los que se registraron en los demás estados del país. Entonces, el segundo objetivo de esta sesión es importar y preparar los datos usando las funciones del *Tidyverse*.
+A continuación, analizaremos datos reales que el gobierno de México publica para estudiar los homicidios reportados desde diciembre de 2018 hasta marzo de 2022, y compararemos aquellos que ocurren en la Ciudad de México (CDMX) con los que se registraron en los demás estados del país. Entonces, el segundo objetivo de esta sesión es importar y preparar los datos usando las funciones del *Tidyverse*.
 
 
 ## Repaso de Tidyverse

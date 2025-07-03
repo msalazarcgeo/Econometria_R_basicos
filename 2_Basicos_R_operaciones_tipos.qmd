@@ -65,7 +65,7 @@ Más operaciones matemáticas que se utilizan comunmente
 
 ```{webr}
 #| label: cell_modulo
-20%4 ## Modulo 
+20%%4 ## Modulo 
 ```
 
 **División entero más cercano**
