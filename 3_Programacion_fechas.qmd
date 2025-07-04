@@ -5,6 +5,7 @@ format: live-html
 webr:
   packages:
     - learnr
+    - lubridate
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
@@ -230,15 +231,17 @@ Para ayudarnos con esta dificultades vamos a utilizar la biblioteca `Lubridate` 
 ```{webr}
 library(lubridate)
 ```
+Para saber la fecha del sistema, se puede obtener de forma directa, no es nececsario el uso de lubridate. 
 ```{webr}
 Sys.Date()
 ```
-
+De la misma forma para obtenerla con lubridate 
 ```{webr}
 lubridate::today()
 ```
 
-En *R* tenemos tres tipos de datos de horas y fechas 
+En *R* tenemos tres tipos de datos de horas y fechas
+
 ```{webr}
 class(Sys.Date())
 ## [1] "Date"
@@ -246,6 +249,25 @@ class(lubridate::now())
 ## [1] "POSIXct" "POSIXt"
 class(release_date)
 ## [1] "character"
+```
+
+Como vamos a usar la biblioteca *lubridate* esta tiene funciones para obtener fechas en tipos especificcos y veremos algunas de estas:
+
+* ymd() Pasar año, mes, día.
+* ymd_hms() Pasar año mes dia hora minuto segundo.
+* dmy() Pasar dia, mes, año.
+* dmy_hms() Pasar dia, mes año.
+* mdy()  Pasar mes, dia, año.
+
+
+Provemos 
+
+```{webr}
+mdy("02-15-2025")
+dmy_hms("15-02-2025_01:15:03")
+dmy("15-02-2025")
+ymd("2025-02-15")
+ymd_hms("2025-02-15_01:15:03")
 ```
 
 La clase de dato `Date` representa fechas en el calendario
@@ -299,6 +321,61 @@ if (identical(.result, as.Date("2024-02-14"))) {
 as.Date("2024-02-14")
 ```
 :::
+
+
+Dentro de las fecchas también  podemos obtener cosas como la fecha, el año, el mes, el día, el dia de la semana, la hora, el minuto, los segundos, la zona horaria, la semana, etc. 
+
+* date(x) Fecha.
+* year(x) Año. 
+* month(x, label, abbr) Mes escrito.
+* month(dt) Mes número.
+* day(x) Dia del mes.
+* wday(x, label, abbr) Dia de la semana.
+* hour(x) Hora del día
+* minute(x) Minutos
+* second(x) Segundos
+* tz(x) Zona horaria
+* week(x) Semana del año. 
+
+
+```{webr}
+date_te <- ymd_hms("2025-02-15_01:15:03")
+
+date(date_te)
+#year(date_te)
+#month(date_te , label= TRUE, abbr=FALSE)
+#month(date_te)
+#day(date_te)
+#wday(date_te)
+#wday(date_te , label= TRUE, abbr=FALSE)
+#hour(date_te)
+#minute(date_te)
+#second(date_te)
+#tz(date_te)
+#week(date_te)
+```
+
+Como las fechas dependen de las zonas horarias, entonces es neccesario una herramienta para poder tanto cambiar la fecha a la hora que necesitamos, como saber la fecha en otra zona horaria
+
+En para mostrarnos la fecha en otra zona horaria usamos `with_tz` 
+```{webr}
+date_te <- ymd_hms("2025-02-15_12:15:03", tz = "America/Mexico_City")
+with_tz(date_te, tzone = "Australia/Lord_Howe")
+with_tz(date_te, tzone = "Asia/Shanghai")
+```
+Y para cambiarla `forze_tz`
+
+```{webr}
+date_nueva <- force_tz(date_te, tzone = "Australia/Lord_Howe")
+```
+
+Pueden encontrar un cheatsheets (acordeon) en el siguiente [link](https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf){target="_blank"}
+
+
+
+
+
+
 
 # Evaluación 
 
@@ -539,6 +616,33 @@ f2 <- function(x) {
 * Si los elementos tienen longitud 1 o menor regresa NULL
 * Regresa el último elemento.
 * Regresa el vector completo.
+
+
+
+Usando la siguiente fecha que nos regresa el siguiente código. 
+
+```r
+date_eje <- ymd_hms("2025-06-04_14:15:03", tz = "America/Mexico_City")
+hour(with_tz(date_eje, tz = "Asia/Tokyo"))
+```
+* 5
+* 14
+* 20
+* 04
+
+
+
+```r
+date_eje <- ymd_hms("2025-06-04_14:15:03", tz = "America/Mexico_City")
+date_eje2 <- ymd_hms("2025-06-04 23:15:03", tz = "Europe/Berlin" )
+date_eje > date_eje2
+```
+
+* TRUE
+* FALSE 
+* NULL
+* NAN
+
 
 
 # Referencias
