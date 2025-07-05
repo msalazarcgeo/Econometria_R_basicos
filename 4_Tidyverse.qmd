@@ -805,6 +805,201 @@ ggplot(homicidios_por_mes_cdmx,  aes(x = mes, y = homicidios_total)) + # Crea un
 ```
 Como puede observarse en ambas gráficas, durante el periodo de diciembre 2018 a junio 2020, la tendencia de homicidios a nivel nacional decendio. Igualmente en la CDMX, descendio durante el periodo con algunos incrementos durante los primeros meses del año 2020. 
 
+## Evaluación 
+
+
+* Haciendo uso de la base de datos `mtcars` disponible en la biblioteca `dplyr` determine el número de autos que tienen mas de 100 hp
+
+  * 24
+  * 34
+  * 52 
+  * 23
+
+
+Installando la biblioteca `rvest` se puede descargar ciertas tablas de internet  vamos a descargar la tabla de [*basketball-reference*](https://www.basketball-reference.com/leagues/NBA_2025_totals.html){target="_blank"}. 
+ 
+
+```r
+library(rvest)
+year = lubridate::year("2026-01-01")
+url = glue::glue("http://www.basketball-reference.com/leagues/NBA_{current_year-1}_totals.html")
+
+bb <-  read_html(url) %>% 
+  html_nodes("#totals_stats") %>% 
+  html_table() %>% 
+  data.frame() 
+```
+* A partir de la misma determine el número de jugadores que tuvieron al menos de 25 puntos por juego y tuvieron un porcentaje de acierto mayor a 55%
+  * 8
+  * 10
+  * 7
+  * 2
+
+
+* Con la misma tabla del ejercicio anterior obten el número de jugadores que jugaron al menos 60 juegos y tuvieron un porcentage de 3 mayor al 35%. 
+
+
+  * 130
+  * 145
+  * 211
+  * 240
+
+* Usando la tabla anterior vamos a calcular algunas estadísticas extras con las siguientes fórmulas `trueShooting = PTS / (2 * (FGA + (.44 * FTA)))`,  `effectiveFG  = (FG + (.5 * X3P)) / FGA`  y `shootingDif  = trueShooting - FG.`. Algunas de estas estadísticas ya se encuentran en la tabla, aunque por sus valores estan cortados en la tabla original. 
+
+* ¿ Quién encabeza aquellos jugadores que la lista de jugadores cuyo `trueShooting` es mayor que  su `effectiveFG` ordenado por `shootingDif` de forma descendente ?  
+
+```{webr}
+bb <-  bb %>% 
+  mutate(**** )
+```
+
+  * Stephen Curry
+  * Giannis Antetokounmpo  
+  * Nikola Jokić  
+  * LeBron James
+  * Ja Morant  
+
+
+
+* ¿ Quién lidera la estadística de `effectiveFG`? 
+
+  * D.J. Wilson  
+  * Mamadi Diakite  
+  * Jamaree Bouyea  
+  * Daniel Gafford
+  * Drew Peterson  
+
+
+
+
+* El conjunto de datos mpg se encuentra disponible una vez cargada la biblioteca `ggplot2`. Haciendo uso de este conjunto de datos que gráfico resulta del siguiente código. 
+
+```r
+ggplot(mpg, aes(x = displ, y = hwy, color = class)) +
+  geom_point()
+```
+
+```{r}
+#| echo: false
+#| warning: false
+library(ggplot2)
+library(egg)
+g1 <- ggplot(mpg, aes(x = displ, y = hwy, color = class)) +
+  geom_point()
+g2 <- ggplot(mpg, aes(x = displ, y = hwy, size = class)) +
+  geom_point()
+g3<- ggplot(mpg, aes(x = displ, y = hwy, alpha = class)) +
+  geom_point()
+g4<- ggplot(mpg, aes(x = displ, y = hwy, shape = class)) +
+  geom_point()
+figure <- ggarrange(g1, g2, g3,g4,
+                    labels = c("A", "B", "C","D"),
+                    ncol = 2, nrow = 2)
+```
+
+
+* Para obtener la siguiente gráfica ¿qué necesitamos agregar al código? 
+
+```{r}
+#| echo: false
+#| warning: false
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth()
+```
+
+```r 
+ggplot(airquality, aes(Temperatura, Ozono))+
+***** +
+*****
+```
+
+  * geom_point() y  geom_jitter()
+  * geom_jitter() y geom_smooth()
+  * geom_point() y  geom_smooth()
+  * theme_minimal() y geom_smooth()
+
+*¿ Con que cambiamos las etiquetas en las gráficas? 
+
+  * geom_point()
+  * labs()
+  * theme_classic()
+  * facet_wrap()
+
+
+¿Con cuál de los siguientes códigos obtenemos la gráfica siguiente ?
+
+```r
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth()
+```
+
+```r
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth(aes(group = drv))
+```
+
+```r
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth(aes(color = drv), show.legend = FALSE)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth(aes(color = drv), show.legend = FALSE)
+```
+
+
+¿Con cuál de las siguientes se genera un diagramas de cajas?
+
+
+* labs()
+* theme_classic()
+* geom_boxplot()
+* geom_histogram()
+
+¿ Con cuál generamos un histograma? 
+
+
+
+* labs()
+* theme_classic()
+* geom_boxplot()
+* geom_histogram()
+
+
+Considere los siguientes códigos:
+
+```r
+ggplot(mpg, aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  facet_wrap(~cyl)
+```
+
+```r
+ggplot(mpg, aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  facet_grid(drv ~ cyl, scales ="free_x")
+```
+
+```r
+ggplot(mpg, aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  facet_grid(drv ~ cyl, scales ="free_y")
+```
+
+```r
+ggplot(mpg, aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  facet_grid(drv ~ cyl, scales = "free")
+```
+
+
+¿Cual de estos nos permite tener una escala libre  tanto en el eje `x` como el eje `y` ?
+
 
 ## Referencias
 
