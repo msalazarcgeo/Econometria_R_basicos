@@ -20,7 +20,7 @@ webr:
 
 ## Introducción
 
-El *data wrangling*, también conocido como *limpieza de datos* se refiere al proceso manual o automatizado mediante el cual los datos crudos son transformados en formatos más útiles para el análisis. Estos procesos incluyen la identificación de faltantes de infromación, la eliminación de datos irrelevantes, la combinación de múltiples fuentes de datos o la transformación de su estructura en una más apropiada (más conocida como *datos ordenados*).
+El *data wrangling*, también conocido como *limpieza de datos* se refiere al proceso manual o automatizado mediante el cual los datos crudos son transformados en formatos más útiles para el análisis. Estos procesos incluyen la identificación de faltantes de información, la eliminación de datos irrelevantes, la combinación de múltiples fuentes de datos o la transformación de su estructura en una más apropiada (más conocida como *datos ordenados*).
 
 Es posible usar el lenguaje *R* para leer, escribir y manipular datos que provienen de diferentes formatos, desde texto plano en *CSV* hasta formatos espaciales como *Shapefile*, *GeoPackage*, imágenes raster en *TIFF* entre otras. Una de las ventajas de usar *R* para el manejo de datos es la posibilidad de automatizar procesos previos al análisis de datos para ahorrar tiempo.
 
@@ -45,7 +45,7 @@ rm(list = ls(), quiet = TRUE)
 Recuerda que para limpiar el entorno actual de R, también puedes utilizar el botón de la escoba en el panel *Environment*.
 :::
 
-Para esta sesión nos aseguraremos de tener instalados y actualizados todos los paquetes necesarios (descomenta la siguiente instrucción para instalar o actualizar los paquetes necesarios en caso de no tenerlos):
+Para esta sesión nos aseguraremos de tener instalados y actualizados todos los paquetes necesarios (descomentar la siguiente instrucción para instalar o actualizar los paquetes necesarios en caso de no tenerlos):
 
 ```{webr}
 #| label: instalar_tidiverse
@@ -441,7 +441,7 @@ homicidios_por_estado %>%
 
 ## Visualización de datos
 
-En **R** para generar gráficos qe nos ayunden a entender las problemáticas de forma gráfica la biblioteca comunmente más utilizada es `ggplot2`. 
+En **R** para generar gráficos que nos ayunden a entender las problemáticas de forma gráfica la biblioteca comúnmente más utilizada es `ggplot2`. 
 
 
 ```{webr}
@@ -816,7 +816,7 @@ Como puede observarse en ambas gráficas, durante el periodo de diciembre 2018 a
   * 23
 
 
-Installando la biblioteca `rvest` se puede descargar ciertas tablas de internet  vamos a descargar la tabla de [*basketball-reference*](https://www.basketball-reference.com/leagues/NBA_2025_totals.html){target="_blank"}. 
+Instalando la biblioteca `rvest` se puede descargar ciertas tablas de internet  vamos a descargar la tabla de [*basketball-reference*](https://www.basketball-reference.com/leagues/NBA_2025_totals.html){target="_blank"}. 
  
 
 ```r
@@ -836,7 +836,7 @@ bb <-  read_html(url) %>%
   * 2
 
 
-* Con la misma tabla del ejercicio anterior obten el número de jugadores que jugaron al menos 60 juegos y tuvieron un porcentage de 3 mayor al 35%. 
+* Con la misma tabla del ejercicio anterior obtén el número de jugadores que jugaron al menos 60 juegos y tuvieron un porcentaje de 3 mayor al 35%. 
 
 
   * 130
@@ -844,7 +844,7 @@ bb <-  read_html(url) %>%
   * 211
   * 240
 
-* Usando la tabla anterior vamos a calcular algunas estadísticas extras con las siguientes fórmulas `trueShooting = PTS / (2 * (FGA + (.44 * FTA)))`,  `effectiveFG  = (FG + (.5 * X3P)) / FGA`  y `shootingDif  = trueShooting - FG.`. Algunas de estas estadísticas ya se encuentran en la tabla, aunque por sus valores estan cortados en la tabla original. 
+* Usando la tabla anterior vamos a calcular algunas estadísticas extras con las siguientes fórmulas `trueShooting = PTS / (2 * (FGA + (.44 * FTA)))`,  `effectiveFG  = (FG + (.5 * X3P)) / FGA`  y `shootingDif  = trueShooting - FG.`. Algunas de estas estadísticas ya se encuentran en la tabla, aunque por sus valores están cortados en la tabla original. 
 
 * ¿ Quién encabeza aquellos jugadores que la lista de jugadores cuyo `trueShooting` es mayor que  su `effectiveFG` ordenado por `shootingDif` de forma descendente ?  
 

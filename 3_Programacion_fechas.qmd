@@ -39,7 +39,7 @@ if(TRUE){
 
 print('Es algo simple')
 ```
-En muchas ocaciones es deseable que si se no se cumple la condición, entonces el comportamiento de la ejecución sea distinto a a cuando la condición se  cumple. En este caso se utiliza `else` y `{}` para ejecutar el codigo en el caso que no se cumpla la condición. 
+En muchas ocasiones es deseable que si se no se cumple la condición, entonces el comportamiento de la ejecución sea distinto a a cuando la condición se  cumple. En este caso se utiliza `else` y `{}` para ejecutar el código en el caso que no se cumpla la condición. 
 
 ```r
 if(condicion) {
@@ -64,14 +64,14 @@ if(x > 3) {
 print(y)
 ```
 
-Este ejemplo nos muetra que la condición entre los parentesis es la que determina el valor de la variable `y` mostrando las posibilidades de esta estructura. 
+Este ejemplo nos muestra que la condición entre los paréntesis es la que determina el valor de la variable `y` mostrando las posibilidades de esta estructura. 
 
 
 ## for 
 
-Los ciclos **for** nos permiten ejecutar una secuencia de instrucciones para un número fijo de veces. La mayoria de la veces este tipo de ciclo es suficiente aunque existen otros tipos de ciclos este es el más usado. 
+Los ciclos **for** nos permiten ejecutar una secuencia de instrucciones para un número fijo de veces. La mayoría de la veces este tipo de ciclo es suficiente aunque existen otros tipos de ciclos este es el más usado. 
 
-La estructura toma una variale y se le asigna un valor de una sequencia predeterminada, esta normalmente es un vector o una secuencia en R. 
+La estructura toma una variable y se le asigna un valor de una secuencia predeterminada, esta normalmente es un vector o una secuencia en R. 
 
 
 ```r 
@@ -104,7 +104,7 @@ for(i in ***:***) {
 
 ## while
 
-Los ciclos `while` nos permiten ejecutar el código dentro del ciclo mientras una cierta condicion sea verdadera. En cada iteración del ciclo se verifica que la condición sea verdadera en caso contrario el ciclo se termina y no se ejecuta. En este ciclo es muy importante verificar que el ciclo termine, es decir que la condición que se utiliza  eventualmente no se cumpla y que el ciclo termine. 
+Los ciclos `while` nos permiten ejecutar el código dentro del ciclo mientras una cierta condición sea verdadera. En cada iteración del ciclo se verifica que la condición sea verdadera en caso contrario el ciclo se termina y no se ejecuta. En este ciclo es muy importante verificar que el ciclo termine, es decir que la condición que se utiliza  eventualmente no se cumpla y que el ciclo termine. 
 
 
 ```r 
@@ -116,7 +116,7 @@ while(i < 10 ){
 
 ```
 
-En el siguiente ejempo se asigna el valor de 1 a la variable `i` para que sea el valor inicial. Después usa la estructura `while` para repetir las siguientes operaciones mientras que el valor de `i` sea menor a 10: \* Imprime el valor actual de `i` \* Al valor de `i` súmale 1 y vuelva a asignar el resultado a la variable `i` para actualizarla.
+En el siguiente ejemplo se asigna el valor de 1 a la variable `i` para que sea el valor inicial. Después usa la estructura `while` para repetir las siguientes operaciones mientras que el valor de `i` sea menor a 10: \* Imprime el valor actual de `i` \* Al valor de `i` sumarle 1 y vuelva a asignar el resultado a la variable `i` para actualizarla.
 
 
 Asigna el valor de 40 a la variable `k`. Usa la estructura `if` para verificar si el valor de `k` es mayor a 10, en caso de que lo sea imprime el texto `"La variable k es mayor que 10"`, o en caso contrario, imprime el texto `"La variable k es menor o igual que 10"`:
@@ -143,7 +143,7 @@ mi_funcion <- function() {
 mi_funcion()
 ```
 
-El nombre de la función es `mi_funcion` y para ejecutar el código que se encuentran entre los `{}` se llama `mi_funcion()`. Lo que se encuentra dentro de los `{}` se le llama el cuerpo de la función y las funciones pueden utilizar parámetros los cuales se declaran dentro de los `()`. Es claro que la función no hace nada. Veamos un ejemplo. 
+El nombre de la función es `mi_funcion` y para ejecutar el código que se encuentran entre los `{}`. Lo que se encuentra dentro de los `{}` se le llama el cuerpo de la función y las funciones pueden utilizar parámetros los cuales se declaran dentro de los `()`. Es claro que la función no hace nada. Veamos un ejemplo. 
 
 
 ```{webr}
@@ -151,7 +151,7 @@ mi_funcion <- function(){
   print('Se ejecuta lo que hay dentro de la función')
 }
 ```
-Un vez defina la función podemos llamarla tantas vececs ccomo sea necesario. 
+Un vez defina la función podemos llamarla tantas veces como sea necesario. 
 ```{webr}
 mi_funcion()
 ```
@@ -172,7 +172,7 @@ mi_funcion_2 <- function(num ) {
 mi_funcion_2(4)
 ```
 
-A veces nos gustaria ser más enfaticos en lo que nos regresa la función y determinar las  cosas que se modificaron dentro de esta. Esto se puede hacer con la palabra `return`, cuando se utiliza la palabra `return` se termina la función esto es especialmente útil cuando queremos que la función tenga un comportamiento distinto. 
+A veces nos gustaría ser más enfáticos en lo que nos regresa la función y determinar las  cosas que se modificaron dentro de esta. Esto se puede hacer con la palabra `return`, cuando se utiliza la palabra `return` se termina la función esto es especialmente útil cuando queremos que la función tenga un comportamiento distinto. 
 
 
 ```{webr}
@@ -231,7 +231,7 @@ Para ayudarnos con esta dificultades vamos a utilizar la biblioteca `Lubridate` 
 ```{webr}
 library(lubridate)
 ```
-Para saber la fecha del sistema, se puede obtener de forma directa, no es nececsario el uso de lubridate. 
+Para saber la fecha del sistema, se puede obtener de forma directa, no es necesario el uso de lubridate. 
 ```{webr}
 Sys.Date()
 ```
@@ -283,7 +283,7 @@ Las fechas pueden ser comparadas
 lubridate::today() > as.Date("2024-05-14")
 
 ```
-Pero tambien puede entender hacer una comparación con el string de una fecha.
+Pero también puede entender hacer una comparación con el string de una fecha.
 
 ```{webr}
 lubridate::today() > "2024-05-14"
@@ -323,14 +323,14 @@ as.Date("2024-02-14")
 :::
 
 
-Dentro de las fecchas también  podemos obtener cosas como la fecha, el año, el mes, el día, el dia de la semana, la hora, el minuto, los segundos, la zona horaria, la semana, etc. 
+Dentro de las fechas también  podemos obtener cosas como la fecha, el año, el mes, el día, el día de la semana, la hora, el minuto, los segundos, la zona horaria, la semana, etc. 
 
 * date(x) Fecha.
 * year(x) Año. 
 * month(x, label, abbr) Mes escrito.
 * month(dt) Mes número.
-* day(x) Dia del mes.
-* wday(x, label, abbr) Dia de la semana.
+* day(x) Día del mes.
+* wday(x, label, abbr) Día de la semana.
 * hour(x) Hora del día
 * minute(x) Minutos
 * second(x) Segundos
@@ -355,7 +355,7 @@ date(date_te)
 #week(date_te)
 ```
 
-Como las fechas dependen de las zonas horarias, entonces es neccesario una herramienta para poder tanto cambiar la fecha a la hora que necesitamos, como saber la fecha en otra zona horaria
+Como las fechas dependen de las zonas horarias, entonces es necesario una herramienta para poder tanto cambiar la fecha a la hora que necesitamos, como saber la fecha en otra zona horaria
 
 En para mostrarnos la fecha en otra zona horaria usamos `with_tz` 
 ```{webr}
@@ -369,7 +369,7 @@ Y para cambiarla `forze_tz`
 date_nueva <- force_tz(date_te, tzone = "Australia/Lord_Howe")
 ```
 
-Pueden encontrar un cheatsheets (acordeon) en el siguiente [link](https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf){target="_blank"}
+Pueden encontrar un cheatsheets (acordeón) en el siguiente [link](https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf){target="_blank"}
 
 
 
@@ -379,14 +379,14 @@ Pueden encontrar un cheatsheets (acordeon) en el siguiente [link](https://rawgit
 
 # Evaluación 
 
-¿ Cuál de las estructuras de control nos permite verificar una condición y ejecutar código a partir de esto ? 
+* ¿ Cuál de las estructuras de control nos permite verificar una condición y ejecutar código a partir de esto ? 
 
   * If
   * For
   * While
   * next
 
-¿ Qué imprime el siguiente código si el valor de la variable `x` es 10 ?
+* ¿ Qué imprime el siguiente código si el valor de la variable `x` es 10 ?
 
 ```r 
 
@@ -403,14 +403,14 @@ if(x*15 < 145){
 
 ```
 
-* Esto esta bien
-* Aquí vamos
-* Aquí no vamos
-* Esto esta bien mal
+  * Esto esta bien
+  * Aquí vamos
+  * Aquí no vamos
+  * Esto esta bien mal
 
 
 
-¿ Qué sucede con la variable `y` al pasar por la siguiente estructura de control? 
+* ¿ Qué sucede con la variable `y` al pasar por la siguiente estructura de control? 
 
 ```r
 if(y <0){
@@ -420,14 +420,14 @@ if(y <0){
 }
 ```
 
-* Cambia `y` por el valor negativo de `y`
-* Cambia `y` por el valor  `2y`
-* Cambia `y` por el valor absoluto de `y`
-* Deja a 'y' igual. 
+  * Cambia `y` por el valor negativo de `y`
+  * Cambia `y` por el valor  `2y`
+  * Cambia `y` por el valor absoluto de `y`
+  * Deja a 'y' igual. 
 
 
 
-Sustituyendo valores determina que haec el siguiente código. 
+ * Sustituyendo valores determina que hace el siguiente código. 
 ```r
 x <- c(*, *, *)
 
@@ -441,14 +441,14 @@ if (x[1] > x[2] & x[1] > x[3] ) {
 
 ```
 
-* Imprime siempre el valor en `x[1]`
-* Imprime siempre el valor en `x[2]`
-* Imprime siempre el valor en `x[3]`
-* Imprime siempre el valor máximo en `x`
-* Imprime siempre el valor mínimo en `x`
+  * Imprime siempre el valor en `x[1]`
+  * Imprime siempre el valor en `x[2]`
+  * Imprime siempre el valor en `x[3]`
+  * Imprime siempre el valor máximo en `x`
+  * Imprime siempre el valor mínimo en `x`
 
 
-Si la variable `valor` es 75 que imprime el siguiente código
+* Si la variable `valor` es 75 que imprime el siguiente código
 
 ```r
 if (valor > 100) {
@@ -462,14 +462,20 @@ if (valor > 100) {
 }
 ```
 
-* 
-* El valor es alto
-* El valor es moderado
-* El valor es bajo
+  * Nada
+  * El valor es alto
+  * El valor es moderado
+  * El valor es bajo
 
 
 
-Si 'x' es un vector números que se tiene que cambiar `***` para obtener el promedio de los elementos ene el vector.
+* Si 'x' es un vector números que se tiene que cambiar `***` para obtener el promedio de los elementos en el vector.
+  * Nada
+  * i
+  * x
+  * suma_total
+
+
 ```r
 suma_total <-0 
 for (i in x){
@@ -483,12 +489,13 @@ if (length(x)==0){
 
 ```
 
-* Nada
-* i
-* x
-* suma_total
 
-¿ Qué hace el siguiente código? 
+* ¿ Qué hace el siguiente código? 
+
+  * Imprime los múltiplos de 3.
+  * Imprime desde 1 hasta 30.
+  * Imprime los números de 1 a 30 sin los múltiplos de 3.
+  * Imprime los números de 1 a 30 que son de la forma $3n+1$.
 
 ```r 
 for(i in 1:30){
@@ -499,12 +506,15 @@ for(i in 1:30){
 
 ```
 
-* Imprime los múltiplos de 3.
-* Imprime desde 1 hasta 30.
-* Imprime los números de 1 a 30 sin los múltiplos de 3.
-* Imprime los números de 1 a 30 que son de la forma $3n+1$.
 
 
+
+* ¿ Qué hace el siguiente código? 
+
+  * Imprime todos los elementos de x de forma continua.
+  * Imprime en 3 en 3.
+  * Imprime en 4 en 4.
+  * Imprime en 2 en 2.
 ```r 
 x <- 1:12
 for(i in x){
@@ -515,13 +525,15 @@ for(i in x){
 
 ```
 
-* Imprime todos los elementos de x de forma continua.
-* Imprime en 3 en 3.
-* Imprime en 4 en 4.
-* Imprime en 2 en 2.
 
 
-El siguiente código que imprime
+
+* El siguiente código que imprime
+
+  * Un cuadrado
+  * Un círculo 
+  * Un Octágono
+  * Un Triángulo 
 
 ```r
 
@@ -542,62 +554,62 @@ for( j in 1:diametro-1){
   cat('\n') 
 }
 ```
-* Un cuadrado
-* Un círculo 
-* Un Octágono
-* Un Triángulo 
 
 
 
-Tomando la siguiente función cuál es el resultado de aplicar dicha función al vector `c(3,5,6,12,NA)`
+
+* Tomando la siguiente función cuál es el resultado de aplicar dicha función al vector `c(3,5,6,12,NA)`
+  * 3 5 6 12 NA
+  * NA NA NA NA NA
+  * 0.0000000 0.2222222 0.3333333 1.0000000 NA
+  * 0.0000000 0.2222222 0.3333333 1.0000000
 ```r 
 rescalar <- function(x) {
   (x - min(x)) / (max(x) - min(x))
 }
 ```
-* 3 5 6 12 NA
-* NA NA NA NA NA
-* 0.0000000 0.2222222 0.3333333 1.0000000 NA
-* 0.0000000 0.2222222 0.3333333 1.0000000
+  
+  
+  
+  
 
 
-De la función en el ejercicio anterior vamos a modificarla para obtener 
 
-
+De la función en el ejercicio anterior vamos a modificarla  
 ```r
 rescalar <- function(x) {
   (x - min(x, na.rm = TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
 }
 ```
+  
+* ¿ Qué hizo la modificación anterior ?
 
-* 3 5 6 12 NA
-* NA NA NA NA NA
-* 0.0000000 0.2222222 0.3333333 1.0000000 NA
-* 0.0000000 0.2222222 0.3333333 1.0000000
-
-¿ Qué hizo la modificación anterior ?
-
-* Nada.
-* No permite números.
-* Solo permite números.
-* Permite no evaluar la función en vectores sin cierta información.
+  * Nada.
+  * No permite números.
+  * Solo permite números.
+  * Permite no evaluar la función en vectores sin cierta información.
 
 
- Usando la siguiente función determine que hace. 
+* Usando la siguiente función determine que hace. 
+  * Concatena los strings `string` y `prefix`.
+  * Determina si `prefix` es el prefijo del string `string`.
+  * Elimina el último carácter de `string`
+  * Añade un carácter al string `string`. 
 ```r
 f1 <- function(string, prefix) {
   substr(string, 1, nchar(prefix)) == prefix
 }
-
 ```
 
-* Concatena los strings `string`y `prefix`.
-* Determina si `prefix` es el prefico del string `string`.
-* Elimina el último caracter de `string`
-* Añade un caracter al string `string`. 
 
 
-¿Cómo se modifica la siguiente función para que regrese los elementos de un vector salvo el último?
+
+* ¿Cómo se modifica la siguiente función para que regrese los elementos de un vector salvo el último?
+  * Se deja igual.
+  * Se añade `2:length(x)` dentro de `[]`
+  * Se elimina `if (length(x) <= 1) return(NULL)`
+  * Se añade `-` al interior dentro de `[]`
+
 ```r
 f2 <- function(x) {
   if (length(x) <= 1) return(NULL)
@@ -605,43 +617,39 @@ f2 <- function(x) {
 }
 ```
 
-* Se deja igual.
-* Se añade `2:length(x)` dentro de `[]`
-* Se elimina `if (length(x) <= 1) return(NULL)`
-* Se añade `-` al interior dentro de `[]`
 
-¿ En la función anterior que hace el código `if (length(x) <= 1) return(NULL)`?
+* ¿ En la función anterior que hace el código `if (length(x) <= 1) return(NULL)`?
 
-* Nada
-* Si los elementos tienen longitud 1 o menor regresa NULL
-* Regresa el último elemento.
-* Regresa el vector completo.
+  * Nada
+  * Si los elementos tienen longitud 1 o menor regresa NULL
+  * Regresa el último elemento.
+  * Regresa el vector completo.
 
 
 
-Usando la siguiente fecha que nos regresa el siguiente código. 
+* Usando la siguiente fecha que nos regresa el siguiente código. 
+  * 5
+  * 14
+  * 20
+  * 04
 
 ```r
 date_eje <- ymd_hms("2025-06-04_14:15:03", tz = "America/Mexico_City")
 hour(with_tz(date_eje, tz = "Asia/Tokyo"))
 ```
-* 5
-* 14
-* 20
-* 04
 
 
+* ¿ Qué regresa la siguientes ejecuciones ? 
+  * TRUE
+  * FALSE 
+  * NULL
+  * NAN
 
 ```r
 date_eje <- ymd_hms("2025-06-04_14:15:03", tz = "America/Mexico_City")
 date_eje2 <- ymd_hms("2025-06-04 23:15:03", tz = "Europe/Berlin" )
 date_eje > date_eje2
 ```
-
-* TRUE
-* FALSE 
-* NULL
-* NAN
 
 
 

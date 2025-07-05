@@ -7,7 +7,7 @@ encoding: UTF-8
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
-*R* como cualquier lenguaje de programación tiene una sintaxis especifica, en este pequeño espacio vamos a repasar dicha sintaxis para hacer operaciones, declarar variables, ver los tipos de datos, y ver ciertas funciones básicas que nos haran la vida más facil para programar en *R*.
+*R* como cualquier lenguaje de programación tiene una sintaxis especifica, en este pequeño espacio vamos a repasar dicha sintaxis para hacer operaciones, declarar variables, ver los tipos de datos, y ver ciertas funciones básicas que nos harán la vida más fácil para programar en *R*.
 
 
 En este sitio se pueden ejecutar las celdas de código, en RStudio se puede ejecutar en la consola de *R* o pueden hacer un Markdown para tomar notas.
@@ -381,7 +381,7 @@ Obtén los valores únicos del vector `mi_vector` usando la función `unique`:
 unique(***)
 ```
 
-#### Selecion de elementos
+#### Seleción de elementos
 En *R* se utilizan los corchetes `[]`  para seleccionar elementos internos, para seleccionar el cuarto elemento de `mi_vector` 
 
 
@@ -440,7 +440,7 @@ Selecciona los elementos de `mi_vector` que sean iguales a 1, 2 ó 5 usando el o
 
 En *R*, un *dataframe* es una colección de elementos acoplados que construyen una tabla donde cada columna tienen un tipo de datos en particular. Los *dataframes* son las estructuras de datos fundamentales que usa la mayoría del software de modelado de *R*.
 
-Construye un *dataframe* usando la función `data.frame` e incluyendo como parámetros una columna `x` con los valores enteros de 1 a 5 y una columna `y` con los caracteres `("A", "B", "C", "D", "E")`, asígnalo a la variable `mi_df` y visualiza su contenido en la siguiente línea:
+Construye un *dataframe* usando la función `data.frame` e incluyendo como parámetros una columna `x` con los valores enteros de 1 a 5 y una columna `y` con los caracteres `("A", "B", "C", "D", "E")`, asignarlo a la variable `mi_df` y visualiza su contenido en la siguiente línea:
 
 ```
 mi_df <- data.frame(x = ***, y = c(***))
@@ -473,7 +473,7 @@ Para acceder a una fila en particular en *dataframe*, especifica la posición de
 
 En *R*, un *dataframe* es una colección de elementos acoplados que construyen una tabla donde cada columna tienen un tipo de datos en particular. Los *dataframes* son las estructuras de datos fundamentales que usa la mayoría del software de modelado de *R*.
 
-Construye un *dataframe* usando la función `data.frame` e incluyendo como parámetros una columna `x` con los valores enteros de 1 a 5 y una columna `y` con los caracteres `("A", "B", "C", "D", "E")`, asígnalo a la variable `mi_df` y visualiza su contenido en la siguiente línea:
+Construye un *dataframe* usando la función `data.frame` e incluyendo como parámetros una columna `x` con los valores enteros de 1 a 5 y una columna `y` con los caracteres `("A", "B", "C", "D", "E")`, asignarlo a la variable `mi_df` y visualiza su contenido en la siguiente línea:
 
 ```
 mi_df <- data.frame(x = ***, y = c(***))
@@ -546,7 +546,7 @@ Comprueba el número de columnas que tiene `mi_df` usando la función `ncol`:
 ncol(***) # Número de columnas en un dataframe
 ```
 
-Crea un *dataframe* de una sola columna llamada `z` que contenga los valores enteros de 6 a 10, asígnalo a la variable `nueva_columna` y visualiza su contenido en la siguiente línea:
+Crea un *dataframe* de una sola columna llamada `z` que contenga los valores enteros de 6 a 10, asignarlo a la variable `nueva_columna` y visualiza su contenido en la siguiente línea:
 
 ```{webr}
 
@@ -627,7 +627,7 @@ Comprueba el número de columnas que tiene `mi_df` usando la función `ncol`:
 ncol(***) # Número de columnas en un dataframe
 ```
 
-Crea un *dataframe* de una sola columna llamada `z` que contenga los valores enteros de 6 a 10, asígnalo a la variable `nueva_columna` y visualiza su contenido en la siguiente línea:
+Crea un *dataframe* de una sola columna llamada `z` que contenga los valores enteros de 6 a 10, asignarlo a la variable `nueva_columna` y visualiza su contenido en la siguiente línea:
 
 ```{webr}
 
@@ -643,7 +643,7 @@ mi_df <- cbind(mi_df, ***)
 ***
 ```
 
-Extrae la fila 2 de `mi_df`, asígnala a la variable `nueva_fila` y visualiza su contenido:
+Extrae la fila 2 de `mi_df`, asignarla a la variable `nueva_fila` y visualiza su contenido:
 
 ```{webr}
 
@@ -651,7 +651,7 @@ nueva_fila <- mi_df[***, ] # Agregar una copia de la fila 2, debe tener los mism
 *** # Visualiza el contenido del dataframe
 ```
 
-Agregar la fila de `nueva_fila` al `mi_df`usando la función `rbind`:
+Agregar la fila de `nueva_fila` al `mi_df` usando la función `rbind`:
 
 ```{webr}
 
@@ -680,7 +680,7 @@ summary(***)
     * `patito -< "esta es la variable patito"`
     * `patito <- "esta es la variable patito"`
 
-* ¿ Cuál de la siguentes asigna a la variable `patito` el valor flotante `2`  ?
+* ¿ Cuál de la siguientes asigna a la variable `patito` el valor flotante `2`  ?
     
     * `patito -> 2.0`
     * `patito -< 2.0`
