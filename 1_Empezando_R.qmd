@@ -113,7 +113,7 @@ RStudio es un entorno de desarrollo integrado (IDE) que facilita el trabajo con 
 *RStudio* es un IDE pensado específicamente para *R* lo que permite que aprender y trabajar dentro con R y *RStudio* sea muy eficiente y amigable. 
 
 
-Al abrir RStudio, verás una interfaz dividida en varias *paneles* o *ventanas*, cada una con una función específica.
+Al abrir RStudio, verás una interfaz dividida en varios *paneles* o *ventanas*, cada una con una función específica.
     Imagen de Paneles principales de RStudio
 
 
@@ -196,7 +196,7 @@ También se pueden usar los proyectos en *RStudio* para definir una carpeta de t
 
 ## Instalación de paquetes en R 
 
-Para instalar paquetes dentro de **R** lo mas sencillo es utilizar la función `install.packages()`. 
+Para instalar paquetes dentro de **R** lo más sencillo es utilizar la función `install.packages()`. 
 
 A continuación, vamos a instalar un paquete que nos permitirá hacer Notebooks de markdown dentro de *R*.
 
@@ -206,10 +206,9 @@ A continuación, vamos a instalar un paquete que nos permitirá hacer Notebooks 
 install.packages("rmarkdown")
 ```
 
-## Cómo funcionan los cuadernos en *RMarkdown (.Rmd)*?
+##  ¿ Cómo funcionan los cuadernos en *RMarkdown (.Rmd)*?
 
-Los cuadernos interactivos en formato *RMarkdown* nos permiten combinar en un mismo documento texto, imágenes, ecuaciones y código que se puede ejecutar para mostrar su resultado. *RStudio* sirve para crear cuadernos como éste y ejecutar de manera interactiva su código en lenguaje *R* (entre otros), además de que podemos documentar nuestros ejercicios para comunicar lo que hemos desarrollado a otras personas ya
-que un cuaderno *RMarkdown* se puede exportar en otros formatos más compatibles como *HTML*, *PDF* o *Word*.
+Los cuadernos interactivos en formato *RMarkdown* nos permiten combinar en un mismo documento texto, imágenes, ecuaciones y código que se puede ejecutar para mostrar su resultado. *RStudio* sirve para crear cuadernos como éste y ejecutar de manera interactiva su código en lenguaje *R* (entre otros), además de que podemos documentar nuestros ejercicios para comunicar lo que hemos desarrollado a otras personas ya que un cuaderno *RMarkdown* se puede exportar en otros formatos más compatibles como *HTML*, *PDF* o *Word*.
 
 En el siguiente link pueden encontrar una hoja donde se resume muchas de las cosas que se pueden hacer con markdown dentro de r [link](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown-2.0.pdf){target="_blank"}
 
@@ -302,7 +301,7 @@ Cursivas: Usa un asterisco (*texto*) o un guion bajo (_texto_).
 | abcd    | abcd | abcd  | abcd   |
 | a       | a    | a     | a      |
 
-Se pueden hace muchas más cosas dentro de Markdown. 
+Se pueden hacer muchas más cosas dentro de Markdown. 
 
 #### Imágenes
 
@@ -336,7 +335,7 @@ print("queremos que esto se muestre ")
 Se pueden agregar notas y comentarios a los códigos sin que se ejecuten anteponiendo `#`. Ejecuta la siguiente instrucción para que aparezca el mensaje `"Puedo ver este texto!"` sin que aparezcan los comentarios que están en la misma línea y en la siguiente:
 
 ```{webr}
-print("Puedo ver este texto!") # Este es un comentario que no se ve 
+print("¡Puedo ver este texto!") # Este es un comentario que no se ve 
 # No puedo ver este texto!
 ```
 
@@ -353,7 +352,7 @@ print("Puedo ver este texto!") # Este es un comentario que no se ve
     * Archivos
     * Visor
 
-* ¿ Como se solicita ayuda desde la consola de R ? 
+* ¿ Cómo se solicita ayuda desde la consola de R ? 
     * getwd
     * setwd
     * help
